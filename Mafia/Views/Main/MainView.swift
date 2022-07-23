@@ -14,7 +14,7 @@ class MainViewViewModel: ObservableObject {
     let columns: [GridItem] = [
         GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
     ]
-    @Published var isPlayersView = false
+    @Published var isPlayersView = true
     @Published var isStartView = false
     @Published var isShowingInfo = false
 }
@@ -35,7 +35,7 @@ struct MainView: View {
                             ? 0
                             : UIScreen.main.bounds.width)
             }
-            .sheet(isPresented: $vm.isStartView, content: {
+            .fullScreenCover(isPresented: $vm.isStartView, content: {
                 GameView()
             })
             .animation(.default, value: vm.isPlayersView)
@@ -82,15 +82,13 @@ extension MainView {
     var rolesView: some View {
         ZStack {
             VStack {
-                
                 Text("Персонажи")
                     .bold()
                     .font(.system(size: UIScreen.main.bounds.height / 35))
                 
-                
                 Picker(selection: .constant(1), label: Text("Picker")) {
                     Text("Классика").tag(1)
-                    Text("Все").tag(2)
+                    Text("Больше").tag(2)
                 }
                 .pickerStyle(.segmented)
 

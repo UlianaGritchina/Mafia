@@ -41,11 +41,13 @@ extension CharacterCardView {
                 HStack {
                     CountButtonView(sign: "-", action: {})
                     Spacer()
-                    Text("1").bold()
+                    Text("1")
+                        .foregroundColor(.white)
+                        .bold()
+                        .font(.system(size: UIScreen.main.bounds.height / 40))
                     Spacer()
                     CountButtonView(sign: "+", action: {})
                 }
-                .font(.system(size: UIScreen.main.bounds.height/40))
             }
         }
         .padding()
