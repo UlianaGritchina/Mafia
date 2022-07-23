@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9ED7288BEBBA002BF51E /* MafiaApp.swift */; };
-		0E1B9EDA288BEBBA002BF51E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9ED9288BEBBA002BF51E /* ContentView.swift */; };
+		0E1B9EDA288BEBBA002BF51E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9ED9288BEBBA002BF51E /* MainView.swift */; };
 		0E1B9EDC288BEBBC002BF51E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */; };
 		0E1B9EDF288BEBBC002BF51E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B9EDE288BEBBC002BF51E /* Preview Assets.xcassets */; };
+		0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE5288BF1E5002BF51E /* GameView.swift */; };
+		0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E1B9ED4288BEBBA002BF51E /* Mafia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mafia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E1B9ED7288BEBBA002BF51E /* MafiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaApp.swift; sourceTree = "<group>"; };
-		0E1B9ED9288BEBBA002BF51E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0E1B9ED9288BEBBA002BF51E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E1B9EDE288BEBBC002BF51E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0E1B9EE5288BF1E5002BF51E /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				0E1B9ED7288BEBBA002BF51E /* MafiaApp.swift */,
-				0E1B9ED9288BEBBA002BF51E /* ContentView.swift */,
+				0E1B9ED9288BEBBA002BF51E /* MainView.swift */,
+				0E1B9EE5288BF1E5002BF51E /* GameView.swift */,
+				0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */,
 				0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */,
 				0E1B9EDD288BEBBC002BF51E /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E1B9EDA288BEBBA002BF51E /* ContentView.swift in Sources */,
+				0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */,
+				0E1B9EDA288BEBBA002BF51E /* MainView.swift in Sources */,
+				0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
