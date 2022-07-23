@@ -49,7 +49,6 @@ struct CustomButton: View {
                         .foregroundColor(color)
                 )
         }
-        .padding()
     }
     
 }
