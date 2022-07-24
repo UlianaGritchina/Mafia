@@ -8,9 +8,6 @@
 import SwiftUI
 
 class GameViewViewModel: ObservableObject {
-    let columns: [GridItem] = [
-        GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
-    ]
     
 }
 
@@ -20,7 +17,6 @@ struct GameView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
                 RoleCardView(name: "name", role: "role")
                 Spacer()
                 CustomButton(title: "Следующий",
@@ -32,7 +28,7 @@ struct GameView: View {
             .preferredColorScheme(.dark)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: {}) {
+                    NavigationLink(destination: RolesListView()) {
                         Image(systemName: "list.dash")
                     }
                 }
@@ -44,6 +40,7 @@ struct GameView: View {
                     }
                 }
             }
+            
         }
     }
 }
