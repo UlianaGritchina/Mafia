@@ -17,6 +17,7 @@ struct GameView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
                 RoleCardView(name: "name", role: "role")
                 Spacer()
                 CustomButton(title: "Следующий",
