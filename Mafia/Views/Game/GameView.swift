@@ -13,23 +13,26 @@ class GameViewViewModel: ObservableObject {
 
 struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var vm = GameViewViewModel()
+    let results: [Result]
+    @State private var index = 0
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
-                RoleCardView(name: "name", role: "role")
-                Spacer()
-                CustomButton(title: "Следующий",
-                             color: .blue,
-                             action: {},
-                             width: UIScreen.main.bounds.width - 80)
+                ScrollView(showsIndicators: false) {
+                    ForEach(results, id: \.self) { result in
+                        RoleCardView(name: result.playerName,
+                                     role: result.role)
+                    }
+                    .frame(width: UIScreen.main.bounds.width)
+                }
+                .frame(width: UIScreen.main.bounds.width)
             }
             .navigationTitle("Игра")
             .preferredColorScheme(.dark)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: RolesListView()) {
+                    NavigationLink(destination: RolesListView(results: results)) {
                         Image(systemName: "list.dash")
                     }
                 }
@@ -48,6 +51,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(results: [Result(playerName: "name", role: "character")])
     }
 }

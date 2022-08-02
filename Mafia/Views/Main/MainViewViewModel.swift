@@ -13,21 +13,35 @@ class MainViewViewModel: ObservableObject {
     @Published var players = Array(repeating: "", count: 30)
     @Published var playersForGame: [String] = []
     @Published var game: GameType = .base
+    @Published var totalCharacters = 0
     @Published var isPlayersView = true
     @Published var isStartView = false
     @Published var isShowingInfo = false
     
-    let baseCharacters = ["Мафия","Шериф","Мирные жители"]
-    let characters = [
-        "Дон","Мафия","Шериф","Мирные жители","Доктор","Маньяк","Любовница"
+    @Published var baseCharacters: [Character] = [
+        Character(name: "Мафия", count: 1),
+        Character(name: "Шериф", count: 1),
+        Character(name: "Мирный житель", count: 1)
     ]
+    
+    @Published var moreCharacters: [Character] = [
+        Character(name: "Дон", count: 0),
+        Character(name: "Мафия", count: 0),
+        Character(name: "Шериф", count: 0),
+        Character(name: "Мирный житель", count: 0),
+        Character(name: "Доктор", count: 0),
+        Character(name: "Маньяк", count: 0),
+        Character(name: "Любовница", count: 0)
+    ]
+    
+    var roles: [String] = []
+    var results: [Result] = []
     let columns: [GridItem] = [
         GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
     ]
     
     func showRolesView() {
         isPlayersView.toggle()
-        UIApplication.shared.endEditing()
     }
     
     func next() {
@@ -38,6 +52,32 @@ class MainViewViewModel: ObservableObject {
             }
         }
         isPlayersView.toggle()
+    }
+    
+    func start() {
+        if totalCharacters == playersForGame.count {
+            roles.removeAll()
+            results.removeAll()
+            getRoles()
+            getResults()
+            isStartView.toggle()
+        }
+    }
+    
+    private func getRoles() {
+        for character in moreCharacters {
+            roles.append(
+                contentsOf: repeatElement(character.name, count: character.count)
+            )
+        }
+        roles.shuffle()
+    }
+    
+    private func getResults() {
+        for index in 0..<roles.count {
+            results.append(Result(playerName: playersForGame[index],
+                                  role: roles[index]))
+        }
     }
     
 }

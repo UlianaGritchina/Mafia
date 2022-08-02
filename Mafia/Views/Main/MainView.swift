@@ -17,7 +17,7 @@ struct MainView: View {
                 
             }
             .fullScreenCover(isPresented: $vm.isStartView, content: {
-                GameView()
+                GameView(results: vm.results)
             })
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -86,7 +86,6 @@ extension MainView {
         ZStack {
             VStack {
                 PodTitleView(text: "Персонажи")
-                gamePicker
                 rolesList
             }
             rolesTabBar
@@ -101,14 +100,12 @@ extension MainView {
         .pickerStyle(.segmented)
     }
     
-    
     var rolesList: some View {
         ScrollView {
             LazyVGrid(columns: vm.columns) {
-                ForEach(vm.game == .base
-                        ? vm.baseCharacters
-                        : vm.characters, id: \.self) { character in
-                    CharacterCardView(name: character)
+                ForEach(0..<7) { index in
+                    CharacterCardView(character: $vm.moreCharacters[index],
+                                      totalCount: $vm.totalCharacters)
                         .padding()
                 }
             }
@@ -127,7 +124,7 @@ extension MainView {
                     Spacer()
                     CustomButton(title: "Начать",
                                  color: .red,
-                                 action: {vm.isStartView.toggle()})
+                                 action: vm.start)
                 }
                             .padding()
                             .padding(.bottom)
@@ -137,10 +134,17 @@ extension MainView {
     }
     
     var playersCounter: some View {
-        Text("0/\(vm.playersForGame.count)")
+        Text("\(vm.totalCharacters)/\(vm.playersForGame.count)")
             .bold()
-            .font(.system(size: UIScreen.main.bounds.height / 50))
+            .font(.system(size: vm.totalCharacters == vm.playersForGame.count
+                          ?  UIScreen.main.bounds.height / 45
+                          :  UIScreen.main.bounds.height / 50
+                         )
+            )
             .opacity(vm.isPlayersView ? 0 : 1)
+            .foregroundColor(vm.totalCharacters == vm.playersForGame.count
+                             ? . green
+                             : .white)
     }
     
 }

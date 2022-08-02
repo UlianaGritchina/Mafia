@@ -10,6 +10,9 @@
 		0E18FD422899637A00397BF4 /* PodTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD412899637A00397BF4 /* PodTitleView.swift */; };
 		0E18FD44289963E600397BF4 /* BackRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD43289963E600397BF4 /* BackRectView.swift */; };
 		0E18FD472899643100397BF4 /* Extension+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD462899643000397BF4 /* Extension+UIApplication.swift */; };
+		0E18FD4A289968D400397BF4 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD49289968D400397BF4 /* Character.swift */; };
+		0E18FD4C2899692600397BF4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD4B2899692600397BF4 /* Player.swift */; };
+		0E18FD4E2899812400397BF4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD4D2899812400397BF4 /* Result.swift */; };
 		0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9ED7288BEBBA002BF51E /* MafiaApp.swift */; };
 		0E1B9EDA288BEBBA002BF51E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9ED9288BEBBA002BF51E /* MainView.swift */; };
 		0E1B9EDC288BEBBC002BF51E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */; };
@@ -27,6 +30,9 @@
 		0E18FD412899637A00397BF4 /* PodTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodTitleView.swift; sourceTree = "<group>"; };
 		0E18FD43289963E600397BF4 /* BackRectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackRectView.swift; sourceTree = "<group>"; };
 		0E18FD462899643000397BF4 /* Extension+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIApplication.swift"; sourceTree = "<group>"; };
+		0E18FD49289968D400397BF4 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		0E18FD4B2899692600397BF4 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0E18FD4D2899812400397BF4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		0E1B9ED4288BEBBA002BF51E /* Mafia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mafia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E1B9ED7288BEBBA002BF51E /* MafiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaApp.swift; sourceTree = "<group>"; };
 		0E1B9ED9288BEBBA002BF51E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -60,6 +66,17 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		0E18FD48289968AD00397BF4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0E18FD49289968D400397BF4 /* Character.swift */,
+				0E18FD4B2899692600397BF4 /* Player.swift */,
+				0E18FD4D2899812400397BF4 /* Result.swift */,
+			);
+			name = Models;
+			path = More;
+			sourceTree = "<group>";
+		};
 		0E1B9ECB288BEBBA002BF51E = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +98,7 @@
 			children = (
 				0E18FD452899641000397BF4 /* Extensions */,
 				0E1B9EED288BF402002BF51E /* More */,
+				0E18FD48289968AD00397BF4 /* Models */,
 				0E1B9EE9288BF3C5002BF51E /* Views */,
 				0E1B9EEC288BF3F4002BF51E /* Components */,
 			);
@@ -231,10 +249,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E18FD4A289968D400397BF4 /* Character.swift in Sources */,
 				0E8DC525288C53A6007191A9 /* CountButtonView.swift in Sources */,
 				0E18FD422899637A00397BF4 /* PodTitleView.swift in Sources */,
 				0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */,
+				0E18FD4C2899692600397BF4 /* Player.swift in Sources */,
 				0EAE6D412891967100F53BF1 /* MainViewViewModel.swift in Sources */,
+				0E18FD4E2899812400397BF4 /* Result.swift in Sources */,
 				0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */,
 				0E1B9EDA288BEBBA002BF51E /* MainView.swift in Sources */,
 				0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */,

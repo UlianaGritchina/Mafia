@@ -8,24 +8,25 @@
 import SwiftUI
 
 struct RolesListView: View {
+    let results: [Result]
     var body: some View {
-            List {
-                ForEach(0..<10) { index in
-                    HStack {
-                        Text("Ульяна")
-                            .font(.system(size: UIScreen.main.bounds.height / 45))
-                        Text("Мафия")
-                            .bold()
-                            .font(.system(size: UIScreen.main.bounds.height / 45))
-                            .padding(.horizontal)
-                    }
+        List {
+            ForEach(results, id: \.self) { result in
+                HStack {
+                    Text(result.playerName)
+                        .font(.system(size: UIScreen.main.bounds.height / 45))
+                    Text(result.role)
+                        .bold()
+                        .font(.system(size: UIScreen.main.bounds.height / 45))
+                        .padding(.horizontal)
                 }
+            }
         }
     }
 }
 
 struct RolesListView_Previews: PreviewProvider {
     static var previews: some View {
-        RolesListView()
+        RolesListView(results: [Result(playerName: "name", role: "role")])
     }
 }

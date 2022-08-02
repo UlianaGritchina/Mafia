@@ -49,7 +49,7 @@ extension RoleCardView {
         VStack {
             RoundedRectangle(cornerRadius: 20)
                 .frame(width: UIScreen.main.bounds.width / 1.5,
-                       height: UIScreen.main.bounds.height / 2.2)
+                       height: UIScreen.main.bounds.height / 2.5)
                 .foregroundColor(.black)
                 .shadow(color: .white.opacity(0.7), radius: 5, x: 0, y: 0)
                 .overlay(

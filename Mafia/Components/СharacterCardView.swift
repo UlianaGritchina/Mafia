@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CharacterCardView: View {
-    let name: String
+    @Binding var character: Character
+    @Binding var totalCount: Int
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
@@ -23,7 +24,10 @@ struct CharacterCardView: View {
 
 struct CharacterCardView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterCardView(name: "name")
+        CharacterCardView(
+            character: .constant(Character(name: "name", count: 1)),
+            totalCount: .constant(0)
+        )
     }
 }
 
@@ -31,22 +35,30 @@ extension CharacterCardView {
     
     var characterContent: some View {
         VStack {
-            Text(name)
+            Text(character.name)
                 .foregroundColor(.white)
                 .bold()
                 .font(.system(size: UIScreen.main.bounds.height / 40))
             
-            if name != "Дон" {
+            if character.name != "Дон" {
                 Spacer()
                 HStack {
-                    CountButtonView(sign: "-", action: {})
+                    CountButtonView(sign: "-", action: {
+                        if character.count != 0 {
+                            character.count -= 1
+                            totalCount -= 1
+                        }
+                    })
                     Spacer()
-                    Text("1")
+                    Text("\(character.count)")
                         .foregroundColor(.white)
                         .bold()
                         .font(.system(size: UIScreen.main.bounds.height / 40))
                     Spacer()
-                    CountButtonView(sign: "+", action: {})
+                    CountButtonView(sign: "+", action: {
+                        character.count += 1
+                        totalCount += 1
+                    })
                 }
             }
         }
