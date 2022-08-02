@@ -11,6 +11,7 @@ enum GameType: String, CaseIterable, Identifiable {
 class MainViewViewModel: ObservableObject {
     
     @Published var players = Array(repeating: "", count: 30)
+    @Published var playersForGame: [String] = []
     @Published var game: GameType = .base
     @Published var isPlayersView = true
     @Published var isStartView = false
@@ -27,6 +28,16 @@ class MainViewViewModel: ObservableObject {
     func showRolesView() {
         isPlayersView.toggle()
         UIApplication.shared.endEditing()
+    }
+    
+    func next() {
+        playersForGame.removeAll()
+        for player in players {
+            if !player.isEmpty {
+                playersForGame.append(player)
+            }
+        }
+        isPlayersView.toggle()
     }
     
 }

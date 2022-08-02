@@ -72,7 +72,7 @@ extension MainView {
                 .overlay(
                     CustomButton(title: "Продолжить",
                                  color: .blue,
-                                 action: {vm.isPlayersView.toggle()},
+                                 action: {vm.next()},
                                  width: UIScreen.main.bounds.width - 80)
                         .padding(.bottom)
                 )
@@ -137,7 +137,7 @@ extension MainView {
     }
     
     var playersCounter: some View {
-        Text("0/\(vm.players.count)")
+        Text("0/\(vm.playersForGame.count)")
             .bold()
             .font(.system(size: UIScreen.main.bounds.height / 50))
             .opacity(vm.isPlayersView ? 0 : 1)
