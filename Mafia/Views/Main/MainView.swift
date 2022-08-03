@@ -120,7 +120,9 @@ extension MainView {
                 .overlay(HStack {
                     CustomButton(title: "Назад", color: .blue, action: vm.back)
                     Spacer()
-                    CustomButton(title: "Начать", color: .red, action: vm.start)
+                    CustomButton(title: "Начать",
+                                 color: vm.canStart() ? .green : .gray,
+                                 action: vm.start)
                 }
                             .padding()
                             .padding(.bottom)

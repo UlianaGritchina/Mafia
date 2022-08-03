@@ -56,14 +56,14 @@ class MainViewViewModel: ObservableObject {
     }
     
     func start() {
-        if totalCharacters == playersForGame.count {
+        if canStart() {
             roles.removeAll()
             results.removeAll()
             getRoles()
             getResults()
             isStartView.toggle()
+            HapticManager.instance.impact(style: .soft)
         }
-        HapticManager.instance.impact(style: .soft)
     }
     
     func back() {
@@ -84,6 +84,10 @@ class MainViewViewModel: ObservableObject {
             results.append(Result(playerName: playersForGame[index],
                                   role: roles[index]))
         }
+    }
+    
+    func canStart() -> Bool {
+        totalCharacters == playersForGame.count
     }
     
 }
