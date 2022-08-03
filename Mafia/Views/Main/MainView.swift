@@ -118,13 +118,9 @@ extension MainView {
             Spacer()
             BackRectView()
                 .overlay(HStack {
-                    CustomButton(title: "Назад",
-                                 color: .blue,
-                                 action: {vm.isPlayersView.toggle()})
+                    CustomButton(title: "Назад", color: .blue, action: vm.back)
                     Spacer()
-                    CustomButton(title: "Начать",
-                                 color: .red,
-                                 action: vm.start)
+                    CustomButton(title: "Начать", color: .red, action: vm.start)
                 }
                             .padding()
                             .padding(.bottom)

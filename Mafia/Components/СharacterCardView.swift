@@ -47,6 +47,7 @@ extension CharacterCardView {
                         if character.count != 0 {
                             character.count -= 1
                             totalCount -= 1
+                            HapticManager.instance.impact(style: .light)
                         }
                     })
                     Spacer()
@@ -58,6 +59,7 @@ extension CharacterCardView {
                     CountButtonView(sign: "+", action: {
                         character.count += 1
                         totalCount += 1
+                        HapticManager.instance.impact(style: .light)
                     })
                 }
             }

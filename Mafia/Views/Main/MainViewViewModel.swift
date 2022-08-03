@@ -51,6 +51,7 @@ class MainViewViewModel: ObservableObject {
                 playersForGame.append(player)
             }
         }
+        HapticManager.instance.impact(style: .soft)
         isPlayersView.toggle()
     }
     
@@ -62,6 +63,11 @@ class MainViewViewModel: ObservableObject {
             getResults()
             isStartView.toggle()
         }
+        HapticManager.instance.impact(style: .soft)
+    }
+    
+    func back() {
+        isPlayersView.toggle()
     }
     
     private func getRoles() {

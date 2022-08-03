@@ -21,6 +21,7 @@
 		0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */; };
 		0E8DC523288C2EE6007191A9 /* СharacterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */; };
 		0E8DC525288C53A6007191A9 /* CountButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DC524288C53A6007191A9 /* CountButtonView.swift */; };
+		0E959EBF289A3C1E000AC209 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E959EBE289A3C1E000AC209 /* HapticManager.swift */; };
 		0EAE6D412891967100F53BF1 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE6D402891967100F53BF1 /* MainViewViewModel.swift */; };
 		0EBB3D8B288D2C3B00057E5A /* RoleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */; };
 		0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB3D8D288D303600057E5A /* RolesListView.swift */; };
@@ -42,6 +43,7 @@
 		0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СharacterCardView.swift"; sourceTree = "<group>"; };
 		0E8DC524288C53A6007191A9 /* CountButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountButtonView.swift; sourceTree = "<group>"; };
+		0E959EBE289A3C1E000AC209 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		0EAE6D402891967100F53BF1 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleCardView.swift; sourceTree = "<group>"; };
 		0EBB3D8D288D303600057E5A /* RolesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesListView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				0E18FD48289968AD00397BF4 /* Models */,
 				0E1B9EE9288BF3C5002BF51E /* Views */,
 				0E1B9EEC288BF3F4002BF51E /* Components */,
+				0E959EBD289A3BE3000AC209 /* Managers */,
 			);
 			path = Mafia;
 			sourceTree = "<group>";
@@ -169,6 +172,14 @@
 				0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		0E959EBD289A3BE3000AC209 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0E959EBE289A3C1E000AC209 /* HapticManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		0EBB3D8C288D301400057E5A /* RolesList */ = {
@@ -251,6 +262,7 @@
 			files = (
 				0E18FD4A289968D400397BF4 /* Character.swift in Sources */,
 				0E8DC525288C53A6007191A9 /* CountButtonView.swift in Sources */,
+				0E959EBF289A3C1E000AC209 /* HapticManager.swift in Sources */,
 				0E18FD422899637A00397BF4 /* PodTitleView.swift in Sources */,
 				0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */,
 				0E18FD4C2899692600397BF4 /* Player.swift in Sources */,
