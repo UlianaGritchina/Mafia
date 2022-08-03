@@ -24,6 +24,9 @@ struct MainView: View {
                     playersCounter
                 }
             }
+            .alert("Нет игроков", isPresented: $vm.isShowingAlert) {
+                Button("OK", role: .cancel) { }
+            }
             .animation(.default, value: vm.isPlayersView)
             .navigationTitle("Мафия")
         }
@@ -35,7 +38,6 @@ struct MainView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-            .preferredColorScheme(.light)
     }
 }
 

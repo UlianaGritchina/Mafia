@@ -17,7 +17,7 @@ class MainViewViewModel: ObservableObject {
     @Published var isPlayersView = true
     @Published var isStartView = false
     @Published var isShowingInfo = false
-    
+    @Published var isShowingAlert = false
     @Published var baseCharacters: [Character] = [
         Character(name: "Мафия", count: 1),
         Character(name: "Шериф", count: 1),
@@ -51,9 +51,19 @@ class MainViewViewModel: ObservableObject {
                 playersForGame.append(player)
             }
         }
-        HapticManager.instance.impact(style: .soft)
-        isPlayersView.toggle()
+        if playersForGame.count > 0 {
+            HapticManager.instance.impact(style: .soft)
+            isPlayersView.toggle()
+        } else {
+            showAlert()
+            HapticManager.instance.notification(type: .warning)
+        }
     }
+    
+    func showAlert() {
+        isShowingAlert = true
+    }
+    
     
     func start() {
         if canStart() {
