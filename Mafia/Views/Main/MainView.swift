@@ -88,6 +88,7 @@ extension MainView {
         ZStack {
             VStack {
                 PodTitleView(text: "Персонажи")
+                gamePicker
                 rolesList
             }
             rolesTabBar
@@ -103,11 +104,15 @@ extension MainView {
     }
     
     var rolesList: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             LazyVGrid(columns: vm.columns) {
-                ForEach(0..<7) { index in
-                    CharacterCardView(character: $vm.moreCharacters[index],
-                                      totalCount: $vm.totalCharacters)
+                ForEach(vm.game == .base
+                        ? $vm.baseCharacters
+                        : $vm.moreCharacters, id: \.self) { character in
+                    CharacterCardView(
+                        character: character,
+                        totalCount: $vm.totalCharacters
+                    )
                         .padding()
                 }
             }

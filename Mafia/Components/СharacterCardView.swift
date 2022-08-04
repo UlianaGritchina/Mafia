@@ -16,10 +16,27 @@ struct CharacterCardView: View {
                 .frame(width: UIScreen.main.bounds.width / 2.4,
                        height: UIScreen.main.bounds.height / 5)
                 .foregroundColor(.black)
-                .shadow(color: .white.opacity(0.5), radius: 5, x: 0, y: 0)
+                .shadow(color: character.count != 0
+                        ? .red.opacity(0.8)
+                        : .white.opacity(0.4),
+                        radius: 5, x: 0, y: 0)
                 .overlay(characterContent)
+                .onTapGesture { addDon() }
         }
     }
+    
+    func addDon() {
+        if character.name == "Дон" {
+            if character.count == 0 {
+                character.count = 1
+                totalCount += 1
+            } else {
+                totalCount -= 1
+                character.count = 0
+            }
+        }
+    }
+    
 }
 
 struct CharacterCardView_Previews: PreviewProvider {

@@ -15,6 +15,7 @@ struct RolesListView: View {
                 HStack {
                     Text(result.playerName)
                         .font(.system(size: UIScreen.main.bounds.height / 45))
+                    Spacer()
                     Text(result.role)
                         .bold()
                         .font(.system(size: UIScreen.main.bounds.height / 45))

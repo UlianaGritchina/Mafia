@@ -18,17 +18,18 @@ class MainViewViewModel: ObservableObject {
     @Published var isStartView = false
     @Published var isShowingInfo = false
     @Published var isShowingAlert = false
+    
     @Published var baseCharacters: [Character] = [
-        Character(name: "Мафия", count: 1),
-        Character(name: "Шериф", count: 1),
-        Character(name: "Мирный житель", count: 1)
+        Character(name: "Мафия", count: 0),
+        Character(name: "Шериф", count: 0),
+        Character(name: "Мирный", count: 0)
     ]
     
     @Published var moreCharacters: [Character] = [
         Character(name: "Дон", count: 0),
         Character(name: "Мафия", count: 0),
         Character(name: "Шериф", count: 0),
-        Character(name: "Мирный житель", count: 0),
+        Character(name: "Мирный", count: 0),
         Character(name: "Доктор", count: 0),
         Character(name: "Маньяк", count: 0),
         Character(name: "Любовница", count: 0)
