@@ -34,7 +34,7 @@ extension RoleCardView {
         Circle()
             .frame(width: UIScreen.main.bounds.width / 2,
                    height: UIScreen.main.bounds.height / 2)
-            .shadow(color: .white.opacity(0.7), radius: 15, x: 0, y: 0)
+            .shadow(color: .white.opacity(0.5), radius: 15, x: 0, y: 0)
             .overlay(
                 VStack {
                     Text(role)
@@ -46,32 +46,36 @@ extension RoleCardView {
     }
     
     var nameRect: some View {
-        VStack {
+        ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .frame(width: UIScreen.main.bounds.width / 1.5,
-                       height: UIScreen.main.bounds.height / 2.5)
+                       height: UIScreen.main.bounds.height / 2.3)
                 .foregroundColor(.black)
-                .shadow(color: .white.opacity(0.7), radius: 5, x: 0, y: 0)
                 .overlay(
-                    VStack {
-                        Text(name)
-                            .bold()
-                            .foregroundColor(.white)
-                            .font(.system(size: UIScreen.main.bounds.height / 30))
-                            .padding(.top)
-                        Spacer()
-                        Text("?")
-                            .foregroundColor(.white)
-                            .bold()
-                            .font(.system(size: UIScreen.main.bounds.height / 10))
-                        Spacer()
-                    }
+                    ZStack {
+                        VStack {
+                            Text(name)
+                                .bold()
+                                .foregroundColor(.white)
+                                .font(.system(size: UIScreen.main.bounds.height / 30))
+                            Spacer()
+                            Text("?")
+                                .foregroundColor(.white)
+                                .bold()
+                                .font(.system(size: UIScreen.main.bounds.height / 8))
+                            Spacer()
+                        }
                         .padding()
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke()
+                            .opacity(0.6)
+                    }
                 )
                 .rotationEffect(Angle(degrees: isShowingRole ? -80 : 0))
                 .offset(x: isShowingRole ? UIScreen.main.bounds.width / 2 : 0,
                         y: isShowingRole ? -UIScreen.main.bounds.height / 4 : 0)
             .animation(.spring(), value: isShowingRole)
+            
         }
     }
     
