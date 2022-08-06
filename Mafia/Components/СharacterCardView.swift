@@ -26,10 +26,11 @@ struct CharacterCardView: View {
     }
     
     func addDon() {
-        if character.name == "Дон" {
+        if character.name == "Дон" || character.name == "Ведущий" {
             if character.count == 0 {
                 character.count = 1
                 totalCount += 1
+                HapticManager.instance.impact(style: .heavy)
             } else {
                 totalCount -= 1
                 character.count = 0
@@ -57,7 +58,7 @@ extension CharacterCardView {
                 .bold()
                 .font(.system(size: UIScreen.main.bounds.height / 40))
             
-            if character.name != "Дон" {
+            if character.name != "Дон" && character.name != "Ведущий" {
                 Spacer()
                 HStack {
                     CountButtonView(sign: "-", action: {
