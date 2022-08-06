@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct RolesListView: View {
-    let results: [Result]
+    let player: [Player]
     var body: some View {
         List {
-            ForEach(results, id: \.self) { result in
+            ForEach(player, id: \.self) { player in
                 HStack {
-                    Text(result.playerName)
+                    Text(player.name)
                         .font(.system(size: UIScreen.main.bounds.height / 45))
                     Spacer()
-                    Text(result.role)
+                    Text(player.role)
                         .bold()
                         .font(.system(size: UIScreen.main.bounds.height / 45))
                         .padding(.horizontal)
@@ -28,6 +28,6 @@ struct RolesListView: View {
 
 struct RolesListView_Previews: PreviewProvider {
     static var previews: some View {
-        RolesListView(results: [Result(playerName: "name", role: "role")])
+        RolesListView(player: [Player(name: "name", role: "role")])
     }
 }

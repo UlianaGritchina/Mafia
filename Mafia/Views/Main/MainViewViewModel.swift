@@ -16,16 +16,14 @@ class MainViewViewModel: ObservableObject {
     @Published var totalCharacters = 0
     @Published var isPlayersView = true
     @Published var isStartView = false
-    @Published var isShowingInfo = false
     @Published var isShowingAlert = false
     
-    @Published var baseCharacters: [Character] = [
+    var restBase: [Character] = [
         Character(name: "Мафия", count: 0),
         Character(name: "Шериф", count: 0),
         Character(name: "Мирный", count: 0)
     ]
-    
-    @Published var moreCharacters: [Character] = [
+    var restMore: [Character] = [
         Character(name: "Дон", count: 0),
         Character(name: "Мафия", count: 0),
         Character(name: "Шериф", count: 0),
@@ -35,11 +33,35 @@ class MainViewViewModel: ObservableObject {
         Character(name: "Любовница", count: 0)
     ]
     
+    @Published var baseCharacters: [Character] = []
+    @Published var moreCharacters: [Character] = []
+    
     var roles: [String] = []
-    var results: [Result] = []
+    var results: [Player] = []
     let columns: [GridItem] = [
         GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
     ]
+    
+    init() {
+        baseCharacters = restBase
+        moreCharacters = restMore
+    }
+    
+    private func getRoles() {
+        for character in game == .base ? baseCharacters : moreCharacters {
+            roles.append(
+                contentsOf: repeatElement(character.name, count: character.count)
+            )
+        }
+        roles.shuffle()
+    }
+    
+    private func getResults() {
+        for index in 0..<roles.count {
+            results.append(Player(name: playersForGame[index],
+                                  role: roles[index]))
+        }
+    }
     
     func showRolesView() {
         isPlayersView.toggle()
@@ -65,7 +87,6 @@ class MainViewViewModel: ObservableObject {
         isShowingAlert = true
     }
     
-    
     func start() {
         if canStart() {
             roles.removeAll()
@@ -77,28 +98,20 @@ class MainViewViewModel: ObservableObject {
         }
     }
     
+    
+    
     func back() {
         isPlayersView.toggle()
     }
     
-    private func getRoles() {
-        for character in moreCharacters {
-            roles.append(
-                contentsOf: repeatElement(character.name, count: character.count)
-            )
-        }
-        roles.shuffle()
-    }
-    
-    private func getResults() {
-        for index in 0..<roles.count {
-            results.append(Result(playerName: playersForGame[index],
-                                  role: roles[index]))
-        }
-    }
-    
     func canStart() -> Bool {
         totalCharacters == playersForGame.count
+    }
+    
+    func restCharacters() {
+        baseCharacters = restBase
+        moreCharacters = restMore
+        totalCharacters = 0
     }
     
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
-    let results: [Result]
+    let results: [Player]
     var body: some View {
         NavigationView {
             rolesScrollView
@@ -38,9 +38,9 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(results: [Result(playerName: "name1", role: "character"),
-                           Result(playerName: "name2", role: "character"),
-                           Result(playerName: "name3", role: "character")])
+        GameView(results: [Player(name: "name1", role: "character"),
+                           Player(name: "name2", role: "character"),
+                           Player(name: "name3", role: "character")])
     }
 }
 
@@ -50,10 +50,9 @@ extension GameView {
         ScrollView(.vertical, showsIndicators: false, content: {
             Text("").padding(40)
             VStack(spacing: 100) {
-                ForEach(results, id: \.self) { result in
+                ForEach(results, id: \.self) { player in
                     GeometryReader { geometry in
-                        RoleCardView(name: result.playerName,
-                                     role: result.role)
+                        RoleCardView(player: player)
                             .rotation3DEffect(
                                 Angle(degrees: getPercentage(geo: geometry) * 40),
                                 axis: (x: 0.2, y: 0.0, z: 0.0))
@@ -68,7 +67,7 @@ extension GameView {
     }
     
     var rolesListLink: some View {
-        NavigationLink(destination: RolesListView(results: results)) {
+        NavigationLink(destination: RolesListView(player: results)) {
             Image(systemName: "list.dash")
         }
     }

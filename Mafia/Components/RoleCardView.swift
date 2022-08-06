@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct RoleCardView: View {
-    let name: String
-    let role: String
+    let player: Player
     @State private var isShowingRole = false
     var body: some View {
         ZStack {
@@ -24,7 +23,7 @@ struct RoleCardView: View {
 
 struct RoleCardView_Previews: PreviewProvider {
     static var previews: some View {
-        RoleCardView(name: "name", role: "role")
+        RoleCardView(player: Player(name: "name", role: "role"))
     }
 }
 
@@ -37,7 +36,7 @@ extension RoleCardView {
             .shadow(color: .white.opacity(0.5), radius: 15, x: 0, y: 0)
             .overlay(
                 VStack {
-                    Text(role)
+                    Text(player.role)
                         .bold()
                         .foregroundColor(.black)
                         .font(.system(size: UIScreen.main.bounds.height / 30))
@@ -54,7 +53,7 @@ extension RoleCardView {
                 .overlay(
                     ZStack {
                         VStack {
-                            Text(name)
+                            Text(player.name)
                                 .bold()
                                 .foregroundColor(.white)
                                 .font(.system(size: UIScreen.main.bounds.height / 30))

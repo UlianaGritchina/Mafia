@@ -16,6 +16,9 @@ struct MainView: View {
                             : UIScreen.main.bounds.width)
                 
             }
+            .onChange(of: vm.game, perform: { _ in
+                vm.restCharacters()
+            })
             .fullScreenCover(isPresented: $vm.isStartView, content: {
                 GameView(results: vm.results)
             })
