@@ -12,16 +12,20 @@ struct CharacterCardView: View {
     @Binding var totalCount: Int
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: UIScreen.main.bounds.width / 2.4,
-                       height: UIScreen.main.bounds.height / 5)
-                .foregroundColor(.black)
-                .shadow(color: character.count != 0
-                        ? .red.opacity(0.8)
-                        : .white.opacity(0.4),
-                        radius: 5, x: 0, y: 0)
-                .overlay(characterContent)
-                .onTapGesture { addDon() }
+            if character.name != "Добавить" {
+                RoundedRectangle(cornerRadius: 20)
+                    .frame(width: UIScreen.main.bounds.width / 2.4,
+                           height: UIScreen.main.bounds.height / 5)
+                    .foregroundColor(.black)
+                    .shadow(color: character.count != 0
+                            ? .red.opacity(0.8)
+                            : .white.opacity(0.4),
+                            radius: 5, x: 0, y: 0)
+                    .overlay(characterContent)
+                    .onTapGesture { addDon() }
+            } else {
+                AddNewCharacterButton()
+            }
         }
     }
     
@@ -30,7 +34,7 @@ struct CharacterCardView: View {
             if character.count == 0 {
                 character.count = 1
                 totalCount += 1
-                HapticManager.instance.impact(style: .heavy)
+                HapticManager.instance.impact(style: .light)
             } else {
                 totalCount -= 1
                 character.count = 0
@@ -53,34 +57,37 @@ extension CharacterCardView {
     
     var characterContent: some View {
         VStack {
-            Text(character.name)
-                .foregroundColor(.white)
-                .bold()
-                .font(.system(size: UIScreen.main.bounds.height / 40))
-            
-            if character.name != "Дон" && character.name != "Ведущий" {
-                Spacer()
-                HStack {
-                    CountButtonView(sign: "-", action: {
-                        if character.count != 0 {
-                            character.count -= 1
-                            totalCount -= 1
+            if character.name != "Добавить" {
+                Text(character.name)
+                    .foregroundColor(.white)
+                    .bold()
+                    .font(.system(size: UIScreen.main.bounds.height / 40))
+                
+                if character.name != "Дон" && character.name != "Ведущий" {
+                    Spacer()
+                    HStack {
+                        CountButtonView(sign: "-", action: {
+                            if character.count != 0 {
+                                character.count -= 1
+                                totalCount -= 1
+                                HapticManager.instance.impact(style: .light)
+                            }
+                        })
+                        Spacer()
+                        Text("\(character.count)")
+                            .foregroundColor(.white)
+                            .bold()
+                            .font(.system(size: UIScreen.main.bounds.height / 40))
+                        Spacer()
+                        CountButtonView(sign: "+", action: {
+                            character.count += 1
+                            totalCount += 1
                             HapticManager.instance.impact(style: .light)
-                        }
-                    })
-                    Spacer()
-                    Text("\(character.count)")
-                        .foregroundColor(.white)
-                        .bold()
-                        .font(.system(size: UIScreen.main.bounds.height / 40))
-                    Spacer()
-                    CountButtonView(sign: "+", action: {
-                        character.count += 1
-                        totalCount += 1
-                        HapticManager.instance.impact(style: .light)
-                    })
+                        })
+                    }
                 }
             }
+            
         }
         .padding()
     }

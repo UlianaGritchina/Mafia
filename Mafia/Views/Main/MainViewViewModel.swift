@@ -14,7 +14,7 @@ class MainViewViewModel: ObservableObject {
     @Published var playersForGame: [String] = []
     @Published var game: GameType = .base
     @Published var totalCharacters = 0
-    @Published var isPlayersView = false
+    @Published var isPlayersView = true
     @Published var isStartView = false
     @Published var isShowingAlert = false
     
@@ -22,7 +22,7 @@ class MainViewViewModel: ObservableObject {
         Character(name: "Мафия", count: 0),
         Character(name: "Шериф", count: 0),
         Character(name: "Мирный", count: 0),
-        Character(name: "Ведущий", count: 0)
+        Character(name: "Ведущий", count: 0),
     ]
     var restMore: [Character] = [
         Character(name: "Дон", count: 0),
@@ -32,7 +32,8 @@ class MainViewViewModel: ObservableObject {
         Character(name: "Доктор", count: 0),
         Character(name: "Маньяк", count: 0),
         Character(name: "Любовница", count: 0),
-        Character(name: "Ведущий", count: 0)
+        Character(name: "Ведущий", count: 0),
+        Character(name: "Добавить", count: 0)
     ]
     
     @Published var baseCharacters: [Character] = []
