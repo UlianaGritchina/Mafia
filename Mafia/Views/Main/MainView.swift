@@ -16,12 +16,10 @@ struct MainView: View {
                             : UIScreen.main.bounds.width)
                 
             }
-            .onChange(of: vm.game, perform: { _ in
-                vm.restCharacters()
-            })
-            .fullScreenCover(isPresented: $vm.isStartView, content: {
+            .onChange(of: vm.game) { _ in vm.restCharacters() }
+            .fullScreenCover(isPresented: $vm.isStartView) {
                 GameView(results: vm.results)
-            })
+            }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     playersCounter
@@ -54,7 +52,6 @@ extension MainView {
                 PodTitleView(text: "Игроки")
                 playersList
             }
-            
             playersTabBar
         }
     }
@@ -112,6 +109,7 @@ extension MainView {
                 ForEach(vm.game == .base
                         ? $vm.baseCharacters
                         : $vm.moreCharacters, id: \.self) { character in
+                    
                     CharacterCardView(
                         character: character,
                         totalCount: $vm.totalCharacters
@@ -144,15 +142,16 @@ extension MainView {
     var playersCounter: some View {
         Text("\(vm.totalCharacters)/\(vm.playersForGame.count)")
             .bold()
-            .font(.system(size: vm.totalCharacters == vm.playersForGame.count
-                          ?  UIScreen.main.bounds.height / 45
-                          :  UIScreen.main.bounds.height / 50
-                         )
+            .font(
+                .system(
+                    size: vm.totalCharacters == vm.playersForGame.count
+                    ?  UIScreen.main.bounds.height / 45
+                    :  UIScreen.main.bounds.height / 50
+                )
             )
             .opacity(vm.isPlayersView ? 0 : 1)
             .foregroundColor(vm.totalCharacters == vm.playersForGame.count
-                             ? . green
-                             : .white)
+                             ? . green : .white)
     }
     
 }

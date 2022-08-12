@@ -66,6 +66,15 @@ class MainViewViewModel: ObservableObject {
         }
     }
     
+    func createAddedCharacters() {
+        var characters: [Character] = []
+        let addedCharacters = UserDefaults.standard.array(forKey: "characters")
+        for character in addedCharacters ?? [""] {
+            characters.append(Character(name: character as! String, count: 0))
+        }
+        moreCharacters += characters
+    }
+    
     func showRolesView() {
         isPlayersView.toggle()
     }
@@ -100,8 +109,6 @@ class MainViewViewModel: ObservableObject {
             HapticManager.instance.impact(style: .soft)
         }
     }
-    
-    
     
     func back() {
         isPlayersView.toggle()

@@ -10,18 +10,12 @@ import SwiftUI
 struct CharacterCardView: View {
     @Binding var character: Character
     @Binding var totalCount: Int
+    private let width = UIScreen.main.bounds.width
+    private let height = UIScreen.main.bounds.height
     var body: some View {
         ZStack {
             if character.name != "Добавить" {
-                RoundedRectangle(cornerRadius: 20)
-                    .frame(width: UIScreen.main.bounds.width / 2.4,
-                           height: UIScreen.main.bounds.height / 5)
-                    .foregroundColor(.black)
-                    .shadow(color: character.count != 0
-                            ? .red.opacity(0.8)
-                            : .white.opacity(0.4),
-                            radius: 5, x: 0, y: 0)
-                    .overlay(characterContent)
+                characterView
                     .onTapGesture { addDon() }
             } else {
                 AddNewCharacterButton()
@@ -42,6 +36,20 @@ struct CharacterCardView: View {
         }
     }
     
+    func minusCharacter() {
+        if character.count != 0 {
+            character.count -= 1
+            totalCount -= 1
+            HapticManager.instance.impact(style: .light)
+        }
+    }
+    
+    func plusCharacter() {
+        character.count += 1
+        totalCount += 1
+        HapticManager.instance.impact(style: .light)
+    }
+    
 }
 
 struct CharacterCardView_Previews: PreviewProvider {
@@ -55,41 +63,54 @@ struct CharacterCardView_Previews: PreviewProvider {
 
 extension CharacterCardView {
     
+    var characterView: some View {
+        characterCard.overlay(characterContent)
+    }
+    
     var characterContent: some View {
         VStack {
             if character.name != "Добавить" {
-                Text(character.name)
-                    .foregroundColor(.white)
-                    .bold()
-                    .font(.system(size: UIScreen.main.bounds.height / 40))
-                
+                characterName
                 if character.name != "Дон" && character.name != "Ведущий" {
                     Spacer()
                     HStack {
-                        CountButtonView(sign: "-", action: {
-                            if character.count != 0 {
-                                character.count -= 1
-                                totalCount -= 1
-                                HapticManager.instance.impact(style: .light)
-                            }
-                        })
+                        CountButtonView(sign: "-") { minusCharacter() }
                         Spacer()
-                        Text("\(character.count)")
-                            .foregroundColor(.white)
-                            .bold()
-                            .font(.system(size: UIScreen.main.bounds.height / 40))
+                        characterCount
                         Spacer()
-                        CountButtonView(sign: "+", action: {
-                            character.count += 1
-                            totalCount += 1
-                            HapticManager.instance.impact(style: .light)
-                        })
+                        CountButtonView(sign: "+") { plusCharacter() }
                     }
                 }
             }
-            
         }
         .padding()
+    }
+    
+    var characterName: some View {
+        Text(character.name)
+            .foregroundColor(.white)
+            .bold()
+            .font(.system(size: height / 40))
+    }
+    
+    var characterCount: some View {
+        Text("\(character.count)")
+            .foregroundColor(.white)
+            .bold()
+            .font(.system(size: height / 40))
+    }
+    
+    var characterCard: some View {
+        RoundedRectangle(cornerRadius: 20)
+            .frame(width: width / 2.4,
+                   height: height / 5)
+            .foregroundColor(.black)
+            .shadow(
+                color: character.count != 0
+                ? .red.opacity(0.8)
+                : .white.opacity(0.4),
+                radius: 5, x: 0, y: 0
+            )
     }
     
 }

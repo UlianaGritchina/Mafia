@@ -47,23 +47,25 @@ struct GameView_Previews: PreviewProvider {
 extension GameView {
     
     var rolesScrollView: some View {
-        ScrollView(.vertical, showsIndicators: false, content: {
-            Text("").padding(40)
-            VStack(spacing: 100) {
-                ForEach(results, id: \.self) { player in
-                    GeometryReader { geometry in
-                        RoleCardView(player: player)
-                            .rotation3DEffect(
-                                Angle(degrees: getPercentage(geo: geometry) * 40),
-                                axis: (x: 0.2, y: 0.0, z: 0.0))
-                    }
-                    .frame(width: UIScreen.main.bounds.width / 1.5,
-                           height: UIScreen.main.bounds.height / 2.5)
-                }
-                .frame(width: UIScreen.main.bounds.width)
-            }.padding()
-            Text("").padding(100)
-        })
+        ScrollView(.vertical, showsIndicators: false) {
+            Text("").padding(UIScreen.main.bounds.height / 25)
+            resultsView.padding()
+            Text("").padding(UIScreen.main.bounds.height / 12)
+        }
+    }
+    
+    var resultsView: some View {
+        ForEach(results, id: \.self) { player in
+            GeometryReader { geometry in
+                RoleCardView(player: player)
+                    .rotation3DEffect(
+                        Angle(degrees: getPercentage(geo: geometry) * 40),
+                        axis: (x: 0.2, y: 0.0, z: 0.0))
+            }
+            .frame(width: UIScreen.main.bounds.width / 1.5,
+                   height: UIScreen.main.bounds.height / 2)
+        }
+        .frame(width: UIScreen.main.bounds.width)
     }
     
     var rolesListLink: some View {

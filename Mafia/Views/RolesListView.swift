@@ -12,15 +12,7 @@ struct RolesListView: View {
     var body: some View {
         List {
             ForEach(player, id: \.self) { player in
-                HStack {
-                    Text(player.name)
-                        .font(.system(size: UIScreen.main.bounds.height / 45))
-                    Spacer()
-                    Text(player.role)
-                        .bold()
-                        .font(.system(size: UIScreen.main.bounds.height / 45))
-                        .padding(.horizontal)
-                }
+                RoleRow(player: player)
             }
         }
     }
@@ -29,5 +21,20 @@ struct RolesListView: View {
 struct RolesListView_Previews: PreviewProvider {
     static var previews: some View {
         RolesListView(player: [Player(name: "name", role: "role")])
+    }
+}
+
+struct RoleRow: View {
+    let player: Player
+    var body: some View {
+        HStack {
+            Text(player.name)
+                .font(.system(size: UIScreen.main.bounds.height / 45))
+            Spacer()
+            Text(player.role)
+                .bold()
+                .font(.system(size: UIScreen.main.bounds.height / 45))
+                .padding(.horizontal)
+        }
     }
 }

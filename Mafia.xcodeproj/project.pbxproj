@@ -12,6 +12,7 @@
 		0E18FD472899643100397BF4 /* Extension+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD462899643000397BF4 /* Extension+UIApplication.swift */; };
 		0E18FD4A289968D400397BF4 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD49289968D400397BF4 /* Character.swift */; };
 		0E18FD4C2899692600397BF4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD4B2899692600397BF4 /* Player.swift */; };
+		0E19F47C289FA149000716FB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19F47B289FA149000716FB /* UserDefaultsManager.swift */; };
 		0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9ED7288BEBBA002BF51E /* MafiaApp.swift */; };
 		0E1B9EDA288BEBBA002BF51E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9ED9288BEBBA002BF51E /* MainView.swift */; };
 		0E1B9EDC288BEBBC002BF51E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		0E18FD462899643000397BF4 /* Extension+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIApplication.swift"; sourceTree = "<group>"; };
 		0E18FD49289968D400397BF4 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		0E18FD4B2899692600397BF4 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0E19F47B289FA149000716FB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		0E1B9ED4288BEBBA002BF51E /* Mafia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mafia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E1B9ED7288BEBBA002BF51E /* MafiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaApp.swift; sourceTree = "<group>"; };
 		0E1B9ED9288BEBBA002BF51E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				0E959EBE289A3C1E000AC209 /* HapticManager.swift */,
+				0E19F47B289FA149000716FB /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */,
 				0EBB3D8B288D2C3B00057E5A /* RoleCardView.swift in Sources */,
 				0E8DC523288C2EE6007191A9 /* СharacterCardView.swift in Sources */,
+				0E19F47C289FA149000716FB /* UserDefaultsManager.swift in Sources */,
 				0E18FD472899643100397BF4 /* Extension+UIApplication.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
 				0E18FD44289963E600397BF4 /* BackRectView.swift in Sources */,

@@ -44,10 +44,7 @@ struct CustomButton: View {
                 .foregroundColor(.white)
                 .bold()
                 .frame(width: width,height: height)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(color)
-                )
+                .background(color.cornerRadius(10))
         }
     }
     
