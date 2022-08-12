@@ -12,7 +12,7 @@ struct AddNewCharacterButton: View {
     var body: some View {
         VStack {
             Button(action: {showAddCharacterView.toggle()}) {
-                buttonContent
+                buttonTitle
             }
         }
         .sheet(isPresented: $showAddCharacterView) {
@@ -29,9 +29,14 @@ struct AddCharacterView_Previews: PreviewProvider {
 
 extension AddNewCharacterButton {
     
-    var buttonContent: some View {
+    var buttonTitle: some View {
         RoundedRectangle(cornerRadius: 20)
-            .stroke(style: .init(lineWidth: 1, lineCap: .square, lineJoin: .round, miterLimit: 5, dash: [10, 12], dashPhase: 5))
+            .stroke(style: .init(lineWidth: 1,
+                                 lineCap: .square,
+                                 lineJoin: .round,
+                                 miterLimit: 5,
+                                 dash: [10, 12]
+                                 , dashPhase: 5))
             .frame(width: UIScreen.main.bounds.width / 2.4,
                    height: UIScreen.main.bounds.height / 5)
             .preferredColorScheme(.dark)

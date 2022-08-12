@@ -8,9 +8,31 @@
 import SwiftUI
 
 struct AddNewCharacterView: View {
+    @State private var name = ""
+    let height = UIScreen.main.bounds.height
+    let width = UIScreen.main.bounds.width
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                TextField("Имя", text: $name)
+                    .font(.system(size: height / 30))
+                    .multilineTextAlignment(.center)
+                    .padding()
+                Spacer()
+                CustomButton(title: "Сохранить",
+                             color: .blue,
+                             action: {},
+                             width: width - 80)
+                    .padding()
+            }
+            .navigationTitle("Новый персонаж")
+            .preferredColorScheme(.dark)
+        }
     }
+    
+    //func addNewCharacter() {
+        //UserDefaultsManager.instance.addCharacter(name: name)
+    //}
 }
 
 struct AddNewCharacterView_Previews: PreviewProvider {
