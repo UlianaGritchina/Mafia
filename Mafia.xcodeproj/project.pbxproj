@@ -19,6 +19,7 @@
 		0E1B9EDF288BEBBC002BF51E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B9EDE288BEBBC002BF51E /* Preview Assets.xcassets */; };
 		0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE5288BF1E5002BF51E /* GameView.swift */; };
 		0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */; };
+		0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */; };
 		0E7E1B05289E6E78006C8990 /* AddNewCharacterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E1B04289E6E78006C8990 /* AddNewCharacterButton.swift */; };
 		0E7E1B07289E734C006C8990 /* AddNewCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E1B06289E734C006C8990 /* AddNewCharacterView.swift */; };
 		0E8DC523288C2EE6007191A9 /* СharacterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */; };
@@ -43,6 +44,7 @@
 		0E1B9EDE288BEBBC002BF51E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E1B9EE5288BF1E5002BF51E /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRow.swift; sourceTree = "<group>"; };
 		0E7E1B04289E6E78006C8990 /* AddNewCharacterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCharacterButton.swift; sourceTree = "<group>"; };
 		0E7E1B06289E734C006C8990 /* AddNewCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCharacterView.swift; sourceTree = "<group>"; };
 		0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СharacterCardView.swift"; sourceTree = "<group>"; };
@@ -149,12 +151,13 @@
 		0E1B9EEC288BF3F4002BF51E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0E8DC526288C53DD007191A9 /* Buttons */,
+				0E71BC4628A8FD2600A60AA5 /* Rows */,
 				0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */,
 				0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */,
 				0E18FD412899637A00397BF4 /* PodTitleView.swift */,
 				0E18FD43289963E600397BF4 /* BackRectView.swift */,
 				0E7E1B06289E734C006C8990 /* AddNewCharacterView.swift */,
-				0E8DC526288C53DD007191A9 /* Buttons */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -167,6 +170,14 @@
 				0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		0E71BC4628A8FD2600A60AA5 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */,
+			);
+			name = Rows;
 			sourceTree = "<group>";
 		};
 		0E8DC526288C53DD007191A9 /* Buttons */ = {
@@ -280,6 +291,7 @@
 				0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */,
 				0EBB3D8B288D2C3B00057E5A /* RoleCardView.swift in Sources */,
 				0E8DC523288C2EE6007191A9 /* СharacterCardView.swift in Sources */,
+				0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */,
 				0E19F47C289FA149000716FB /* UserDefaultsManager.swift in Sources */,
 				0E18FD472899643100397BF4 /* Extension+UIApplication.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
