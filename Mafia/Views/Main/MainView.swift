@@ -49,7 +49,7 @@ extension MainView {
     var playersView: some View {
         ZStack {
             VStack {
-                PodTitleView(text: "Игроки")
+                SubTitleView(text: "Игроки")
                 playersList
             }
             playersTabBar
@@ -70,7 +70,7 @@ extension MainView {
     var playersTabBar: some View {
         VStack {
             Spacer()
-            BackRectView()
+            BottomBarView()
                 .overlay(
                     CustomButton(title: "Продолжить",
                                  color: .blue,
@@ -87,7 +87,7 @@ extension MainView {
     var rolesView: some View {
         ZStack {
             VStack {
-                PodTitleView(text: "Персонажи")
+                SubTitleView(text: "Персонажи")
                 gamePicker
                 rolesList
             }
@@ -124,12 +124,12 @@ extension MainView {
     var rolesTabBar: some View {
         VStack {
             Spacer()
-            BackRectView()
+            BottomBarView()
                 .overlay(HStack {
                     CustomButton(title: "Назад", color: .blue, action: vm.back)
                     Spacer()
                     CustomButton(title: "Начать",
-                                 color: vm.canStart() ? .green : .gray,
+                                 color: vm.canGameStart() ? .green : .gray,
                                  action: vm.start)
                 }
                             .padding()

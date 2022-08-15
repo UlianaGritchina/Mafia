@@ -15,8 +15,7 @@ struct CharacterCardView: View {
     var body: some View {
         ZStack {
             if character.name != "Добавить" {
-                characterView
-                    .onTapGesture { addDon() }
+                characterView.onTapGesture { addDon() }
             } else {
                 AddNewCharacterButton()
             }
@@ -74,11 +73,11 @@ extension CharacterCardView {
                 if character.name != "Дон" && character.name != "Ведущий" {
                     Spacer()
                     HStack {
-                        CountButtonView(sign: "-") { minusCharacter() }
+                        CharacterCountButtonView(sign: "-") { minusCharacter() }
                         Spacer()
                         characterCount
                         Spacer()
-                        CountButtonView(sign: "+") { plusCharacter() }
+                        CharacterCountButtonView(sign: "+") { plusCharacter() }
                     }
                 }
             }

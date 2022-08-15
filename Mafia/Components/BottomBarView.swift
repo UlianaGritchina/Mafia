@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BackRectView: View {
+struct BottomBarView: View {
     var body: some View {
         Rectangle()
             .frame(width: UIScreen.main.bounds.width,
@@ -20,6 +20,6 @@ struct BackRectView: View {
 
 struct BackRectView_Previews: PreviewProvider {
     static var previews: some View {
-        BackRectView()
+        BottomBarView()
     }
 }

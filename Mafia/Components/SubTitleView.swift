@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PodTitleView: View {
+struct SubTitleView: View {
     let text: String
     var body: some View {
         Text(text)
@@ -18,6 +18,6 @@ struct PodTitleView: View {
 
 struct PodTitleView_Previews: PreviewProvider {
     static var previews: some View {
-        PodTitleView(text: "some title")
+        SubTitleView(text: "some title")
     }
 }

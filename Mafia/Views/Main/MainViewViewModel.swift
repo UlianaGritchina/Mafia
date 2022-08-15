@@ -10,6 +10,8 @@ enum GameType: String, CaseIterable, Identifiable {
 
 class MainViewViewModel: ObservableObject {
     
+    // MARK: PROPERTIES
+    
     @Published var players = Array(repeating: "", count: 30)
     @Published var playersForGame: [String] = []
     @Published var game: GameType = .base
@@ -50,6 +52,8 @@ class MainViewViewModel: ObservableObject {
         moreCharacters = restMore
     }
     
+    // MARK: PRIVATE FUNCTIONS
+    
     private func getRoles() {
         for character in game == .base ? baseCharacters : moreCharacters {
             roles.append(
@@ -65,6 +69,8 @@ class MainViewViewModel: ObservableObject {
                                   role: roles[index]))
         }
     }
+    
+    // MARK: FUNCTIONS
     
     func createAddedCharacters() {
         var characters: [Character] = []
@@ -100,7 +106,7 @@ class MainViewViewModel: ObservableObject {
     }
     
     func start() {
-        if canStart() {
+        if canGameStart() {
             roles.removeAll()
             results.removeAll()
             getRoles()
@@ -114,10 +120,25 @@ class MainViewViewModel: ObservableObject {
         isPlayersView.toggle()
     }
     
-    func canStart() -> Bool {
+    
+    /// Checks if the game can start
+    ///
+    /// This function checks if the players count equal to characters count
+    /// ```
+    /// canGameStart() -> true
+    ///
+    /// ```
+    func canGameStart() -> Bool {
         totalCharacters == playersForGame.count
     }
     
+    /// Rest characters
+    ///
+    /// This function rests baseCharacters and moreCharacters back to start
+    /// ```
+    /// restCharacters()
+    ///
+    /// ```
     func restCharacters() {
         baseCharacters = restBase
         moreCharacters = restMore

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CountButtonView: View {
+struct CharacterCountButtonView: View {
     let sign: String
     let action: () -> ()
     var body: some View {
@@ -22,6 +22,6 @@ struct CountButtonView: View {
 
 struct CountButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        CountButtonView(sign: "+", action: {})
+        CharacterCountButtonView(sign: "+", action: {})
     }
 }

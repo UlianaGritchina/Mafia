@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E18FD422899637A00397BF4 /* PodTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD412899637A00397BF4 /* PodTitleView.swift */; };
-		0E18FD44289963E600397BF4 /* BackRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD43289963E600397BF4 /* BackRectView.swift */; };
+		0E18FD422899637A00397BF4 /* SubTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD412899637A00397BF4 /* SubTitleView.swift */; };
+		0E18FD44289963E600397BF4 /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD43289963E600397BF4 /* BottomBarView.swift */; };
 		0E18FD472899643100397BF4 /* Extension+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD462899643000397BF4 /* Extension+UIApplication.swift */; };
 		0E18FD4A289968D400397BF4 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD49289968D400397BF4 /* Character.swift */; };
 		0E18FD4C2899692600397BF4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18FD4B2899692600397BF4 /* Player.swift */; };
@@ -20,10 +20,11 @@
 		0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE5288BF1E5002BF51E /* GameView.swift */; };
 		0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */; };
 		0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */; };
+		0E71BC4B28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71BC4A28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift */; };
 		0E7E1B05289E6E78006C8990 /* AddNewCharacterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E1B04289E6E78006C8990 /* AddNewCharacterButton.swift */; };
 		0E7E1B07289E734C006C8990 /* AddNewCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E1B06289E734C006C8990 /* AddNewCharacterView.swift */; };
 		0E8DC523288C2EE6007191A9 /* СharacterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */; };
-		0E8DC525288C53A6007191A9 /* CountButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DC524288C53A6007191A9 /* CountButtonView.swift */; };
+		0E8DC525288C53A6007191A9 /* CharacterCountButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DC524288C53A6007191A9 /* CharacterCountButtonView.swift */; };
 		0E959EBF289A3C1E000AC209 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E959EBE289A3C1E000AC209 /* HapticManager.swift */; };
 		0EAE6D412891967100F53BF1 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE6D402891967100F53BF1 /* MainViewViewModel.swift */; };
 		0EBB3D8B288D2C3B00057E5A /* RoleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */; };
@@ -31,8 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0E18FD412899637A00397BF4 /* PodTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodTitleView.swift; sourceTree = "<group>"; };
-		0E18FD43289963E600397BF4 /* BackRectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackRectView.swift; sourceTree = "<group>"; };
+		0E18FD412899637A00397BF4 /* SubTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitleView.swift; sourceTree = "<group>"; };
+		0E18FD43289963E600397BF4 /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
 		0E18FD462899643000397BF4 /* Extension+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIApplication.swift"; sourceTree = "<group>"; };
 		0E18FD49289968D400397BF4 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		0E18FD4B2899692600397BF4 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -45,10 +46,11 @@
 		0E1B9EE5288BF1E5002BF51E /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRow.swift; sourceTree = "<group>"; };
+		0E71BC4A28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCharacterViewViewModel.swift; sourceTree = "<group>"; };
 		0E7E1B04289E6E78006C8990 /* AddNewCharacterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCharacterButton.swift; sourceTree = "<group>"; };
 		0E7E1B06289E734C006C8990 /* AddNewCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCharacterView.swift; sourceTree = "<group>"; };
 		0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СharacterCardView.swift"; sourceTree = "<group>"; };
-		0E8DC524288C53A6007191A9 /* CountButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountButtonView.swift; sourceTree = "<group>"; };
+		0E8DC524288C53A6007191A9 /* CharacterCountButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCountButtonView.swift; sourceTree = "<group>"; };
 		0E959EBE289A3C1E000AC209 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		0EAE6D402891967100F53BF1 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleCardView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				0E1B9EEA288BF3D8002BF51E /* Main */,
 				0E1B9EEB288BF3E1002BF51E /* Game */,
 				0EBB3D8C288D301400057E5A /* RolesList */,
+				0E71BC4928A8FE5D00A60AA5 /* AddNewCharacter */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,9 +158,8 @@
 				0E71BC4628A8FD2600A60AA5 /* Rows */,
 				0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */,
 				0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */,
-				0E18FD412899637A00397BF4 /* PodTitleView.swift */,
-				0E18FD43289963E600397BF4 /* BackRectView.swift */,
-				0E7E1B06289E734C006C8990 /* AddNewCharacterView.swift */,
+				0E18FD412899637A00397BF4 /* SubTitleView.swift */,
+				0E18FD43289963E600397BF4 /* BottomBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -180,11 +182,20 @@
 			name = Rows;
 			sourceTree = "<group>";
 		};
+		0E71BC4928A8FE5D00A60AA5 /* AddNewCharacter */ = {
+			isa = PBXGroup;
+			children = (
+				0E71BC4A28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift */,
+				0E7E1B06289E734C006C8990 /* AddNewCharacterView.swift */,
+			);
+			name = AddNewCharacter;
+			sourceTree = "<group>";
+		};
 		0E8DC526288C53DD007191A9 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
 				0E7E1B04289E6E78006C8990 /* AddNewCharacterButton.swift */,
-				0E8DC524288C53A6007191A9 /* CountButtonView.swift */,
+				0E8DC524288C53A6007191A9 /* CharacterCountButtonView.swift */,
 				0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */,
 			);
 			path = Buttons;
@@ -278,13 +289,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E18FD4A289968D400397BF4 /* Character.swift in Sources */,
-				0E8DC525288C53A6007191A9 /* CountButtonView.swift in Sources */,
+				0E8DC525288C53A6007191A9 /* CharacterCountButtonView.swift in Sources */,
 				0E7E1B05289E6E78006C8990 /* AddNewCharacterButton.swift in Sources */,
 				0E959EBF289A3C1E000AC209 /* HapticManager.swift in Sources */,
-				0E18FD422899637A00397BF4 /* PodTitleView.swift in Sources */,
+				0E18FD422899637A00397BF4 /* SubTitleView.swift in Sources */,
 				0E7E1B07289E734C006C8990 /* AddNewCharacterView.swift in Sources */,
 				0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */,
 				0E18FD4C2899692600397BF4 /* Player.swift in Sources */,
+				0E71BC4B28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift in Sources */,
 				0EAE6D412891967100F53BF1 /* MainViewViewModel.swift in Sources */,
 				0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */,
 				0E1B9EDA288BEBBA002BF51E /* MainView.swift in Sources */,
@@ -295,7 +307,7 @@
 				0E19F47C289FA149000716FB /* UserDefaultsManager.swift in Sources */,
 				0E18FD472899643100397BF4 /* Extension+UIApplication.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
-				0E18FD44289963E600397BF4 /* BackRectView.swift in Sources */,
+				0E18FD44289963E600397BF4 /* BottomBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
