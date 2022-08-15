@@ -23,19 +23,20 @@ struct MainView: View {
                     playersCounter
                 }
             }
-            
-            .alert("Нет игроков", isPresented: $vm.isShowingAlert) {
-                Button("OK", role: .cancel) { }
-            }
+            .alert(isPresented: $vm.isShowingAlert) { getNoPlayersAlert() }
             
         }
+    }
+    
+    private func getNoPlayersAlert() -> Alert {
+        Alert(title: Text("Нет игроков"))
     }
     
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView().preferredColorScheme(.dark)
     }
 }
 
