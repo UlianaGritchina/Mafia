@@ -19,6 +19,7 @@ class MainViewViewModel: ObservableObject {
     @Published var isPlayersView = true
     @Published var isStartView = false
     @Published var isShowingAlert = false
+    @Published var isShowingSupportView = false
     
     var restBase: [Character] = [
         Character(name: "Мафия", count: 0),
@@ -112,7 +113,6 @@ class MainViewViewModel: ObservableObject {
             getRoles()
             getResults()
             isStartView.toggle()
-            HapticManager.instance.impact(style: .soft)
         }
     }
     
@@ -120,6 +120,9 @@ class MainViewViewModel: ObservableObject {
         isPlayersView.toggle()
     }
     
+    func showSupportView() {
+        isShowingSupportView.toggle()
+    }
     
     /// Checks if the game can start
     ///
@@ -143,6 +146,7 @@ class MainViewViewModel: ObservableObject {
         baseCharacters = restBase
         moreCharacters = restMore
         totalCharacters = 0
+        HapticManager.instance.impact(style: .light)
     }
     
 }

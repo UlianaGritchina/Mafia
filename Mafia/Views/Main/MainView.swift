@@ -8,7 +8,7 @@ struct MainView: View {
         NavigationView {
             ZStack {
                 PlayersView(vm: vm).offset(x: vm.isPlayersView ? 0 : -width)
-                CharactersView(vm: vm) .offset(x: !vm.isPlayersView ? 0 : width)
+                CharactersView(vm: vm).offset(x: !vm.isPlayersView ? 0 : width)
             }
             .navigationTitle("Мафия")
             .animation(.default, value: vm.isPlayersView)
@@ -18,14 +18,24 @@ struct MainView: View {
                 GameView(results: vm.results)
             }
             
+            .sheet(isPresented: $vm.isShowingSupportView) { SupportView() }
+            
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     playersCounter
                 }
             }
+            
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    infoButton
+                }
+            }
+            
             .alert(isPresented: $vm.isShowingAlert) { getNoPlayersAlert() }
             
         }
+        .preferredColorScheme(.dark)
     }
     
     private func getNoPlayersAlert() -> Alert {
@@ -48,6 +58,16 @@ extension MainView {
             .font(.system(size: vm.canGameStart() ? height / 40 : height / 50))
             .opacity(vm.isPlayersView ? 0 : 1)
             .foregroundColor(vm.canGameStart() ? . green : .white)
+            .animation(.default, value: vm.isPlayersView)
+    }
+    
+    var infoButton: some View {
+        VStack {
+            Button(action: vm.showSupportView) {
+                Image(systemName: "giftcard.fill")
+                    .font(.system(size: height / 45))
+            }
+        }
     }
     
 }

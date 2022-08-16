@@ -23,6 +23,9 @@
 		0E71BC4B28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71BC4A28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift */; };
 		0E7DCA9E28AA9DCA00398BAA /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7DCA9D28AA9DCA00398BAA /* PlayersView.swift */; };
 		0E7DCAA028AA9F2600398BAA /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7DCA9F28AA9F2600398BAA /* CharactersView.swift */; };
+		0E7DCAA528AAA4D700398BAA /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7DCAA428AAA4D700398BAA /* SupportView.swift */; };
+		0E7DCAA728AAA68400398BAA /* TinkoffButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7DCAA628AAA68400398BAA /* TinkoffButton.swift */; };
+		0E7DCAA928AAA74400398BAA /* ReviewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7DCAA828AAA74400398BAA /* ReviewButton.swift */; };
 		0E7E1B05289E6E78006C8990 /* AddNewCharacterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E1B04289E6E78006C8990 /* AddNewCharacterButton.swift */; };
 		0E7E1B07289E734C006C8990 /* AddNewCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7E1B06289E734C006C8990 /* AddNewCharacterView.swift */; };
 		0E8DC523288C2EE6007191A9 /* СharacterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */; };
@@ -51,6 +54,9 @@
 		0E71BC4A28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCharacterViewViewModel.swift; sourceTree = "<group>"; };
 		0E7DCA9D28AA9DCA00398BAA /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
 		0E7DCA9F28AA9F2600398BAA /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
+		0E7DCAA428AAA4D700398BAA /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
+		0E7DCAA628AAA68400398BAA /* TinkoffButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinkoffButton.swift; sourceTree = "<group>"; };
+		0E7DCAA828AAA74400398BAA /* ReviewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewButton.swift; sourceTree = "<group>"; };
 		0E7E1B04289E6E78006C8990 /* AddNewCharacterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCharacterButton.swift; sourceTree = "<group>"; };
 		0E7E1B06289E734C006C8990 /* AddNewCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCharacterView.swift; sourceTree = "<group>"; };
 		0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СharacterCardView.swift"; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 				0E1B9EEB288BF3E1002BF51E /* Game */,
 				0EBB3D8C288D301400057E5A /* RolesList */,
 				0E71BC4928A8FE5D00A60AA5 /* AddNewCharacter */,
+				0E7DCAA328AAA4B500398BAA /* Info */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,12 +204,22 @@
 			name = AddNewCharacter;
 			sourceTree = "<group>";
 		};
+		0E7DCAA328AAA4B500398BAA /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				0E7DCAA428AAA4D700398BAA /* SupportView.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
 		0E8DC526288C53DD007191A9 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
 				0E7E1B04289E6E78006C8990 /* AddNewCharacterButton.swift */,
 				0E8DC524288C53A6007191A9 /* CharacterCountButtonView.swift */,
 				0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */,
+				0E7DCAA628AAA68400398BAA /* TinkoffButton.swift */,
+				0E7DCAA828AAA74400398BAA /* ReviewButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -296,6 +313,7 @@
 			files = (
 				0E18FD4A289968D400397BF4 /* Character.swift in Sources */,
 				0E8DC525288C53A6007191A9 /* CharacterCountButtonView.swift in Sources */,
+				0E7DCAA728AAA68400398BAA /* TinkoffButton.swift in Sources */,
 				0E7E1B05289E6E78006C8990 /* AddNewCharacterButton.swift in Sources */,
 				0E959EBF289A3C1E000AC209 /* HapticManager.swift in Sources */,
 				0E18FD422899637A00397BF4 /* SubTitleView.swift in Sources */,
@@ -306,9 +324,11 @@
 				0E18FD4C2899692600397BF4 /* Player.swift in Sources */,
 				0E71BC4B28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift in Sources */,
 				0EAE6D412891967100F53BF1 /* MainViewViewModel.swift in Sources */,
+				0E7DCAA928AAA74400398BAA /* ReviewButton.swift in Sources */,
 				0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */,
 				0E1B9EDA288BEBBA002BF51E /* MainView.swift in Sources */,
 				0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */,
+				0E7DCAA528AAA4D700398BAA /* SupportView.swift in Sources */,
 				0EBB3D8B288D2C3B00057E5A /* RoleCardView.swift in Sources */,
 				0E8DC523288C2EE6007191A9 /* СharacterCardView.swift in Sources */,
 				0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */,

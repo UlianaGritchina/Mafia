@@ -16,6 +16,7 @@ struct RolesListView: View {
             }
         }
         .navigationTitle("Роли")
+        .preferredColorScheme(.dark)
     }
 }
 

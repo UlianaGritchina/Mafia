@@ -25,6 +25,7 @@ struct GameView: View {
                     }
                 }
         }
+        .preferredColorScheme(.dark)
     }
     
     func getPercentage(geo: GeometryProxy) -> Double {

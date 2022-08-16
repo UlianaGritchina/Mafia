@@ -21,6 +21,7 @@ struct AddNewCharacterView: View {
             }
             .navigationTitle("Новый персонаж")
         }
+        .preferredColorScheme(.dark)
     }
     
 }

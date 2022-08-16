@@ -13,7 +13,7 @@ struct CharactersView: View {
         ZStack {
             VStack {
                 SubTitleView(text: "Персонажи")
-                gamePicker
+                gamePicker.padding(.horizontal)
                 rolesList
             }
             rolesTabBar
