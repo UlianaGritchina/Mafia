@@ -7,26 +7,23 @@
 
 import Foundation
 
-//class UserDefaultsManager {
-//    
-//    static let instance = UserDefaultsManager()
-//    private init() { }
-//    
-//    func addCharacter(name: String) {
-//        var ch = UserDefaults.standard.array(forKey: "characters")
-//        if let c = ch {
-//            if !c.isEmpty {
-//                var cha: [Any] = ch ?? []
-//                cha.append(name)
-//                UserDefaults.standard.set(cha, forKey: "characters")
-//                print("\(UserDefaults.standard.array(forKey: "characters"))")
-//            }
-//        } else {
-//            let ne = [name]
-//            UserDefaults.standard.set(ne, forKey: "characters")
-//        }
-//        
-//       
-//    }
-//    
-//}
+class UserDefaultsManager {
+    
+    static let instance = UserDefaultsManager()
+    private init() { }
+    
+    func addCharacter(name: String) {
+        let characters = UserDefaults.standard.array(forKey: "characters")
+        if let characters = characters {
+            if !characters.isEmpty {
+                var newCharacters: [Any] = characters
+                newCharacters.append(name)
+                UserDefaults.standard.set(newCharacters, forKey: "characters")
+            }
+        } else {
+            let newCharacter = [name]
+            UserDefaults.standard.set(newCharacter, forKey: "characters")
+        }
+    }
+    
+}

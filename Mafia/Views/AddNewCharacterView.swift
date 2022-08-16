@@ -22,6 +22,9 @@ struct AddNewCharacterView: View {
             .navigationTitle("Новый персонаж")
         }
         .preferredColorScheme(.dark)
+        .onAppear {
+            print(UserDefaults.standard.array(forKey: "characters"))
+        }
     }
     
 }

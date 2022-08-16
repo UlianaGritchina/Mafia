@@ -4,6 +4,7 @@ import SwiftUI
 enum GameType: String, CaseIterable, Identifiable {
     case base
     case more
+    case favorites
     
     var id: String { self.rawValue }
 }
@@ -36,7 +37,17 @@ class MainViewViewModel: ObservableObject {
         Character(name: "Маньяк", count: 0),
         Character(name: "Любовница", count: 0),
         Character(name: "Ведущий", count: 0),
-        Character(name: "Добавить", count: 0)
+        Character(name: "Агент", count: 0),
+        Character(name: "Патрульный", count: 0),
+        Character(name: "Путана", count: 0),
+        Character(name: "Сыщик", count: 0),
+        Character(name: "Ищейка", count: 0),
+        Character(name: "Мститель", count: 0),
+        Character(name: "Ниндзя", count: 0),
+        Character(name: "Якудза", count: 0),
+        Character(name: "Оборотень", count: 0),
+        Character(name: "Капитан", count: 0)
+        //Character(name: "Добавить", count: 0)
     ]
     
     @Published var baseCharacters: [Character] = []

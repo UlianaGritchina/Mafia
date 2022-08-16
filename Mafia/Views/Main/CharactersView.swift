@@ -33,6 +33,7 @@ extension CharactersView {
         Picker(selection: $vm.game, label: Text("Picker")) {
             Text("Классика").tag(GameType.base)
             Text("Больше").tag(GameType.more)
+            //Text("Избраниые").tag(GameType.favorites)
         }
         .pickerStyle(.segmented)
     }
