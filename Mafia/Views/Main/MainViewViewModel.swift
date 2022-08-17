@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 enum GameType: String, CaseIterable, Identifiable {
@@ -21,6 +20,7 @@ class MainViewViewModel: ObservableObject {
     @Published var isStartView = false
     @Published var isShowingAlert = false
     @Published var isShowingSupportView = false
+    @Published var isFavoritesCharacters = false
     
     var restBase: [Character] = [
         Character(name: "Мафия", count: 0),
@@ -52,6 +52,11 @@ class MainViewViewModel: ObservableObject {
     
     @Published var baseCharacters: [Character] = []
     @Published var moreCharacters: [Character] = []
+    @Published var favoritesCharacters: [Character] = [
+        Character(name: "Дон", count: 0),
+        Character(name: "Мафия", count: 0),
+        Character(name: "Шериф", count: 0)
+    ]
     
     var roles: [String] = []
     var results: [Player] = []
@@ -133,6 +138,14 @@ class MainViewViewModel: ObservableObject {
     
     func showSupportView() {
         isShowingSupportView.toggle()
+    }
+    
+    func getCharactersForGame() -> [Character] {
+        switch game {
+        case .base: return baseCharacters
+        case .more: return moreCharacters
+        case .favorites: return favoritesCharacters
+        }
     }
     
     /// Checks if the game can start
