@@ -1,10 +1,3 @@
-//
-//  HapticManager.swift
-//  Mafia
-//
-//  Created by Ульяна Гритчина on 03.08.2022.
-//
-
 import SwiftUI
 
 class HapticManager {

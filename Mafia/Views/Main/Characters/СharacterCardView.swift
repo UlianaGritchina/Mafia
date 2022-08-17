@@ -1,10 +1,3 @@
-//
-//  CharacterCardView.swift
-//  Mafia
-//
-//  Created by Ульяна Гритчина on 23.07.2022.
-//
-
 import SwiftUI
 
 struct CharacterCardView: View {

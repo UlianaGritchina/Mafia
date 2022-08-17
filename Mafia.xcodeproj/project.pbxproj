@@ -19,6 +19,7 @@
 		0E1B9EDF288BEBBC002BF51E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B9EDE288BEBBC002BF51E /* Preview Assets.xcassets */; };
 		0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE5288BF1E5002BF51E /* GameView.swift */; };
 		0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */; };
+		0E6D1CE728AD065000CCD481 /* CharactersGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6D1CE628AD065000CCD481 /* CharactersGridView.swift */; };
 		0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */; };
 		0E71BC4B28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71BC4A28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift */; };
 		0E7DCA9E28AA9DCA00398BAA /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7DCA9D28AA9DCA00398BAA /* PlayersView.swift */; };
@@ -50,6 +51,7 @@
 		0E1B9EDE288BEBBC002BF51E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E1B9EE5288BF1E5002BF51E /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		0E6D1CE628AD065000CCD481 /* CharactersGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersGridView.swift; sourceTree = "<group>"; };
 		0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRow.swift; sourceTree = "<group>"; };
 		0E71BC4A28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCharacterViewViewModel.swift; sourceTree = "<group>"; };
 		0E7DCA9D28AA9DCA00398BAA /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
@@ -150,8 +152,8 @@
 			children = (
 				0EAE6D402891967100F53BF1 /* MainViewViewModel.swift */,
 				0E1B9ED9288BEBBA002BF51E /* MainView.swift */,
-				0E7DCA9F28AA9F2600398BAA /* CharactersView.swift */,
-				0E7DCA9D28AA9DCA00398BAA /* PlayersView.swift */,
+				0E6D1CE828AD07D800CCD481 /* Characters */,
+				0E6D1CE928AD07ED00CCD481 /* Players */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -169,7 +171,6 @@
 			children = (
 				0E8DC526288C53DD007191A9 /* Buttons */,
 				0E71BC4628A8FD2600A60AA5 /* Rows */,
-				0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */,
 				0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */,
 				0E18FD412899637A00397BF4 /* SubTitleView.swift */,
 				0E18FD43289963E600397BF4 /* BottomBarView.swift */,
@@ -185,6 +186,24 @@
 				0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		0E6D1CE828AD07D800CCD481 /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				0E7DCA9F28AA9F2600398BAA /* CharactersView.swift */,
+				0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */,
+				0E6D1CE628AD065000CCD481 /* CharactersGridView.swift */,
+			);
+			path = Characters;
+			sourceTree = "<group>";
+		};
+		0E6D1CE928AD07ED00CCD481 /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				0E7DCA9D28AA9DCA00398BAA /* PlayersView.swift */,
+			);
+			path = Players;
 			sourceTree = "<group>";
 		};
 		0E71BC4628A8FD2600A60AA5 /* Rows */ = {
@@ -313,6 +332,7 @@
 			files = (
 				0E18FD4A289968D400397BF4 /* Character.swift in Sources */,
 				0E8DC525288C53A6007191A9 /* CharacterCountButtonView.swift in Sources */,
+				0E6D1CE728AD065000CCD481 /* CharactersGridView.swift in Sources */,
 				0E7DCAA728AAA68400398BAA /* TinkoffButton.swift in Sources */,
 				0E7E1B05289E6E78006C8990 /* AddNewCharacterButton.swift in Sources */,
 				0E959EBF289A3C1E000AC209 /* HapticManager.swift in Sources */,
@@ -464,7 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Mafia/More/Preview Content\"";
 				DEVELOPMENT_TEAM = 86SKTK882J;
 				ENABLE_PREVIEWS = YES;
@@ -479,7 +499,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "ugritchina-icloud.com.Mafia";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -494,7 +514,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Mafia/More/Preview Content\"";
 				DEVELOPMENT_TEAM = 86SKTK882J;
 				ENABLE_PREVIEWS = YES;
@@ -509,7 +529,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "ugritchina-icloud.com.Mafia";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -1,10 +1,3 @@
-//
-//  UserDefaultsManager.swift
-//  Mafia
-//
-//  Created by Ульяна Гритчина on 07.08.2022.
-//
-
 import Foundation
 
 class UserDefaultsManager {

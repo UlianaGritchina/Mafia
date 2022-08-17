@@ -1,10 +1,3 @@
-//
-//  CustomButton.swift
-//  CacheImagesInSwiftUI
-//
-//  Created by Ульяна Гритчина on 11.07.2022.
-//
-
 import SwiftUI
 
 struct CustomButton: View {

@@ -1,10 +1,3 @@
-//
-//  RoleRow.swift
-//  Mafia
-//
-//  Created by Ульяна Гритчина on 14.08.2022.
-//
-
 import SwiftUI
 
 struct RoleRow: View {

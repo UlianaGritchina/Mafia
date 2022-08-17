@@ -1,10 +1,3 @@
-//
-//  RolesListView.swift
-//  Mafia
-//
-//  Created by Ульяна Гритчина on 24.07.2022.
-//
-
 import SwiftUI
 
 struct RolesListView: View {

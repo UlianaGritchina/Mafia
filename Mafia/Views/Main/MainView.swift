@@ -12,7 +12,10 @@ struct MainView: View {
             }
             .navigationTitle("Мафия")
             .animation(.default, value: vm.isPlayersView)
-            .onChange(of: vm.game) { _ in vm.restCharacters() }
+            .onChange(of: vm.game) {
+                _ in vm.restCharacters()
+                vm.isFavoritesCharacters = false
+            }
             
             .fullScreenCover(isPresented: $vm.isStartView) {
                 GameView(results: vm.results)

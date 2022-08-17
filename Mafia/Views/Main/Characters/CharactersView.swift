@@ -1,10 +1,3 @@
-//
-//  CharactersView.swift
-//  Mafia
-//
-//  Created by Ульяна Гритчина on 15.08.2022.
-//
-
 import SwiftUI
 
 struct CharactersView: View {
@@ -24,6 +17,7 @@ struct CharactersView: View {
 struct CharactersView_Previews: PreviewProvider {
     static var previews: some View {
         CharactersView(vm: MainViewViewModel())
+            .preferredColorScheme(.dark)
     }
 }
 
@@ -32,8 +26,8 @@ extension CharactersView {
     var gamePicker: some View {
         Picker(selection: $vm.game, label: Text("Picker")) {
             Text("Классика").tag(GameType.base)
+            Text("Избранные").tag(GameType.favorites)
             Text("Больше").tag(GameType.more)
-            //Text("Избраниые").tag(GameType.favorites)
         }
         .pickerStyle(.segmented)
     }
@@ -41,15 +35,16 @@ extension CharactersView {
     var rolesList: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: vm.columns) {
-                ForEach(vm.game == .base
-                        ? $vm.baseCharacters
-                        : $vm.moreCharacters, id: \.self) { character in
-                    
-                    CharacterCardView(
-                        character: character,
-                        totalCount: $vm.totalCharacters
-                    )
-                        .padding()
+                switch vm.game {
+                case .favorites:
+                    CharactersGridView(characters: $vm.favoritesCharacters,
+                                       totalCharacters: $vm.totalCharacters)
+                case .base:
+                    CharactersGridView(characters: $vm.baseCharacters,
+                                       totalCharacters: $vm.totalCharacters)
+                case .more:
+                    CharactersGridView(characters: $vm.moreCharacters,
+                                       totalCharacters: $vm.totalCharacters)
                 }
             }
         }
@@ -90,3 +85,4 @@ extension CharactersView {
     }
     
 }
+

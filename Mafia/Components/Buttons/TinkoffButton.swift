@@ -1,10 +1,3 @@
-//
-//  TinkoffButtonView.swift
-//  Mafia
-//
-//  Created by Ульяна Гритчина on 15.08.2022.
-//
-
 import SwiftUI
 
 struct TinkoffButton: View {
