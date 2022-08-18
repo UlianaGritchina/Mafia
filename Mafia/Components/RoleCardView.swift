@@ -52,23 +52,25 @@ extension RoleCardView {
                                 .bold()
                                 .foregroundColor(.white)
                                 .font(.system(size: height / 30))
+                                .padding(.top)
                             Spacer()
-                            Text("?")
-                                .foregroundColor(.white)
-                                .bold()
-                                .font(.system(size: height / 8))
+                            Image("logo")
+                                .resizable()
+                                .frame(width: width / 2.2, height: width / 2.4)
                             Spacer()
                         }
                         .padding()
                         RoundedRectangle(cornerRadius: 20)
                             .stroke()
-                            .opacity(0.6)
+                            .opacity(0.3)
                     }
                 )
                 .rotationEffect(Angle(degrees: isShowingRole ? -80 : 0))
                 .offset(x: isShowingRole ? width / 2 : 0,
                         y: isShowingRole ? -height / 4 : 0)
                 .animation(.spring(), value: isShowingRole)
+            
+            
         }
     }
     

@@ -11,7 +11,7 @@ struct ReviewButton: View {
                     .foregroundColor(Color("Color"))
             
                 Link(destination: URL(string: "https://apps.apple.com/ru/app/mafia-gang/id1638964730")!) {
-                    Text("Написать озыв")
+                    Text("Написать отзыв")
                         .bold()
                         .font(.system(size: height / 45))
                         .foregroundColor(.white)
