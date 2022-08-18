@@ -19,6 +19,7 @@
 		0E1B9EDF288BEBBC002BF51E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B9EDE288BEBBC002BF51E /* Preview Assets.xcassets */; };
 		0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE5288BF1E5002BF51E /* GameView.swift */; };
 		0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */; };
+		0E29AA2628AE76A200DEB7FD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E29AA2528AE76A200DEB7FD /* Launch Screen.storyboard */; };
 		0E6D1CE728AD065000CCD481 /* CharactersGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6D1CE628AD065000CCD481 /* CharactersGridView.swift */; };
 		0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */; };
 		0E71BC4B28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71BC4A28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift */; };
@@ -51,6 +52,7 @@
 		0E1B9EDE288BEBBC002BF51E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E1B9EE5288BF1E5002BF51E /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		0E29AA2528AE76A200DEB7FD /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0E6D1CE628AD065000CCD481 /* CharactersGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersGridView.swift; sourceTree = "<group>"; };
 		0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRow.swift; sourceTree = "<group>"; };
 		0E71BC4A28A9017300A60AA5 /* AddNewCharacterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCharacterViewViewModel.swift; sourceTree = "<group>"; };
@@ -142,7 +144,7 @@
 				0E1B9EEB288BF3E1002BF51E /* Game */,
 				0EBB3D8C288D301400057E5A /* RolesList */,
 				0E71BC4928A8FE5D00A60AA5 /* AddNewCharacter */,
-				0E7DCAA328AAA4B500398BAA /* Info */,
+				0E7DCAA328AAA4B500398BAA /* Support */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +183,7 @@
 		0E1B9EED288BF402002BF51E /* More */ = {
 			isa = PBXGroup;
 			children = (
+				0E29AA2528AE76A200DEB7FD /* Launch Screen.storyboard */,
 				0E1B9EDD288BEBBC002BF51E /* Preview Content */,
 				0E1B9ED7288BEBBA002BF51E /* MafiaApp.swift */,
 				0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */,
@@ -223,12 +226,12 @@
 			name = AddNewCharacter;
 			sourceTree = "<group>";
 		};
-		0E7DCAA328AAA4B500398BAA /* Info */ = {
+		0E7DCAA328AAA4B500398BAA /* Support */ = {
 			isa = PBXGroup;
 			children = (
 				0E7DCAA428AAA4D700398BAA /* SupportView.swift */,
 			);
-			path = Info;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		0E8DC526288C53DD007191A9 /* Buttons */ = {
@@ -318,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E29AA2628AE76A200DEB7FD /* Launch Screen.storyboard in Resources */,
 				0E1B9EDF288BEBBC002BF51E /* Preview Assets.xcassets in Resources */,
 				0E1B9EDC288BEBBC002BF51E /* Assets.xcassets in Resources */,
 			);
@@ -492,6 +496,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -522,6 +528,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
