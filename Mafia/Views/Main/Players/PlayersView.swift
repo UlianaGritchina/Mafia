@@ -19,9 +19,12 @@ struct PlayersView_Previews: PreviewProvider {
     }
 }
 
+
+// MARK: COMPONENTS
+
 extension PlayersView {
     
-    var playersList: some View {
+   private var playersList: some View {
         List {
             ForEach(0..<30) { index in
                 TextField("Игрок \(index+1)", text: $vm.players[index])
@@ -32,7 +35,7 @@ extension PlayersView {
         .listStyle(.inset)
     }
     
-    var playersTabBar: some View {
+   private var playersTabBar: some View {
         VStack {
             Spacer()
             BottomBarView()

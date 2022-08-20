@@ -4,14 +4,25 @@ struct MainView: View {
     @StateObject var vm = MainViewViewModel()
     private let height = UIScreen.main.bounds.height
     private let width = UIScreen.main.bounds.width
+    private let transition: AnyTransition = .asymmetric(
+        insertion: .move(edge: .trailing),
+        removal: .move(edge: .leading)
+    )
+    private let transition2: AnyTransition = .asymmetric(
+        insertion: .move(edge: .leading),
+        removal: .move(edge: .trailing)
+    )
     var body: some View {
         NavigationView {
             ZStack {
-                PlayersView(vm: vm).offset(x: vm.isPlayersView ? 0 : -width)
-                CharactersView(vm: vm).offset(x: !vm.isPlayersView ? 0 : width)
+                switch vm.section {
+                case .players: PlayersView(vm: vm).transition(transition2)
+                case .characters: CharactersView(vm: vm).transition(transition)
+                }
             }
+            
+            .animation(.spring(), value: vm.section)
             .navigationTitle("Мафия")
-            .animation(.default, value: vm.isPlayersView)
             
             .fullScreenCover(isPresented: $vm.isStartView) {
                 GameView(results: vm.results)
@@ -26,8 +37,7 @@ struct MainView: View {
             }
             
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    infoButton
+                ToolbarItemGroup(placement: .navigationBarLeading) { supportButton
                 }
             }
             
@@ -45,22 +55,25 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView().preferredColorScheme(.dark)
+        MainView()
     }
 }
 
+
+// MARK: COMPONENTS
+
 extension MainView {
     
-    var playersCounter: some View {
+    private var playersCounter: some View {
         Text("\(vm.totalCharacters)/\(vm.playersForGame.count)")
             .bold()
             .font(.system(size: vm.canGameStart() ? height / 40 : height / 50))
-            .opacity(vm.isPlayersView ? 0 : 1)
+            .opacity(vm.section == .characters ? 1 : 0)
             .foregroundColor(vm.canGameStart() ? . green : .white)
-            .animation(.default, value: vm.isPlayersView)
+            .animation(.default, value: vm.section)
     }
     
-    var infoButton: some View {
+    private var supportButton: some View {
         VStack {
             Button(action: vm.showSupportView) {
                 Image(systemName: "giftcard.fill")

@@ -8,6 +8,11 @@ enum GameType: String, CaseIterable, Identifiable {
     var id: String { self.rawValue }
 }
 
+enum MainViewSection {
+    case players
+    case characters
+}
+
 class MainViewViewModel: ObservableObject {
     
     // MARK: PROPERTIES
@@ -16,11 +21,11 @@ class MainViewViewModel: ObservableObject {
     @Published var playersForGame: [String] = []
     @Published var game: GameType = .base
     @Published var totalCharacters = 0
-    @Published var isPlayersView = true
     @Published var isStartView = false
     @Published var isShowingAlert = false
     @Published var isShowingSupportView = false
     @Published var isFavoritesCharacters = false
+    @Published var section: MainViewSection = .players
     
     var restBase: [Character] = [
         Character(name: "Мафия", count: 0),
@@ -47,7 +52,6 @@ class MainViewViewModel: ObservableObject {
         Character(name: "Якудза", count: 0),
         Character(name: "Оборотень", count: 0),
         Character(name: "Капитан", count: 0)
-        //Character(name: "Добавить", count: 0)
     ]
     
     var restFavorite: [Character] = [
@@ -103,19 +107,6 @@ class MainViewViewModel: ObservableObject {
     
     // MARK: FUNCTIONS
     
-    func createAddedCharacters() {
-        var characters: [Character] = []
-        let addedCharacters = UserDefaults.standard.array(forKey: "characters")
-        for character in addedCharacters ?? [""] {
-            characters.append(Character(name: character as! String, count: 0))
-        }
-        moreCharacters += characters
-    }
-    
-    func showRolesView() {
-        isPlayersView.toggle()
-    }
-    
     func next() {
         playersForGame.removeAll()
         for player in players {
@@ -125,7 +116,7 @@ class MainViewViewModel: ObservableObject {
         }
         if playersForGame.count > 0 {
             HapticManager.instance.impact(style: .soft)
-            isPlayersView.toggle()
+            section = .characters
         } else {
             showAlert()
             HapticManager.instance.notification(type: .warning)
@@ -147,19 +138,11 @@ class MainViewViewModel: ObservableObject {
     }
     
     func back() {
-        isPlayersView.toggle()
+        section = .players
     }
     
     func showSupportView() {
         isShowingSupportView.toggle()
-    }
-    
-    func getCharactersForGame() -> [Character] {
-        switch game {
-        case .base: return baseCharacters
-        case .more: return moreCharacters
-        case .favorites: return favoritesCharacters
-        }
     }
     
     /// Checks if the game can start
