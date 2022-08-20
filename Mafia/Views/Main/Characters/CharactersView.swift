@@ -11,7 +11,9 @@ struct CharactersView: View {
             }
             rolesTabBar
         }
-        .onChange(of: vm.game) { _ in vm.restCharacters() }
+        .onChange(of: vm.game) { _ in
+            vm.restCharacters()
+        }
     }
 }
 
@@ -22,9 +24,12 @@ struct CharactersView_Previews: PreviewProvider {
     }
 }
 
+
+// MARK: COMPONENTS
+
 extension CharactersView {
     
-    var gamePicker: some View {
+    private var gamePicker: some View {
         Picker(selection: $vm.game, label: Text("Picker")) {
             Text("Классика").tag(GameType.base)
             Text("Избранные").tag(GameType.favorites)
@@ -33,26 +38,29 @@ extension CharactersView {
         .pickerStyle(.segmented)
     }
     
-    var rolesList: some View {
+    private var rolesList: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: vm.columns) {
-                switch vm.game {
-                case .favorites:
-                    CharactersGridView(characters: $vm.favoritesCharacters,
-                                       totalCharacters: $vm.totalCharacters)
-                case .base:
-                    CharactersGridView(characters: $vm.baseCharacters,
-                                       totalCharacters: $vm.totalCharacters)
-                case .more:
-                    CharactersGridView(characters: $vm.moreCharacters,
-                                       totalCharacters: $vm.totalCharacters)
-                }
+                
+                ForEach(
+                    vm.game == .base
+                    ? $vm.baseCharacters
+                    : vm.game == .favorites ? $vm.favoritesCharacters
+                    : $vm.moreCharacters,
+                    id: \.self)
+                { character in
+                        CharacterCardView(character: character,
+                                          totalCount: $vm.totalCharacters)
+                    }
+                    .padding()
+                
+                
             }
         }
         .padding(.bottom, UIScreen.main.bounds.height / 18)
     }
     
-    var rolesTabBar: some View {
+    private var rolesTabBar: some View {
         VStack {
             Spacer()
             BottomBarView()
@@ -70,7 +78,7 @@ extension CharactersView {
         .ignoresSafeArea()
     }
     
-    var playersCounter: some View {
+   private var playersCounter: some View {
         Text("\(vm.totalCharacters)/\(vm.playersForGame.count)")
             .bold()
             .font(
