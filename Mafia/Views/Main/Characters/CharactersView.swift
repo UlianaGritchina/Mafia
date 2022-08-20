@@ -11,6 +11,7 @@ struct CharactersView: View {
             }
             rolesTabBar
         }
+        .onChange(of: vm.game) { _ in vm.restCharacters() }
     }
 }
 
