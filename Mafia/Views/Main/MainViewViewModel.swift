@@ -50,13 +50,16 @@ class MainViewViewModel: ObservableObject {
         //Character(name: "Добавить", count: 0)
     ]
     
-    @Published var baseCharacters: [Character] = []
-    @Published var moreCharacters: [Character] = []
-    @Published var favoritesCharacters: [Character] = [
+    var restFavorite: [Character] = [
         Character(name: "Дон", count: 0),
         Character(name: "Мафия", count: 0),
-        Character(name: "Шериф", count: 0)
+        Character(name: "Шериф", count: 0),
+        Character(name: "Мирный", count: 0)
     ]
+    
+    @Published var baseCharacters: [Character] = []
+    @Published var moreCharacters: [Character] = []
+    @Published var favoritesCharacters: [Character] = []
     
     var roles: [String] = []
     var results: [Player] = []
@@ -65,18 +68,29 @@ class MainViewViewModel: ObservableObject {
     ]
     
     init() {
+        totalCharacters = 0
         baseCharacters = restBase
         moreCharacters = restMore
+        favoritesCharacters = restFavorite
     }
     
     // MARK: PRIVATE FUNCTIONS
     
     private func getRoles() {
-        for character in game == .base ? baseCharacters : moreCharacters {
-            roles.append(
-                contentsOf: repeatElement(character.name, count: character.count)
-            )
+        if game == .favorites {
+            for character in favoritesCharacters {
+                roles.append(
+                    contentsOf: repeatElement(character.name, count: character.count)
+                )
+            }
+        } else {
+            for character in game == .base ? baseCharacters : moreCharacters {
+                roles.append(
+                    contentsOf: repeatElement(character.name, count: character.count)
+                )
+            }
         }
+        
         roles.shuffle()
     }
     
@@ -169,6 +183,7 @@ class MainViewViewModel: ObservableObject {
     func restCharacters() {
         baseCharacters = restBase
         moreCharacters = restMore
+        favoritesCharacters = restFavorite
         totalCharacters = 0
         HapticManager.instance.impact(style: .light)
     }
