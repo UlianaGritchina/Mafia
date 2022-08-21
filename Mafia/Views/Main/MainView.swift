@@ -18,14 +18,13 @@ struct MainView: View {
                 switch vm.section {
                 case .players:
                     ZStack {
-                        EasterEggView()
-                            .opacity(vm.isShowingEgg ? 1 : 0)
-                        PlayersView(vm: vm)
-                            .offset(y: vm.isShowingEgg ? -height : 0)
+                        EasterEggView().opacity(vm.isShowingEgg ? 1 : 0)
+                        PlayersView().offset(y: vm.isShowingEgg ? -height : 0)
                     }
                     .animation(.easeInOut, value: vm.isShowingEgg)
                     .transition(transition2)
-                case .characters: CharactersView(vm: vm).transition(transition)
+                case .characters:
+                    CharactersView().transition(transition)
                 }
             }
             .animation(.spring(), value: vm.section)
@@ -57,6 +56,7 @@ struct MainView: View {
             
         }
         .preferredColorScheme(.dark)
+        .environmentObject(vm)
     }
     
     private func getNoPlayersAlert() -> Alert {

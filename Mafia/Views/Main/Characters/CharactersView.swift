@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CharactersView: View {
-    @ObservedObject var vm: MainViewViewModel
+    @EnvironmentObject var vm: MainViewViewModel
     var body: some View {
         ZStack {
             VStack {
@@ -19,7 +19,7 @@ struct CharactersView: View {
 
 struct CharactersView_Previews: PreviewProvider {
     static var previews: some View {
-        CharactersView(vm: MainViewViewModel())
+        CharactersView()
             .preferredColorScheme(.dark)
     }
 }
@@ -41,7 +41,6 @@ extension CharactersView {
     private var rolesList: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: vm.columns) {
-                
                 ForEach(
                     vm.game == .base
                     ? $vm.baseCharacters
@@ -51,13 +50,21 @@ extension CharactersView {
                 { character in
                         CharacterCardView(character: character,
                                           totalCount: $vm.totalCharacters)
+                        .contextMenu { contextButton }
                     }
                     .padding()
-                
-                
             }
         }
         .padding(.bottom, UIScreen.main.bounds.height / 18)
+    }
+    
+    private var contextButton: some View {
+        
+        Button(action: {}) {
+            Text(vm.game != .favorites
+                 ? "Добавить в избранные"
+                 : "Удалить из избранных")
+        }
     }
     
     private var rolesTabBar: some View {

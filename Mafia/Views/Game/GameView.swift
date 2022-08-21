@@ -20,14 +20,6 @@ struct GameView: View {
         }
         .preferredColorScheme(.dark)
     }
-    
-    func getPercentage(geo: GeometryProxy) -> Double {
-        let maxDistance = UIScreen.main.bounds.height / 2
-        let currentX = geo.frame(in: .global).midY
-        return Double(1 - (currentX / maxDistance))
-    }
-    
-    
 }
 
 struct GameView_Previews: PreviewProvider {
@@ -71,10 +63,23 @@ extension GameView {
         }
     }
     
-   private var endGameButton: some View {
+    private var endGameButton: some View {
         Button("Завершить") {
             presentationMode.wrappedValue.dismiss()
         }
+    }
+    
+}
+
+
+// MARK: FUNCTIONS
+
+extension GameView {
+    
+    func getPercentage(geo: GeometryProxy) -> Double {
+        let maxDistance = UIScreen.main.bounds.height / 2
+        let currentX = geo.frame(in: .global).midY
+        return Double(1 - (currentX / maxDistance))
     }
     
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PlayersView: View {
-    @ObservedObject var vm: MainViewViewModel
+    @EnvironmentObject var vm: MainViewViewModel
     var body: some View {
         ZStack {
             VStack {
@@ -15,7 +15,7 @@ struct PlayersView: View {
 
 struct PlayersView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayersView(vm: MainViewViewModel())
+        PlayersView()
     }
 }
 

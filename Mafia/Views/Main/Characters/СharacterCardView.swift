@@ -6,38 +6,8 @@ struct CharacterCardView: View {
     private let width = UIScreen.main.bounds.width
     private let height = UIScreen.main.bounds.height
     var body: some View {
-        ZStack {
-            characterView.onTapGesture { addDon() }
-        }
+        characterView.onTapGesture { addCharacter() }
     }
-    
-    func addDon() {
-        if character.name == "Дон" || character.name == "Ведущий" {
-            if character.count == 0 {
-                character.count = 1
-                totalCount += 1
-                HapticManager.instance.impact(style: .light)
-            } else {
-                totalCount -= 1
-                character.count = 0
-            }
-        }
-    }
-    
-    func minusCharacter() {
-        if character.count != 0 {
-            character.count -= 1
-            totalCount -= 1
-            HapticManager.instance.impact(style: .light)
-        }
-    }
-    
-    func plusCharacter() {
-        character.count += 1
-        totalCount += 1
-        HapticManager.instance.impact(style: .light)
-    }
-    
 }
 
 struct CharacterCardView_Previews: PreviewProvider {
@@ -48,6 +18,9 @@ struct CharacterCardView_Previews: PreviewProvider {
         )
     }
 }
+
+
+//MARK: COMPONETS
 
 extension CharacterCardView {
     
@@ -103,3 +76,36 @@ extension CharacterCardView {
     
 }
 
+
+//MARK: FUNCTIONS
+
+extension CharacterCardView {
+    
+    func addCharacter() {
+        if character.name == "Дон" || character.name == "Ведущий" {
+            if character.count == 0 {
+                character.count = 1
+                totalCount += 1
+                HapticManager.instance.impact(style: .light)
+            } else {
+                totalCount -= 1
+                character.count = 0
+            }
+        }
+    }
+    
+    func minusCharacter() {
+        if character.count != 0 {
+            character.count -= 1
+            totalCount -= 1
+            HapticManager.instance.impact(style: .light)
+        }
+    }
+    
+    func plusCharacter() {
+        character.count += 1
+        totalCount += 1
+        HapticManager.instance.impact(style: .light)
+    }
+    
+}
