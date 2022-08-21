@@ -28,6 +28,15 @@ class MainViewViewModel: ObservableObject {
     @Published var section: MainViewSection = .players
     @Published var isShowingEgg = false
     
+    let transition: AnyTransition = .asymmetric(
+        insertion: .move(edge: .trailing),
+        removal: .move(edge: .leading)
+    )
+    let transition2: AnyTransition = .asymmetric(
+        insertion: .move(edge: .leading),
+        removal: .move(edge: .trailing)
+    )
+    
     var restBase: [Character] = [
         Character(name: "Мафия", count: 0),
         Character(name: "Шериф", count: 0),
