@@ -29,6 +29,8 @@
 		0E8DC525288C53A6007191A9 /* CharacterCountButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DC524288C53A6007191A9 /* CharacterCountButtonView.swift */; };
 		0E959EBF289A3C1E000AC209 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E959EBE289A3C1E000AC209 /* HapticManager.swift */; };
 		0EAE6D412891967100F53BF1 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE6D402891967100F53BF1 /* MainViewViewModel.swift */; };
+		0EBAFABC28B2037C00642C37 /* EasterEggView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBAFABB28B2037C00642C37 /* EasterEggView.swift */; };
+		0EBAFABF28B20AD100642C37 /* EggsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBAFABE28B20AD100642C37 /* EggsView.swift */; };
 		0EBB3D8B288D2C3B00057E5A /* RoleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */; };
 		0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB3D8D288D303600057E5A /* RolesListView.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		0E8DC524288C53A6007191A9 /* CharacterCountButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCountButtonView.swift; sourceTree = "<group>"; };
 		0E959EBE289A3C1E000AC209 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		0EAE6D402891967100F53BF1 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
+		0EBAFABB28B2037C00642C37 /* EasterEggView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggView.swift; sourceTree = "<group>"; };
+		0EBAFABE28B20AD100642C37 /* EggsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EggsView.swift; sourceTree = "<group>"; };
 		0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleCardView.swift; sourceTree = "<group>"; };
 		0EBB3D8D288D303600057E5A /* RolesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +134,7 @@
 		0E1B9EE9288BF3C5002BF51E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0EBAFABD28B2038000642C37 /* EasterEgg */,
 				0E1B9EEA288BF3D8002BF51E /* Main */,
 				0E1B9EEB288BF3E1002BF51E /* Game */,
 				0EBB3D8C288D301400057E5A /* RolesList */,
@@ -232,6 +237,15 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		0EBAFABD28B2038000642C37 /* EasterEgg */ = {
+			isa = PBXGroup;
+			children = (
+				0EBAFABE28B20AD100642C37 /* EggsView.swift */,
+				0EBAFABB28B2037C00642C37 /* EasterEggView.swift */,
+			);
+			path = EasterEgg;
+			sourceTree = "<group>";
+		};
 		0EBB3D8C288D301400057E5A /* RolesList */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,9 +332,11 @@
 				0E18FD422899637A00397BF4 /* SubTitleView.swift in Sources */,
 				0E7DCA9E28AA9DCA00398BAA /* PlayersView.swift in Sources */,
 				0E7DCAA028AA9F2600398BAA /* CharactersView.swift in Sources */,
+				0EBAFABF28B20AD100642C37 /* EggsView.swift in Sources */,
 				0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */,
 				0E18FD4C2899692600397BF4 /* Player.swift in Sources */,
 				0EAE6D412891967100F53BF1 /* MainViewViewModel.swift in Sources */,
+				0EBAFABC28B2037C00642C37 /* EasterEggView.swift in Sources */,
 				0E7DCAA928AAA74400398BAA /* ReviewButton.swift in Sources */,
 				0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */,
 				0E1B9EDA288BEBBA002BF51E /* MainView.swift in Sources */,

@@ -26,6 +26,7 @@ class MainViewViewModel: ObservableObject {
     @Published var isShowingSupportView = false
     @Published var isFavoritesCharacters = false
     @Published var section: MainViewSection = .players
+    @Published var isShowingEgg = false
     
     var restBase: [Character] = [
         Character(name: "Мафия", count: 0),
@@ -114,9 +115,14 @@ class MainViewViewModel: ObservableObject {
                 playersForGame.append(player)
             }
         }
+        
         if playersForGame.count > 0 {
-            HapticManager.instance.impact(style: .soft)
-            section = .characters
+            if players[0] == "Мафия" || players[0] == "Mafia" {
+                isShowingEgg.toggle()
+            } else {
+                HapticManager.instance.impact(style: .soft)
+                section = .characters
+            }
         } else {
             showAlert()
             HapticManager.instance.notification(type: .warning)

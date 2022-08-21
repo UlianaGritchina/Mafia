@@ -16,11 +16,18 @@ struct MainView: View {
         NavigationView {
             ZStack {
                 switch vm.section {
-                case .players: PlayersView(vm: vm).transition(transition2)
+                case .players:
+                    ZStack {
+                        EasterEggView()
+                            .opacity(vm.isShowingEgg ? 1 : 0)
+                        PlayersView(vm: vm)
+                            .offset(y: vm.isShowingEgg ? -height : 0)
+                    }
+                    .animation(.easeInOut, value: vm.isShowingEgg)
+                    .transition(transition2)
                 case .characters: CharactersView(vm: vm).transition(transition)
                 }
             }
-            
             .animation(.spring(), value: vm.section)
             .navigationTitle("Мафия")
             
@@ -37,7 +44,12 @@ struct MainView: View {
             }
             
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) { supportButton
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    if vm.isShowingEgg {
+                        backButton
+                    } else {
+                    supportButton
+                    }
                 }
             }
             
@@ -53,7 +65,7 @@ struct MainView: View {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
     }
@@ -78,14 +90,24 @@ extension MainView {
             Button(action: vm.showSupportView) {
                 Image(systemName: "giftcard.fill")
                     .font(.system(size: height / 45))
+                    .opacity(vm.isShowingEgg ? 0 : 1)
+                    .animation(.default, value: vm.isShowingEgg)
+            }
+        }
+    }
+    
+    private var backButton: some View {
+        VStack {
+            Button(action: {vm.isShowingEgg.toggle()}) {
+                Image(systemName: "arrow.down.to.line.compact")
+                    .font(.system(size: height / 45))
+                    .animation(.default, value: vm.isShowingEgg)
+                    .foregroundColor(.white)
+                    .padding(5)
+                    .background(Color.black)
+                    .cornerRadius(3)
             }
         }
     }
     
 }
-
-
-
-
-
-

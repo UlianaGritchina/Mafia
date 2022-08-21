@@ -38,9 +38,12 @@ struct GameView_Previews: PreviewProvider {
     }
 }
 
+
+// MARK: COMPONENTS
+
 extension GameView {
     
-    var rolesScrollView: some View {
+    private var rolesScrollView: some View {
         ScrollView(.vertical, showsIndicators: false) {
             Text("").padding(UIScreen.main.bounds.height / 25)
             resultsView.padding()
@@ -48,7 +51,7 @@ extension GameView {
         }
     }
     
-    var resultsView: some View {
+    private var resultsView: some View {
         ForEach(results, id: \.self) { player in
             GeometryReader { geometry in
                 RoleCardView(player: player)
@@ -62,13 +65,13 @@ extension GameView {
         .frame(width: UIScreen.main.bounds.width)
     }
     
-    var rolesListLink: some View {
+    private var rolesListLink: some View {
         NavigationLink(destination: RolesListView(player: results)) {
             Image(systemName: "list.dash")
         }
     }
     
-    var endGameButton: some View {
+   private var endGameButton: some View {
         Button("Завершить") {
             presentationMode.wrappedValue.dismiss()
         }

@@ -88,7 +88,7 @@ extension CharactersView {
                     :  UIScreen.main.bounds.height / 50
                 )
             )
-            .opacity(vm.isPlayersView ? 0 : 1)
+            .opacity(vm.section == .characters ? 1 : 0)
             .foregroundColor(vm.totalCharacters == vm.playersForGame.count
                              ? . green : .white)
     }

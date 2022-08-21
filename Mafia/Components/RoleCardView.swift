@@ -10,9 +10,7 @@ struct RoleCardView: View {
             roleCircle
             nameRect
         }
-        .onTapGesture {
-            isShowingRole.toggle()
-        }
+        .onTapGesture { isShowingRole.toggle() }
     }
 }
 
@@ -22,56 +20,65 @@ struct RoleCardView_Previews: PreviewProvider {
     }
 }
 
+
+// MARK: COMPONENTS
+
 extension RoleCardView {
     
-    var roleCircle: some View {
+    private var roleCircle: some View {
         Circle()
             .frame(width: width / 2,
                    height: height / 2)
             .shadow(color: .white.opacity(0.5), radius: 15, x: 0, y: 0)
-            .overlay(
-                VStack {
-                    Text(player.role)
-                        .bold()
-                        .foregroundColor(.black)
-                        .font(.system(size: height / 30))
-                }
-            )
+            .overlay(playerRole)
     }
     
-    var nameRect: some View {
+    private var playerRole: some View {
+        Text(player.role)
+            .bold()
+            .foregroundColor(.black)
+            .font(.system(size: height / 30))
+    }
+    
+    private var nameRect: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
-                .frame(width: width / 1.5,
-                       height: height / 2.3)
+                .frame(width: width / 1.5, height: height / 2.3)
                 .foregroundColor(.black)
-                .overlay(
-                    ZStack {
-                        VStack {
-                            Text(player.name)
-                                .bold()
-                                .foregroundColor(.white)
-                                .font(.system(size: height / 30))
-                                .padding(.top)
-                            Spacer()
-                            Image("logo")
-                                .resizable()
-                                .frame(width: width / 2.2, height: width / 2.4)
-                            Spacer()
-                        }
-                        .padding()
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke()
-                            .opacity(0.3)
-                    }
-                )
+                .overlay(nameRectContent)
                 .rotationEffect(Angle(degrees: isShowingRole ? -80 : 0))
                 .offset(x: isShowingRole ? width / 2 : 0,
                         y: isShowingRole ? -height / 4 : 0)
                 .animation(.spring(), value: isShowingRole)
-            
-            
         }
+    }
+    
+    private var nameRectContent: some View {
+        ZStack {
+            VStack {
+                playerName.padding(.top)
+                Spacer()
+                logo
+                Spacer()
+            }
+            .padding()
+            RoundedRectangle(cornerRadius: 20)
+                .stroke()
+                .opacity(0.3)
+        }
+    }
+    
+    private var playerName: some View {
+        Text(player.name)
+            .bold()
+            .foregroundColor(.white)
+            .font(.system(size: height / 30))
+    }
+    
+    private var logo: some View {
+        Image("logo")
+            .resizable()
+            .frame(width: width / 2.2, height: width / 2.4)
     }
     
 }

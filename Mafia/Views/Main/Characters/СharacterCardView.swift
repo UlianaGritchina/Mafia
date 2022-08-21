@@ -7,11 +7,7 @@ struct CharacterCardView: View {
     private let height = UIScreen.main.bounds.height
     var body: some View {
         ZStack {
-            if character.name != "Добавить" {
-                characterView.onTapGesture { addDon() }
-            } else {
-                AddNewCharacterButton()
-            }
+            characterView.onTapGesture { addDon() }
         }
     }
     
