@@ -21,17 +21,8 @@ struct MainView: View {
             
             .sheet(isPresented: $vm.isShowingSupportView) { SupportView() }
             
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    navigationBarTrailing
-                }
-            }
-            
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    navigationBarLeading
-                }
-            }
+            .navigationBarItems(leading: navigationBarLeading,
+                                trailing: navigationBarTrailing)
             
             .alert(isPresented: $vm.isShowingAlert) { getNoPlayersAlert() }
             
@@ -92,7 +83,7 @@ extension MainView {
             }
         }
     }
-
+    
     private var supportButton: some View {
         VStack {
             Button(action: vm.showSupportView) {

@@ -28,6 +28,7 @@
 		0E8DC523288C2EE6007191A9 /* СharacterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */; };
 		0E8DC525288C53A6007191A9 /* CharacterCountButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DC524288C53A6007191A9 /* CharacterCountButtonView.swift */; };
 		0E959EBF289A3C1E000AC209 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E959EBE289A3C1E000AC209 /* HapticManager.swift */; };
+		0EA8BCEA28B4BDAE00689002 /* GameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA8BCE928B4BDAE00689002 /* GameDataManager.swift */; };
 		0EAE6D412891967100F53BF1 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE6D402891967100F53BF1 /* MainViewViewModel.swift */; };
 		0EBAFABC28B2037C00642C37 /* EasterEggView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBAFABB28B2037C00642C37 /* EasterEggView.swift */; };
 		0EBAFABF28B20AD100642C37 /* EggsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBAFABE28B20AD100642C37 /* EggsView.swift */; };
@@ -58,6 +59,7 @@
 		0E8DC522288C2EE6007191A9 /* СharacterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СharacterCardView.swift"; sourceTree = "<group>"; };
 		0E8DC524288C53A6007191A9 /* CharacterCountButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCountButtonView.swift; sourceTree = "<group>"; };
 		0E959EBE289A3C1E000AC209 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		0EA8BCE928B4BDAE00689002 /* GameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataManager.swift; sourceTree = "<group>"; };
 		0EAE6D402891967100F53BF1 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		0EBAFABB28B2037C00642C37 /* EasterEggView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggView.swift; sourceTree = "<group>"; };
 		0EBAFABE28B20AD100642C37 /* EggsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EggsView.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				0E959EBE289A3C1E000AC209 /* HapticManager.swift */,
+				0EA8BCE928B4BDAE00689002 /* GameDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				0E18FD472899643100397BF4 /* Extension+UIApplication.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
 				0E18FD44289963E600397BF4 /* BottomBarView.swift in Sources */,
+				0EA8BCEA28B4BDAE00689002 /* GameDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

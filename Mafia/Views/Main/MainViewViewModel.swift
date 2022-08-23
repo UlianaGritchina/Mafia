@@ -37,32 +37,8 @@ class MainViewViewModel: ObservableObject {
         removal: .move(edge: .trailing)
     )
     
-    var restBase: [Character] = [
-        Character(name: "Мафия", count: 0),
-        Character(name: "Шериф", count: 0),
-        Character(name: "Мирный", count: 0),
-        Character(name: "Ведущий", count: 0),
-    ]
-    var restMore: [Character] = [
-        Character(name: "Дон", count: 0),
-        Character(name: "Мафия", count: 0),
-        Character(name: "Шериф", count: 0),
-        Character(name: "Мирный", count: 0),
-        Character(name: "Доктор", count: 0),
-        Character(name: "Маньяк", count: 0),
-        Character(name: "Любовница", count: 0),
-        Character(name: "Ведущий", count: 0),
-        Character(name: "Агент", count: 0),
-        Character(name: "Патрульный", count: 0),
-        Character(name: "Путана", count: 0),
-        Character(name: "Сыщик", count: 0),
-        Character(name: "Ищейка", count: 0),
-        Character(name: "Мститель", count: 0),
-        Character(name: "Ниндзя", count: 0),
-        Character(name: "Якудза", count: 0),
-        Character(name: "Оборотень", count: 0),
-        Character(name: "Капитан", count: 0)
-    ]
+    var restBase: [Character] = GameDataManager.instance.startBaseCharacters
+    var restMore: [Character] = GameDataManager.instance.startMoreCharacters
     
     var restFavorite: [Character] = [
         Character(name: "Дон", count: 0),
