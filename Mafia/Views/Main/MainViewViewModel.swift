@@ -37,8 +37,8 @@ class MainViewViewModel: ObservableObject {
         removal: .move(edge: .trailing)
     )
     
-    var restBase: [Character] = GameDataManager.instance.startBaseCharacters
-    var restMore: [Character] = GameDataManager.instance.startMoreCharacters
+    var startBase: [Character] = GameDataManager.instance.startBaseCharacters
+    var startMore: [Character] = GameDataManager.instance.startMoreCharacters
     
     var restFavorite: [Character] = [
         Character(name: "Дон", count: 0),
@@ -59,8 +59,8 @@ class MainViewViewModel: ObservableObject {
     
     init() {
         totalCharacters = 0
-        baseCharacters = restBase
-        moreCharacters = restMore
+        baseCharacters = startBase
+        moreCharacters = startMore
         favoritesCharacters = restFavorite
     }
     
@@ -155,8 +155,8 @@ class MainViewViewModel: ObservableObject {
     ///
     /// ```
     func restCharacters() {
-        baseCharacters = restBase
-        moreCharacters = restMore
+        baseCharacters = startBase
+        moreCharacters = startMore
         favoritesCharacters = restFavorite
         totalCharacters = 0
         HapticManager.instance.impact(style: .light)

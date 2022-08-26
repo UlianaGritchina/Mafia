@@ -44,7 +44,8 @@ extension CharactersView {
                 ForEach(
                     vm.game == .base
                     ? $vm.baseCharacters
-                    : vm.game == .favorites ? $vm.favoritesCharacters
+                    : vm.game == .favorites
+                    ? $vm.favoritesCharacters
                     : $vm.moreCharacters,
                     id: \.self)
                 { character in

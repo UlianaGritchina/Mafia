@@ -108,7 +108,9 @@ extension MainView {
     }
     
     private var enterButton: some View {
-        Button(action: {}) {
+        NavigationLink {
+            FinalEasterEggView()
+        } label: {
             Text("Войти")
                 .bold()
                 .foregroundColor(.white)
