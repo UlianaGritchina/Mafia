@@ -77,7 +77,7 @@ extension MainView {
     private var navigationBarTrailing: some View {
         VStack {
             if vm.isShowingEgg {
-                enterButton
+                //enterButton
             } else {
                 playersCounter
             }

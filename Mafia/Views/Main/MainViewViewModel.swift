@@ -93,6 +93,10 @@ class MainViewViewModel: ObservableObject {
     
     // MARK: FUNCTIONS
     
+    func add(_ character: Character) {
+        favoritesCharacters.append(character)
+    }
+    
     func next() {
         playersForGame.removeAll()
         for player in players {

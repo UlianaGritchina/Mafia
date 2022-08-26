@@ -12,7 +12,8 @@ struct CharactersView: View {
             rolesTabBar
         }
         .onChange(of: vm.game) { _ in
-            vm.restCharacters()
+            //vm.restCharacters()
+            
         }
     }
 }
@@ -49,11 +50,21 @@ extension CharactersView {
                     : $vm.moreCharacters,
                     id: \.self)
                 { character in
-                        CharacterCardView(character: character,
-                                          totalCount: $vm.totalCharacters)
-                        .contextMenu { contextButton }
-                    }
-                    .padding()
+                    CharacterCardView(character: character,
+                                      totalCount: $vm.totalCharacters)
+                        .contextMenu { Button(action: {
+                            if vm.game != .favorites {
+                                vm.add(character.wrappedValue)
+                            } else {
+                                
+                            }
+                        }) {
+                            Text(vm.game != .favorites
+                                 ? "Добавить в избранные"
+                                 : "Удалить из избранных")
+                        } }
+                }
+                .padding()
             }
         }
         .padding(.bottom, UIScreen.main.bounds.height / 18)
@@ -86,7 +97,7 @@ extension CharactersView {
         .ignoresSafeArea()
     }
     
-   private var playersCounter: some View {
+    private var playersCounter: some View {
         Text("\(vm.totalCharacters)/\(vm.playersForGame.count)")
             .bold()
             .font(
