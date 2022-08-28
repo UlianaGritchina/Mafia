@@ -56,7 +56,9 @@ extension CharactersView {
                             if vm.game != .favorites {
                                 vm.add(character.wrappedValue)
                             } else {
-                                
+                                withAnimation {
+                                    vm.delete(character.wrappedValue)
+                                }
                             }
                         }) {
                             Text(vm.game != .favorites

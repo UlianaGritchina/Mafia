@@ -40,12 +40,7 @@ class MainViewViewModel: ObservableObject {
     var startBase: [Character] = GameDataManager.instance.startBaseCharacters
     var startMore: [Character] = GameDataManager.instance.startMoreCharacters
     
-    var restFavorite: [Character] = [
-        Character(name: "Дон", count: 0),
-        Character(name: "Мафия", count: 0),
-        Character(name: "Шериф", count: 0),
-        Character(name: "Мирный", count: 0)
-    ]
+    var restFavorite: [Character] = []
     
     @Published var baseCharacters: [Character] = []
     @Published var moreCharacters: [Character] = []
@@ -95,6 +90,12 @@ class MainViewViewModel: ObservableObject {
     
     func add(_ character: Character) {
         favoritesCharacters.append(character)
+    }
+    
+    func delete(_ character: Character) {
+        if let index = favoritesCharacters.firstIndex(where: { $0.name == character.name }) {
+            favoritesCharacters.remove(at: index)
+        }
     }
     
     func next() {
