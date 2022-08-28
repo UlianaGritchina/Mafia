@@ -98,6 +98,18 @@ class MainViewViewModel: ObservableObject {
         }
     }
     
+    func refreshTotalCharacters() {
+        var count = 0
+        for character in game == .base
+                ? baseCharacters
+                : game == .favorites
+                ? favoritesCharacters
+                : moreCharacters {
+            count += character.count
+        }
+        totalCharacters = count
+    }
+    
     func next() {
         playersForGame.removeAll()
         for player in players {

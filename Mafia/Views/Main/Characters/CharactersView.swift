@@ -12,8 +12,7 @@ struct CharactersView: View {
             rolesTabBar
         }
         .onChange(of: vm.game) { _ in
-            //vm.restCharacters()
-            
+            vm.refreshTotalCharacters()
         }
     }
 }
@@ -22,6 +21,7 @@ struct CharactersView_Previews: PreviewProvider {
     static var previews: some View {
         CharactersView()
             .preferredColorScheme(.dark)
+            .environmentObject(MainViewViewModel())
     }
 }
 
