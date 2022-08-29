@@ -28,6 +28,7 @@ class MainViewViewModel: ObservableObject {
     @Published var section: MainViewSection = .players
     @Published var isShowingEgg = false
     
+    let favoriteKey = "favorite"
     let transition: AnyTransition = .asymmetric(
         insertion: .move(edge: .trailing),
         removal: .move(edge: .leading)
@@ -44,7 +45,10 @@ class MainViewViewModel: ObservableObject {
     
     @Published var baseCharacters: [Character] = []
     @Published var moreCharacters: [Character] = []
-    @Published var favoritesCharacters: [Character] = []
+    
+    @Published var favoritesCharacters: [Character] = [] {
+        didSet { saveCharacters() }
+    }
     
     var roles: [String] = []
     var results: [Player] = []
@@ -56,7 +60,7 @@ class MainViewViewModel: ObservableObject {
         totalCharacters = 0
         baseCharacters = startBase
         moreCharacters = startMore
-        favoritesCharacters = restFavorite
+        getCharacters()
     }
     
     // MARK: PRIVATE FUNCTIONS
@@ -88,8 +92,24 @@ class MainViewViewModel: ObservableObject {
     
     // MARK: FUNCTIONS
     
+    func saveCharacters() {
+        if let encodedData = try? JSONEncoder().encode(favoritesCharacters) {
+            UserDefaults.standard.set(encodedData, forKey: favoriteKey)
+        }
+    }
+    
+    func getCharacters() {
+        guard
+            let data = UserDefaults.standard.data(forKey: favoriteKey),
+            let savedCharacters = try? JSONDecoder().decode([Character].self, from: data)
+        else { return }
+        
+        favoritesCharacters  = savedCharacters
+    }
+    
     func add(_ character: Character) {
-        favoritesCharacters.append(character)
+        let newCharacter = Character(name: character.name, count: 0)
+        favoritesCharacters.append(newCharacter)
     }
     
     func delete(_ character: Character) {

@@ -8,7 +8,7 @@ struct MainView: View {
         NavigationView {
             ZStack {
                 switch vm.section {
-                case .players: playersSection
+                case .players: playersSection.transition(vm.transition2)
                 case .characters: CharactersView().transition(vm.transition)
                 }
             }
@@ -46,13 +46,10 @@ extension MainView {
     
     private var playersSection: some View {
         ZStack {
-            EasterEggView()
-                .opacity(vm.isShowingEgg ? 1 : 0)
-            PlayersView()
-                .offset(y: vm.isShowingEgg ? -height : 0)
+            EasterEggView().opacity(vm.isShowingEgg ? 1 : 0)
+            PlayersView().offset(y: vm.isShowingEgg ? -height : 0)
         }
         .animation(.easeInOut, value: vm.isShowingEgg)
-        .transition(vm.transition2)
     }
     
     private var playersCounter: some View {
