@@ -57,7 +57,6 @@ class MainViewViewModel: ObservableObject {
     ]
     
     init() {
-        totalCharacters = 0
         baseCharacters = startBase
         moreCharacters = startMore
         getCharacters()
@@ -142,7 +141,6 @@ class MainViewViewModel: ObservableObject {
             if players[0] == "Мафия" || players[0] == "Mafia" {
                 isShowingEgg.toggle()
             } else {
-                HapticManager.instance.impact(style: .soft)
                 section = .characters
             }
         } else {

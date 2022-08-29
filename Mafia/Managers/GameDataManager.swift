@@ -30,7 +30,13 @@ class GameDataManager {
         Character(name: "Ниндзя", count: 0),
         Character(name: "Якудза", count: 0),
         Character(name: "Оборотень", count: 0),
-        Character(name: "Капитан", count: 0)
+        Character(name: "Капитан", count: 0),
+        Character(name: "Адвокат", count: 0),
+        Character(name: "Бессмертный", count: 0),
+        Character(name: "Тюремщик", count: 0),
+        Character(name: "Крестный отец", count: 0),
+        Character(name: "Оборотень", count: 0),
+        Character(name: "Капитан", count: 0)  
     ]
     
 }
