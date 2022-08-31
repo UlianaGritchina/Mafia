@@ -104,10 +104,12 @@ extension CharactersView {
     }
     
     private var noFavoritesView: some View {
-        Spacer()
-        Text("Нет избранных").font(.title2)
-        Spacer()
-        Spacer()
+        VStack {
+            Spacer()
+            Text("Нет избранных").font(.title2)
+            Spacer()
+            Spacer()
+        }
     }
     
     private var playersCounter: some View {
