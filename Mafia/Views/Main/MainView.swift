@@ -25,8 +25,8 @@ struct MainView: View {
                                 trailing: navigationBarTrailing)
             
             .alert(isPresented: $vm.isShowingAlert) { getNoPlayersAlert() }
-            
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .preferredColorScheme(.dark)
         .environmentObject(vm)
     }

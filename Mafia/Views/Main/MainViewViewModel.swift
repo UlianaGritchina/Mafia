@@ -103,7 +103,7 @@ class MainViewViewModel: ObservableObject {
             let savedCharacters = try? JSONDecoder().decode([Character].self, from: data)
         else { return }
         
-        favoritesCharacters  = savedCharacters
+        favoritesCharacters = savedCharacters
     }
     
     func add(_ character: Character) {
