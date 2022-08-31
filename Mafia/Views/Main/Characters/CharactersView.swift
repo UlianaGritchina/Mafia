@@ -7,7 +7,11 @@ struct CharactersView: View {
             VStack {
                 SubTitleView(text: "Персонажи")
                 gamePicker.padding(.horizontal)
-                rolesList
+                if vm.game == .favorites && vm.favoritesCharacters.isEmpty {
+                    noFavoritesView
+                } else {
+                    rolesList
+                }
             }
             rolesTabBar
         }
@@ -97,6 +101,13 @@ extension CharactersView {
                 )
         }
         .ignoresSafeArea()
+    }
+    
+    private var noFavoritesView: some View {
+        Spacer()
+        Text("Нет избранных").font(.title2)
+        Spacer()
+        Spacer()
     }
     
     private var playersCounter: some View {

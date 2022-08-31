@@ -38,6 +38,7 @@ extension RoleCardView {
             .bold()
             .foregroundColor(.black)
             .font(.system(size: height / 30))
+            .multilineTextAlignment(.center)
     }
     
     private var nameRect: some View {

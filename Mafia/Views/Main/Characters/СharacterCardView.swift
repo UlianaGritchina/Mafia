@@ -52,6 +52,7 @@ extension CharacterCardView {
             .foregroundColor(.white)
             .bold()
             .font(.system(size: height / 40))
+            .multilineTextAlignment(.center)
     }
     
     var characterCount: some View {
