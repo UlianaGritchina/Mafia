@@ -20,7 +20,9 @@ struct MainView: View {
             }
             
             .sheet(isPresented: $vm.isShowingSupportView) { SupportView() }
-            
+            .fullScreenCover(isPresented: $vm.isShowingFinalEggsView, content: {
+                FinalEasterEggView()
+            })
             .navigationBarItems(leading: navigationBarLeading,
                                 trailing: navigationBarTrailing)
             
@@ -74,7 +76,7 @@ extension MainView {
     private var navigationBarTrailing: some View {
         VStack {
             if vm.isShowingEgg {
-                //enterButton
+                enterButton
             } else {
                 playersCounter
             }
@@ -105,9 +107,7 @@ extension MainView {
     }
     
     private var enterButton: some View {
-        NavigationLink {
-            FinalEasterEggView()
-        } label: {
+        Button(action: {vm.showFinalEggsView()}) {
             Text("Войти")
                 .bold()
                 .foregroundColor(.white)
@@ -115,6 +115,7 @@ extension MainView {
                 .background(Color.black)
                 .cornerRadius(10)
         }
+        
     }
     
 }

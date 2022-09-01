@@ -27,59 +27,69 @@ class MainViewViewModel: ObservableObject {
     @Published var isFavoritesCharacters = false
     @Published var section: MainViewSection = .players
     @Published var isShowingEgg = false
+    @Published var selectedBaseCharacters: [Character] = []
+    @Published var selectedMoreCharacters: [Character] = []
+    @Published var eggsCount = 0
+    @Published var isShowingFinalEggsView = false
+    @Published var favoritesCharacters: [Character] = [] {
+        didSet { saveCharacters() }
+    }
     
     let favoriteKey = "favorite"
+    
     let transition: AnyTransition = .asymmetric(
         insertion: .move(edge: .trailing),
         removal: .move(edge: .leading)
     )
+    
     let transition2: AnyTransition = .asymmetric(
         insertion: .move(edge: .leading),
         removal: .move(edge: .trailing)
     )
     
-    var startBase: [Character] = GameDataManager.instance.startBaseCharacters
-    var startMore: [Character] = GameDataManager.instance.startMoreCharacters
-    
-    var restFavorite: [Character] = []
-    
-    @Published var baseCharacters: [Character] = []
-    @Published var moreCharacters: [Character] = []
-    
-    @Published var favoritesCharacters: [Character] = [] {
-        didSet { saveCharacters() }
-    }
-    
-    var roles: [String] = []
-    var results: [Player] = []
     let columns: [GridItem] = [
         GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
     ]
     
+    var startBase: [Character] = GameDataManager.instance.startBaseCharacters
+    var startMore: [Character] = GameDataManager.instance.startMoreCharacters
+    var roles: [String] = []
+    var results: [Player] = []
+    
     init() {
-        baseCharacters = startBase
-        moreCharacters = startMore
+        selectedBaseCharacters = startBase
+        selectedMoreCharacters = startMore
         getCharacters()
     }
     
     // MARK: PRIVATE FUNCTIONS
     
     private func getRoles() {
-        if game == .favorites {
-            for character in favoritesCharacters {
-                roles.append(
-                    contentsOf: repeatElement(character.name, count: character.count)
-                )
-            }
-        } else {
-            for character in game == .base ? baseCharacters : moreCharacters {
-                roles.append(
-                    contentsOf: repeatElement(character.name, count: character.count)
-                )
+        for character in getCharactersForGame() {
+            roles.append(
+                contentsOf: repeatElement(character.name, count: character.count)
+            )
+        }
+        roles.shuffle()
+    }
+    
+    private func getCharactersForGame() -> [Character] {
+        switch game {
+        case .base:
+            return selectedBaseCharacters
+        case .more:
+            return selectedMoreCharacters
+        case .favorites:
+            return favoritesCharacters
+        }
+    }
+    
+    private func getPlayersForGame() {
+        for player in players {
+            if !player.isEmpty {
+                playersForGame.append(player)
             }
         }
-        
-        roles.shuffle()
     }
     
     private func getResults() {
@@ -91,11 +101,18 @@ class MainViewViewModel: ObservableObject {
     
     // MARK: FUNCTIONS
     
-    func saveCharacters() {
-        if let encodedData = try? JSONEncoder().encode(favoritesCharacters) {
-            UserDefaults.standard.set(encodedData, forKey: favoriteKey)
+    func showFinalEggsView() {
+        if eggsCount == 3 {
+            isShowingFinalEggsView = true
+        } else {
+            HapticManager.instance.notification(type: .error)
         }
     }
+    
+    func isShowingNoFavoritesView() -> Bool {
+        game == .favorites && favoritesCharacters.isEmpty
+    }
+    
     
     func getCharacters() {
         guard
@@ -117,13 +134,15 @@ class MainViewViewModel: ObservableObject {
         }
     }
     
+    func saveCharacters() {
+        if let encodedData = try? JSONEncoder().encode(favoritesCharacters) {
+            UserDefaults.standard.set(encodedData, forKey: favoriteKey)
+        }
+    }
+    
     func refreshTotalCharacters() {
         var count = 0
-        for character in game == .base
-                ? baseCharacters
-                : game == .favorites
-                ? favoritesCharacters
-                : moreCharacters {
+        for character in getCharactersForGame() {
             count += character.count
         }
         totalCharacters = count
@@ -131,12 +150,7 @@ class MainViewViewModel: ObservableObject {
     
     func next() {
         playersForGame.removeAll()
-        for player in players {
-            if !player.isEmpty {
-                playersForGame.append(player)
-            }
-        }
-        
+        getPlayersForGame()
         if playersForGame.count > 0 {
             if players[0] == "Мафия" || players[0] == "Mafia" {
                 isShowingEgg.toggle()
@@ -149,9 +163,6 @@ class MainViewViewModel: ObservableObject {
         }
     }
     
-    func showAlert() {
-        isShowingAlert = true
-    }
     
     func start() {
         if canGameStart() {
@@ -163,13 +174,11 @@ class MainViewViewModel: ObservableObject {
         }
     }
     
-    func back() {
-        section = .players
-    }
+    func back() { section = .players }
     
-    func showSupportView() {
-        isShowingSupportView.toggle()
-    }
+    func showAlert() { isShowingAlert = true }
+    
+    func showSupportView() { isShowingSupportView.toggle() }
     
     /// Checks if the game can start
     ///
@@ -180,21 +189,6 @@ class MainViewViewModel: ObservableObject {
     /// ```
     func canGameStart() -> Bool {
         totalCharacters == playersForGame.count
-    }
-    
-    /// Rest characters
-    ///
-    /// This function rests baseCharacters and moreCharacters back to start
-    /// ```
-    /// restCharacters()
-    ///
-    /// ```
-    func restCharacters() {
-        baseCharacters = startBase
-        moreCharacters = startMore
-        favoritesCharacters = restFavorite
-        totalCharacters = 0
-        HapticManager.instance.impact(style: .light)
     }
     
 }

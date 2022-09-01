@@ -6,18 +6,19 @@ struct CharactersView: View {
         ZStack {
             VStack {
                 SubTitleView(text: "Персонажи")
+                
                 gamePicker.padding(.horizontal)
-                if vm.game == .favorites && vm.favoritesCharacters.isEmpty {
+                
+                if vm.isShowingNoFavoritesView() {
                     noFavoritesView
                 } else {
                     rolesList
                 }
+                
             }
             rolesTabBar
         }
-        .onChange(of: vm.game) { _ in
-            vm.refreshTotalCharacters()
-        }
+        .onChange(of: vm.game) { _ in vm.refreshTotalCharacters() }
     }
 }
 
@@ -48,41 +49,21 @@ extension CharactersView {
             LazyVGrid(columns: vm.columns) {
                 ForEach(
                     vm.game == .base
-                    ? $vm.baseCharacters
+                    ? $vm.selectedBaseCharacters
                     : vm.game == .favorites
                     ? $vm.favoritesCharacters
-                    : $vm.moreCharacters,
+                    : $vm.selectedMoreCharacters,
                     id: \.self)
                 { character in
-                    CharacterCardView(character: character,
-                                      totalCount: $vm.totalCharacters)
-                        .contextMenu { Button(action: {
-                            if vm.game != .favorites {
-                                vm.add(character.wrappedValue)
-                            } else {
-                                withAnimation {
-                                    vm.delete(character.wrappedValue)
-                                }
-                            }
-                        }) {
-                            Text(vm.game != .favorites
-                                 ? "Добавить в избранные"
-                                 : "Удалить из избранных")
-                        } }
+                    CharacterCardView(
+                        character: character,
+                        totalCount: $vm.totalCharacters
+                    )
                 }
                 .padding()
             }
         }
         .padding(.bottom, UIScreen.main.bounds.height / 18)
-    }
-    
-    private var contextButton: some View {
-        
-        Button(action: {}) {
-            Text(vm.game != .favorites
-                 ? "Добавить в избранные"
-                 : "Удалить из избранных")
-        }
     }
     
     private var rolesTabBar: some View {

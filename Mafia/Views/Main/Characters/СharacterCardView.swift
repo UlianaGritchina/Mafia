@@ -6,7 +6,11 @@ struct CharacterCardView: View {
     private let width = UIScreen.main.bounds.width
     private let height = UIScreen.main.bounds.height
     var body: some View {
-        characterView.onTapGesture { addCharacter() }
+        characterView
+            .onTapGesture { addCharacter() }
+            .contextMenu {
+                ContextMenuButton(character: character)
+            }
     }
 }
 
