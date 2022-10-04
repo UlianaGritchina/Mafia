@@ -4,8 +4,7 @@ struct SupportView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TinkoffButton().padding()
-                ReviewButton().padding()
+                ReviewButton()
             }
             .navigationTitle("Поддержка")
         }

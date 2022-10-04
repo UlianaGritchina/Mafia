@@ -138,7 +138,7 @@ struct SettingsView: View {
 
 // MARK: EGGS RAIN VIEW
 class EggsRainScene: SKScene {
-    var egg = SKSpriteNode(imageNamed: "egg\(Int.random(in: 1...5))")
+    var egg = SKSpriteNode(imageNamed: "egg\(Int.random(in: 1...9))")
     
     override func didMove(to view: SKView) {
         
@@ -157,7 +157,7 @@ class EggsRainScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
-        egg = SKSpriteNode(imageNamed: "egg\(Int.random(in: 1...5))")
+        egg = SKSpriteNode(imageNamed: "egg\(Int.random(in: 1...9))")
         egg.position = location
         egg.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 20, height: 40))
         egg.size = CGSize(width: 60, height: 40)
@@ -167,7 +167,7 @@ class EggsRainScene: SKScene {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            egg = SKSpriteNode(imageNamed: "egg\(Int.random(in: 1...5))")
+            egg = SKSpriteNode(imageNamed: "egg\(Int.random(in: 1...9))")
             egg.position = location
             egg.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 20, height: 40))
             egg.size = CGSize(width: 60, height: 40)

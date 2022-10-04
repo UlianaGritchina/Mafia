@@ -7,30 +7,33 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                switch vm.section {
-                case .players: playersSection.transition(vm.transition2)
-                case .characters: CharactersView().transition(vm.transition)
-                }
+                
+                playersSection.offset(x: vm.section == .players ? 0 : -width)
+                CharactersView().offset(x: vm.section == .characters ? 0 : width)
+                
             }
-            .animation(.spring(), value: vm.section)
             .navigationTitle(vm.isShowingEgg ? "" : "Мафия")
+            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarItems(leading: navigationBarLeading,
+                                trailing: navigationBarTrailing)
+            .preferredColorScheme(.dark)
+            .environmentObject(vm)
+            .animation(.spring(), value: vm.section)
+            .alert(isPresented: $vm.isShowingAlert) { getNoPlayersAlert() }
             
             .fullScreenCover(isPresented: $vm.isStartView) {
                 GameView(results: vm.results)
             }
             
             .sheet(isPresented: $vm.isShowingSupportView) { SupportView() }
+            
             .fullScreenCover(isPresented: $vm.isShowingFinalEggsView, content: {
                 FinalEasterEggView()
             })
-            .navigationBarItems(leading: navigationBarLeading,
-                                trailing: navigationBarTrailing)
-            
-            .alert(isPresented: $vm.isShowingAlert) { getNoPlayersAlert() }
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) { doneButtonForToolBar }
+            }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .preferredColorScheme(.dark)
-        .environmentObject(vm)
     }
     
 }
@@ -45,6 +48,11 @@ struct MainView_Previews: PreviewProvider {
 // MARK: COMPONENTS
 
 extension MainView {
+    
+    private var doneButtonForToolBar: some View {
+        Button("Готово") { UIApplication.shared.endEditing() }
+            .padding(.leading, width - 80)
+    }
     
     private var playersSection: some View {
         ZStack {

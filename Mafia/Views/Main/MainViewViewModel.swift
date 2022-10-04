@@ -174,7 +174,9 @@ class MainViewViewModel: ObservableObject {
         }
     }
     
-    func back() { section = .players }
+    func back() {
+        section = .players
+    }
     
     func showAlert() { isShowingAlert = true }
     
