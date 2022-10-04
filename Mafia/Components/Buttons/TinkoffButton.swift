@@ -7,7 +7,7 @@ struct TinkoffButton: View {
         Button(action: {}) {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .frame(width: width / 1.5, height: height / 20)
+                    .frame(width: width / 1.5, height: 50)
                     .foregroundColor(Color("tinkoff"))
                 
                 Link(destination: URL(string: "https://www.tinkoff.ru/cf/1yvFPYgx2ff")!) {
