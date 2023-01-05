@@ -5,7 +5,7 @@ struct BottomBarView: View {
         Rectangle()
             .frame(width: UIScreen.main.bounds.width,
                    height: UIScreen.main.bounds.height / 10)
-            .opacity(0)
+            .opacity(0.2)
             .background(.ultraThinMaterial)
             .cornerRadius(10)
     }

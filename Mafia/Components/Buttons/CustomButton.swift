@@ -35,7 +35,7 @@ struct CustomButton: View {
         Button(action: action) {
             Text(tile)
                 .foregroundColor(.white)
-                .bold()
+                .font(.system(size: 20, weight: .medium, design: .serif))
                 .frame(width: width,height: height)
                 .background(color.cornerRadius(10))
         }

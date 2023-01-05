@@ -3,9 +3,27 @@ import SwiftUI
 struct SubTitleView: View {
     let text: String
     var body: some View {
-        Text(text)
-            .bold()
-            .font(.system(size: UIScreen.main.bounds.height / 35))
+        ZStack {
+            Rectangle()
+                .opacity(0.2)
+                .background(.ultraThinMaterial)
+                .cornerRadius(10)
+                .ignoresSafeArea()
+            VStack {
+                HStack {
+                    Text("Мафия")
+                        .font(.system(size: 35, weight: .bold, design: .serif))
+                    Spacer()
+                }
+                Text(text)
+                    .font(.system(size: 23, weight: .medium, design: .serif))
+            }
+            .padding(.horizontal)
+        }
+        .frame(
+            width: UIScreen.main.bounds.width,
+            height: UIScreen.main.bounds.height / 10
+        )
     }
 }
 

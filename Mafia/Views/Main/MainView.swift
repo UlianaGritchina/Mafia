@@ -5,34 +5,26 @@ struct MainView: View {
     private let height = UIScreen.main.bounds.height
     private let width = UIScreen.main.bounds.width
     var body: some View {
-        NavigationView {
-            ZStack {
-                
-                playersSection.offset(x: vm.section == .players ? 0 : -width)
-                CharactersView().offset(x: vm.section == .characters ? 0 : width)
-                
-            }
-            .navigationTitle(vm.isShowingEgg ? "" : "Мафия")
-            .navigationViewStyle(StackNavigationViewStyle())
-            .navigationBarItems(leading: navigationBarLeading,
-                                trailing: navigationBarTrailing)
-            .preferredColorScheme(.dark)
-            .environmentObject(vm)
-            .animation(.spring(), value: vm.section)
-            .alert(isPresented: $vm.isShowingAlert) { getNoPlayersAlert() }
-            
-            .fullScreenCover(isPresented: $vm.isStartView) {
-                GameView(results: vm.results)
-            }
-            
-            .sheet(isPresented: $vm.isShowingSupportView) { SupportView() }
-            
-            .fullScreenCover(isPresented: $vm.isShowingFinalEggsView, content: {
-                FinalEasterEggView()
-            })
-            .toolbar {
-                ToolbarItemGroup(placement: .keyboard) { doneButtonForToolBar }
-            }
+        ZStack {
+            playersSection.offset(x: vm.section == .players ? 0 : -width)
+            CharactersView().offset(x: vm.section == .characters ? 0 : width)
+        }
+        .preferredColorScheme(.dark)
+        .environmentObject(vm)
+        .animation(.spring(), value: vm.section)
+        .alert(isPresented: $vm.isShowingAlert) { getNoPlayersAlert() }
+        
+        .fullScreenCover(isPresented: $vm.isStartView) {
+            GameView(results: vm.results)
+        }
+        
+        .sheet(isPresented: $vm.isShowingSupportView) { SupportView() }
+        
+        .fullScreenCover(isPresented: $vm.isShowingFinalEggsView, content: {
+            FinalEasterEggView()
+        })
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) { doneButtonForToolBar }
         }
     }
     

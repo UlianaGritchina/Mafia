@@ -20,6 +20,7 @@
 		0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */; };
 		0E1D933028C718F900F3EFB4 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D932F28C718F900F3EFB4 /* SwiftUIView.swift */; };
 		0E29AA2628AE76A200DEB7FD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E29AA2528AE76A200DEB7FD /* Launch Screen.storyboard */; };
+		0E2CA46D296719FB0028C87B /* PlayerNameTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2CA46C296719FB0028C87B /* PlayerNameTF.swift */; };
 		0E6BDFF328B50F48004A14FA /* UserDefoultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6BDFF228B50F48004A14FA /* UserDefoultsManager.swift */; };
 		0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */; };
 		0E7DCA9E28AA9DCA00398BAA /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7DCA9D28AA9DCA00398BAA /* PlayersView.swift */; };
@@ -55,6 +56,7 @@
 		0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0E1D932F28C718F900F3EFB4 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		0E29AA2528AE76A200DEB7FD /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0E2CA46C296719FB0028C87B /* PlayerNameTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNameTF.swift; sourceTree = "<group>"; };
 		0E6BDFF228B50F48004A14FA /* UserDefoultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefoultsManager.swift; sourceTree = "<group>"; };
 		0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRow.swift; sourceTree = "<group>"; };
 		0E7DCA9D28AA9DCA00398BAA /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				0EAE6D402891967100F53BF1 /* MainViewViewModel.swift */,
 				0E1B9ED9288BEBBA002BF51E /* MainView.swift */,
+				0E2CA46C296719FB0028C87B /* PlayerNameTF.swift */,
 				0E6D1CE828AD07D800CCD481 /* Characters */,
 				0E6D1CE928AD07ED00CCD481 /* Players */,
 			);
@@ -365,6 +368,7 @@
 				0E1D933028C718F900F3EFB4 /* SwiftUIView.swift in Sources */,
 				0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */,
 				0E18FD472899643100397BF4 /* Extension+UIApplication.swift in Sources */,
+				0E2CA46D296719FB0028C87B /* PlayerNameTF.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
 				0E18FD44289963E600397BF4 /* BottomBarView.swift in Sources */,
 				0EA8BCEA28B4BDAE00689002 /* GameDataManager.swift in Sources */,

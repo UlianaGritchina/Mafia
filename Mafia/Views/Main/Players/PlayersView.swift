@@ -4,10 +4,15 @@ struct PlayersView: View {
     @EnvironmentObject var vm: MainViewViewModel
     var body: some View {
         ZStack {
-            VStack {
-                SubTitleView(text: "Игроки")
-                playersList
-            }
+            Image("mrRobot2")
+                .resizable()
+                .ignoresSafeArea()
+                .blur(radius: 15)
+                .opacity(0.4)
+            playersList
+                .overlay (
+                    SubTitleView(text: "игроки"), alignment: .top
+                )
             playersTabBar
         }
     }
@@ -24,27 +29,32 @@ struct PlayersView_Previews: PreviewProvider {
 
 extension PlayersView {
     
-   private var playersList: some View {
-        List {
+    private var playersList: some View {
+        ScrollView(showsIndicators: false) {
+            Rectangle()
+                .frame(height: UIScreen.main.bounds.height / 10)
+                .opacity(0)
             ForEach(0..<30) { index in
-                TextField("Игрок \(index+1)", text: $vm.players[index])
-                    .font(.system(size: UIScreen.main.bounds.height / 40))
+                PlayerNameTF(playerName: $vm.players[index], index: index + 1)
+                    .padding(.bottom, 10)
             }
-            Text("").padding()
+            Rectangle()
+                .frame(height: UIScreen.main.bounds.height / 15)
+                .opacity(0)
         }
-        .listStyle(.inset)
+        .padding()
     }
     
-   private var playersTabBar: some View {
+    private var playersTabBar: some View {
         VStack {
             Spacer()
             BottomBarView()
                 .overlay(
                     CustomButton(title: "Продолжить",
-                                 color: .blue,
+                                 color: .blue.opacity(0.8),
                                  action: {vm.next()},
                                  width: UIScreen.main.bounds.width - 80)
-                        .padding(.bottom)
+                    .padding(.bottom)
                 )
         }
         .ignoresSafeArea()
