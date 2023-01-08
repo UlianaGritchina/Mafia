@@ -4,7 +4,7 @@ import SwiftUI
 struct MafiaApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            NewMainView()
         }
     }
 }

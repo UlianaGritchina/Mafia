@@ -21,6 +21,7 @@
 		0E1D933028C718F900F3EFB4 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D932F28C718F900F3EFB4 /* SwiftUIView.swift */; };
 		0E29AA2628AE76A200DEB7FD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E29AA2528AE76A200DEB7FD /* Launch Screen.storyboard */; };
 		0E2CA46D296719FB0028C87B /* PlayerNameTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2CA46C296719FB0028C87B /* PlayerNameTF.swift */; };
+		0E4A9BCF2968096B00E58F0F /* NewMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A9BCE2968096B00E58F0F /* NewMainView.swift */; };
 		0E6BDFF328B50F48004A14FA /* UserDefoultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6BDFF228B50F48004A14FA /* UserDefoultsManager.swift */; };
 		0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */; };
 		0E7DCA9E28AA9DCA00398BAA /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7DCA9D28AA9DCA00398BAA /* PlayersView.swift */; };
@@ -57,6 +58,10 @@
 		0E1D932F28C718F900F3EFB4 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		0E29AA2528AE76A200DEB7FD /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0E2CA46C296719FB0028C87B /* PlayerNameTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNameTF.swift; sourceTree = "<group>"; };
+		0E4A9BCE2968096B00E58F0F /* NewMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMainView.swift; sourceTree = "<group>"; };
+		0E4A9BD329680D7E00E58F0F /* mafia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mafia.ttf; sourceTree = "<group>"; };
+		0E4A9BD429680D9400E58F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0E4A9BD529680E7A00E58F0F /* Nasa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Nasa.ttf; sourceTree = "<group>"; };
 		0E6BDFF228B50F48004A14FA /* UserDefoultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefoultsManager.swift; sourceTree = "<group>"; };
 		0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRow.swift; sourceTree = "<group>"; };
 		0E7DCA9D28AA9DCA00398BAA /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
@@ -125,6 +130,9 @@
 		0E1B9ED6288BEBBA002BF51E /* Mafia */ = {
 			isa = PBXGroup;
 			children = (
+				0EB9CA11296AFC5A00612201 /* NewDesign */,
+				0E4A9BD429680D9400E58F0F /* Info.plist */,
+				0E4A9BD229680D6D00E58F0F /* Fonts */,
 				0E1B9EED288BF402002BF51E /* More */,
 				0E18FD452899641000397BF4 /* Extensions */,
 				0E18FD48289968AD00397BF4 /* Models */,
@@ -160,7 +168,6 @@
 			children = (
 				0EAE6D402891967100F53BF1 /* MainViewViewModel.swift */,
 				0E1B9ED9288BEBBA002BF51E /* MainView.swift */,
-				0E2CA46C296719FB0028C87B /* PlayerNameTF.swift */,
 				0E6D1CE828AD07D800CCD481 /* Characters */,
 				0E6D1CE928AD07ED00CCD481 /* Players */,
 			);
@@ -196,6 +203,15 @@
 				0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		0E4A9BD229680D6D00E58F0F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0E4A9BD529680E7A00E58F0F /* Nasa.ttf */,
+				0E4A9BD329680D7E00E58F0F /* mafia.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		0E6D1CE828AD07D800CCD481 /* Characters */ = {
@@ -251,6 +267,15 @@
 				0E6BDFF228B50F48004A14FA /* UserDefoultsManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		0EB9CA11296AFC5A00612201 /* NewDesign */ = {
+			isa = PBXGroup;
+			children = (
+				0E2CA46C296719FB0028C87B /* PlayerNameTF.swift */,
+				0E4A9BCE2968096B00E58F0F /* NewMainView.swift */,
+			);
+			path = NewDesign;
 			sourceTree = "<group>";
 		};
 		0EBAFABD28B2038000642C37 /* EasterEgg */ = {
@@ -359,6 +384,7 @@
 				0EB9FED528BF7C5E00733BA9 /* ContextMenuButton.swift in Sources */,
 				0EBAFABC28B2037C00642C37 /* EasterEggView.swift in Sources */,
 				0E7DCAA928AAA74400398BAA /* ReviewButton.swift in Sources */,
+				0E4A9BCF2968096B00E58F0F /* NewMainView.swift in Sources */,
 				0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */,
 				0E1B9EDA288BEBBA002BF51E /* MainView.swift in Sources */,
 				0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */,
@@ -505,6 +531,7 @@
 				DEVELOPMENT_TEAM = 86SKTK882J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mafia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -539,6 +566,7 @@
 				DEVELOPMENT_TEAM = 86SKTK882J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mafia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

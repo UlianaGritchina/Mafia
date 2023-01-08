@@ -70,7 +70,7 @@ extension CharacterCardView {
         RoundedRectangle(cornerRadius: 20)
             .frame(width: width / 2.4,
                    height: height / 5)
-            .foregroundColor(.black)
+            .foregroundColor(.black.opacity(0.9))
             .shadow(
                 color: character.count != 0
                 ? .red.opacity(0.8)
