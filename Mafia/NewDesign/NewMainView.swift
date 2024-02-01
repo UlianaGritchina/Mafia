@@ -14,6 +14,7 @@ class NewMainViewModel: ObservableObject {
 struct NewMainView: View {
     @StateObject var vm: NewMainViewModel = NewMainViewModel()
     @State private var players = Array(repeating: "", count: 30)
+    @State private var isShowCharacter = false
     private let width = UIScreen.main.bounds.width
     private let height = UIScreen.main.bounds.height
     var body: some View {
@@ -27,6 +28,12 @@ struct NewMainView: View {
                 }
                 
                 VStack(spacing: 0) {
+                    Button(action: {
+                        isShowCharacter = true
+                    }, label: {
+                        Image(systemName: "person")
+                    })
+
                     Text("Игроки")
                         .font(.system(size: 20, weight: .medium, design: .serif))
                     ScrollView(showsIndicators: false) {
@@ -55,6 +62,9 @@ struct NewMainView: View {
         }
         .ignoresSafeArea()
        // .preferredColorScheme(.dark)
+        .sheet(isPresented: $isShowCharacter, content: {
+            CharactersList()
+        })
         
     }
 }

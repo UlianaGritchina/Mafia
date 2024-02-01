@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Agent.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
