@@ -20,8 +20,6 @@
 		0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */; };
 		0E1D933028C718F900F3EFB4 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D932F28C718F900F3EFB4 /* SwiftUIView.swift */; };
 		0E29AA2628AE76A200DEB7FD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E29AA2528AE76A200DEB7FD /* Launch Screen.storyboard */; };
-		0E2CA46D296719FB0028C87B /* PlayerNameTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2CA46C296719FB0028C87B /* PlayerNameTF.swift */; };
-		0E4A9BCF2968096B00E58F0F /* NewMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4A9BCE2968096B00E58F0F /* NewMainView.swift */; };
 		0E6BDFF328B50F48004A14FA /* UserDefoultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6BDFF228B50F48004A14FA /* UserDefoultsManager.swift */; };
 		0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71BC4728A8FD6C00A60AA5 /* RoleRow.swift */; };
 		0E7DCA9E28AA9DCA00398BAA /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7DCA9D28AA9DCA00398BAA /* PlayersView.swift */; };
@@ -40,6 +38,11 @@
 		0EBAFABF28B20AD100642C37 /* EggsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBAFABE28B20AD100642C37 /* EggsView.swift */; };
 		0EBB3D8B288D2C3B00057E5A /* RoleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */; };
 		0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB3D8D288D303600057E5A /* RolesListView.swift */; };
+		CE939AFC2B6CC9C9000BC42D /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939AFB2B6CC9C9000BC42D /* StartView.swift */; };
+		CE939AFF2B6CD34A000BC42D /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939AFE2B6CD34A000BC42D /* StartViewModel.swift */; };
+		CE939B032B6CD374000BC42D /* ChinchillaCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B022B6CD374000BC42D /* ChinchillaCharacter.swift */; };
+		CE939B062B6CD6B9000BC42D /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B052B6CD6B9000BC42D /* CharactersListViewModel.swift */; };
+		CE939B092B6CD999000BC42D /* CharacterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B082B6CD999000BC42D /* CharacterCard.swift */; };
 		CEB308F52B6B9FB4002BF07A /* CharactersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB308F42B6B9FB4002BF07A /* CharactersList.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +61,6 @@
 		0E1B9EE7288BF2D9002BF51E /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0E1D932F28C718F900F3EFB4 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		0E29AA2528AE76A200DEB7FD /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		0E2CA46C296719FB0028C87B /* PlayerNameTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNameTF.swift; sourceTree = "<group>"; };
-		0E4A9BCE2968096B00E58F0F /* NewMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMainView.swift; sourceTree = "<group>"; };
 		0E4A9BD329680D7E00E58F0F /* mafia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mafia.ttf; sourceTree = "<group>"; };
 		0E4A9BD429680D9400E58F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0E4A9BD529680E7A00E58F0F /* Nasa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Nasa.ttf; sourceTree = "<group>"; };
@@ -81,6 +82,11 @@
 		0EBAFABE28B20AD100642C37 /* EggsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EggsView.swift; sourceTree = "<group>"; };
 		0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleCardView.swift; sourceTree = "<group>"; };
 		0EBB3D8D288D303600057E5A /* RolesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesListView.swift; sourceTree = "<group>"; };
+		CE939AFB2B6CC9C9000BC42D /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		CE939AFE2B6CD34A000BC42D /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		CE939B022B6CD374000BC42D /* ChinchillaCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChinchillaCharacter.swift; sourceTree = "<group>"; };
+		CE939B052B6CD6B9000BC42D /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
+		CE939B082B6CD999000BC42D /* CharacterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCard.swift; sourceTree = "<group>"; };
 		CEB308F42B6B9FB4002BF07A /* CharactersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				CE6B9A5B2B6BBC26000CAEFF /* BrandNewMafia */,
-				0EB9CA11296AFC5A00612201 /* NewDesign */,
 				0E4A9BD429680D9400E58F0F /* Info.plist */,
 				0E4A9BD229680D6D00E58F0F /* Fonts */,
 				0E1B9EED288BF402002BF51E /* More */,
@@ -272,15 +277,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		0EB9CA11296AFC5A00612201 /* NewDesign */ = {
-			isa = PBXGroup;
-			children = (
-				0E2CA46C296719FB0028C87B /* PlayerNameTF.swift */,
-				0E4A9BCE2968096B00E58F0F /* NewMainView.swift */,
-			);
-			path = NewDesign;
-			sourceTree = "<group>";
-		};
 		0EBAFABD28B2038000642C37 /* EasterEgg */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,9 +299,54 @@
 		CE6B9A5B2B6BBC26000CAEFF /* BrandNewMafia */ = {
 			isa = PBXGroup;
 			children = (
-				CEB308F42B6B9FB4002BF07A /* CharactersList.swift */,
+				CE939B002B6CD358000BC42D /* Models */,
+				CE939B0A2B6CDA04000BC42D /* Core */,
+				CE939B072B6CD97F000BC42D /* UIComponents */,
 			);
 			path = BrandNewMafia;
+			sourceTree = "<group>";
+		};
+		CE939AFD2B6CD338000BC42D /* StartView */ = {
+			isa = PBXGroup;
+			children = (
+				CE939AFE2B6CD34A000BC42D /* StartViewModel.swift */,
+				CE939AFB2B6CC9C9000BC42D /* StartView.swift */,
+			);
+			path = StartView;
+			sourceTree = "<group>";
+		};
+		CE939B002B6CD358000BC42D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE939B022B6CD374000BC42D /* ChinchillaCharacter.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE939B042B6CD6A3000BC42D /* CharactersList */ = {
+			isa = PBXGroup;
+			children = (
+				CE939B052B6CD6B9000BC42D /* CharactersListViewModel.swift */,
+				CEB308F42B6B9FB4002BF07A /* CharactersList.swift */,
+			);
+			path = CharactersList;
+			sourceTree = "<group>";
+		};
+		CE939B072B6CD97F000BC42D /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				CE939B082B6CD999000BC42D /* CharacterCard.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		CE939B0A2B6CDA04000BC42D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CE939AFD2B6CD338000BC42D /* StartView */,
+				CE939B042B6CD6A3000BC42D /* CharactersList */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE939B062B6CD6B9000BC42D /* CharactersListViewModel.swift in Sources */,
 				0E18FD4A289968D400397BF4 /* Character.swift in Sources */,
 				0E8DC525288C53A6007191A9 /* CharacterCountButtonView.swift in Sources */,
 				0E7DCAA728AAA68400398BAA /* TinkoffButton.swift in Sources */,
@@ -389,15 +431,18 @@
 				0E9C86CD28B8C4DD002E9D11 /* FinalEasterEggView.swift in Sources */,
 				CEB308F52B6B9FB4002BF07A /* CharactersList.swift in Sources */,
 				0EBAFABF28B20AD100642C37 /* EggsView.swift in Sources */,
+				CE939AFF2B6CD34A000BC42D /* StartViewModel.swift in Sources */,
 				0E6BDFF328B50F48004A14FA /* UserDefoultsManager.swift in Sources */,
 				0E1B9EE8288BF2D9002BF51E /* CustomButton.swift in Sources */,
 				0E18FD4C2899692600397BF4 /* Player.swift in Sources */,
 				0EAE6D412891967100F53BF1 /* MainViewViewModel.swift in Sources */,
 				0EB9FED528BF7C5E00733BA9 /* ContextMenuButton.swift in Sources */,
+				CE939B032B6CD374000BC42D /* ChinchillaCharacter.swift in Sources */,
 				0EBAFABC28B2037C00642C37 /* EasterEggView.swift in Sources */,
 				0E7DCAA928AAA74400398BAA /* ReviewButton.swift in Sources */,
-				0E4A9BCF2968096B00E58F0F /* NewMainView.swift in Sources */,
 				0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */,
+				CE939B092B6CD999000BC42D /* CharacterCard.swift in Sources */,
+				CE939AFC2B6CC9C9000BC42D /* StartView.swift in Sources */,
 				0E1B9EDA288BEBBA002BF51E /* MainView.swift in Sources */,
 				0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */,
 				0E7DCAA528AAA4D700398BAA /* SupportView.swift in Sources */,
@@ -406,7 +451,6 @@
 				0E1D933028C718F900F3EFB4 /* SwiftUIView.swift in Sources */,
 				0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */,
 				0E18FD472899643100397BF4 /* Extension+UIApplication.swift in Sources */,
-				0E2CA46D296719FB0028C87B /* PlayerNameTF.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
 				0E18FD44289963E600397BF4 /* BottomBarView.swift in Sources */,
 				0EA8BCEA28B4BDAE00689002 /* GameDataManager.swift in Sources */,

@@ -35,8 +35,7 @@ extension PlayersView {
                 .frame(height: UIScreen.main.bounds.height / 10)
                 .opacity(0)
             ForEach(0..<30) { index in
-                PlayerNameTF(playerName: $vm.players[index], index: index + 1)
-                    .padding(.bottom, 10)
+               
             }
             Rectangle()
                 .frame(height: UIScreen.main.bounds.height / 15)
