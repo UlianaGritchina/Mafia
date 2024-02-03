@@ -38,6 +38,8 @@
 		0EBAFABF28B20AD100642C37 /* EggsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBAFABE28B20AD100642C37 /* EggsView.swift */; };
 		0EBB3D8B288D2C3B00057E5A /* RoleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */; };
 		0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB3D8D288D303600057E5A /* RolesListView.swift */; };
+		CE29931D2B6E2B2F009A9D75 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */; };
+		CE2993202B6E2DDB009A9D75 /* CharactersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */; };
 		CE939AFC2B6CC9C9000BC42D /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939AFB2B6CC9C9000BC42D /* StartView.swift */; };
 		CE939AFF2B6CD34A000BC42D /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939AFE2B6CD34A000BC42D /* StartViewModel.swift */; };
 		CE939B032B6CD374000BC42D /* ChinchillaCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B022B6CD374000BC42D /* ChinchillaCharacter.swift */; };
@@ -82,6 +84,8 @@
 		0EBAFABE28B20AD100642C37 /* EggsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EggsView.swift; sourceTree = "<group>"; };
 		0EBB3D8A288D2C3B00057E5A /* RoleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleCardView.swift; sourceTree = "<group>"; };
 		0EBB3D8D288D303600057E5A /* RolesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesListView.swift; sourceTree = "<group>"; };
+		CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
+		CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersManager.swift; sourceTree = "<group>"; };
 		CE939AFB2B6CC9C9000BC42D /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		CE939AFE2B6CD34A000BC42D /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		CE939B022B6CD374000BC42D /* ChinchillaCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChinchillaCharacter.swift; sourceTree = "<group>"; };
@@ -296,12 +300,28 @@
 			name = RolesList;
 			sourceTree = "<group>";
 		};
+		CE29931B2B6E2B20009A9D75 /* ButtonStyles */ = {
+			isa = PBXGroup;
+			children = (
+				CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */,
+			);
+			path = ButtonStyles;
+			sourceTree = "<group>";
+		};
+		CE29931E2B6E2DD1009A9D75 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		CE6B9A5B2B6BBC26000CAEFF /* BrandNewMafia */ = {
 			isa = PBXGroup;
 			children = (
 				CE939B002B6CD358000BC42D /* Models */,
 				CE939B0A2B6CDA04000BC42D /* Core */,
-				CE939B072B6CD97F000BC42D /* UIComponents */,
+				CE939B072B6CD97F000BC42D /* UI */,
 			);
 			path = BrandNewMafia;
 			sourceTree = "<group>";
@@ -332,17 +352,19 @@
 			path = CharactersList;
 			sourceTree = "<group>";
 		};
-		CE939B072B6CD97F000BC42D /* UIComponents */ = {
+		CE939B072B6CD97F000BC42D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CE29931B2B6E2B20009A9D75 /* ButtonStyles */,
 				CE939B082B6CD999000BC42D /* CharacterCard.swift */,
 			);
-			path = UIComponents;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		CE939B0A2B6CDA04000BC42D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				CE29931E2B6E2DD1009A9D75 /* Managers */,
 				CE939AFD2B6CD338000BC42D /* StartView */,
 				CE939B042B6CD6A3000BC42D /* CharactersList */,
 			);
@@ -430,6 +452,7 @@
 				0E7DCAA028AA9F2600398BAA /* CharactersView.swift in Sources */,
 				0E9C86CD28B8C4DD002E9D11 /* FinalEasterEggView.swift in Sources */,
 				CEB308F52B6B9FB4002BF07A /* CharactersList.swift in Sources */,
+				CE2993202B6E2DDB009A9D75 /* CharactersManager.swift in Sources */,
 				0EBAFABF28B20AD100642C37 /* EggsView.swift in Sources */,
 				CE939AFF2B6CD34A000BC42D /* StartViewModel.swift in Sources */,
 				0E6BDFF328B50F48004A14FA /* UserDefoultsManager.swift in Sources */,
@@ -451,6 +474,7 @@
 				0E1D933028C718F900F3EFB4 /* SwiftUIView.swift in Sources */,
 				0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */,
 				0E18FD472899643100397BF4 /* Extension+UIApplication.swift in Sources */,
+				CE29931D2B6E2B2F009A9D75 /* ScaleButtonStyle.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
 				0E18FD44289963E600397BF4 /* BottomBarView.swift in Sources */,
 				0EA8BCEA28B4BDAE00689002 /* GameDataManager.swift in Sources */,

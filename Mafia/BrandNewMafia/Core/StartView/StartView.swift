@@ -10,20 +10,20 @@ import SwiftUI
 struct StartView: View {
     @StateObject private var viewModel = ViewModel()
     var body: some View {
-        NavigationView {
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 50) {
-                    charactersSection
-                    playButton
-                }
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 20) {
+                title
+                charactersSection
+                playButton
+                    .padding(.top, 30)
             }
-            .navigationTitle("Mafia")
-            .background(backgroundImage)
-            .padding(.horizontal)
-            .preferredColorScheme(.dark)
-            .sheet(isPresented: $viewModel.isShowCharactersView) {
-                CharactersList()
-            }
+            .padding(.top, UIScreen.main.bounds.height / 20)
+        }
+        .background(backgroundImage)
+        .padding(.horizontal)
+        .preferredColorScheme(.dark)
+        .sheet(isPresented: $viewModel.isShowCharactersView) {
+            CharactersList()
         }
     }
 }
@@ -34,6 +34,12 @@ struct StartView: View {
 
 extension StartView {
     
+    private var title: some View {
+        Text("MAFIA")
+            .font(.system(size: 30, weight: .bold, design: .serif))
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
     private var backgroundImage: some View {
         Image("nightMoonCity")
             .resizable()
@@ -43,9 +49,10 @@ extension StartView {
                 width: UIScreen.main.bounds.width,
                 height: UIScreen.main.bounds.height
             )
+            .blur(radius: 2)
             .overlay {
                 LinearGradient(
-                    colors: [.black.opacity(0.9), .black.opacity(0.5)],
+                    colors: [.black.opacity(0.9), .black.opacity(0.7)],
                     startPoint: .bottom,
                     endPoint: .top
                 )
@@ -54,11 +61,16 @@ extension StartView {
     }
     
     private var charactersSection: some View {
-        VStack(spacing: 15) {
-            charactersPreview
-            seeCharactersButton
+        Button(action: { viewModel.showCharacters() }) {
+            VStack(spacing: 15) {
+                charactersPreview
+                Text("See characters")
+                    .foregroundStyle(.white)
+                    .font(.system(size: 20, weight: .bold, design: .serif))
+            }
+            .frame(maxWidth: .infinity)
         }
-        .padding(.top, 20)
+        .buttonStyle(ScaleButtonStyle())
     }
     
     private var playButton: some View {
@@ -66,51 +78,28 @@ extension StartView {
             Text("Play")
                 .foregroundStyle(.white)
                 .font(.system(size: 26, weight: .bold, design: .serif))
-                .padding(.horizontal, 40)
-                .frame(height: 55)
-                .background(.ultraThinMaterial)
-                .cornerRadius(10)
-                .padding(.horizontal)
         })
-        .padding(.top)
     }
     
     private var charactersPreview: some View {
         ZStack {
             CharacterCard(
-                imageName: "Doctor",
+                imageName: viewModel.characters[0].imageName,
                 size: UIScreen.main.bounds.width / 2.8,
                 offset: -100,
                 isShowGradient: true
             )
             
             CharacterCard(
-                imageName: "Sheriff",
+                imageName: viewModel.characters[1].imageName,
                 size: UIScreen.main.bounds.width / 2.8,
                 offset: 100,
                 isShowGradient: true
             )
             CharacterCard(
-                imageName: "Mafia",
+                imageName: viewModel.characters[2].imageName,
                 size: UIScreen.main.bounds.width / 2.5
             )
-        }
-    }
-    
-    private var seeCharactersButton: some View {
-        Button(action: { viewModel.showCharacters() }) {
-            Text("See characters")
-                .foregroundStyle(.white)
-                .font(.system(size: 20, weight: .bold, design: .serif))
-                .frame(maxWidth: 700)
-                .frame(height: 45)
-                .background(.ultraThinMaterial)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke()
-                }
-                .cornerRadius(10)
-                .padding(.horizontal)
         }
     }
     
@@ -144,9 +133,7 @@ extension StartView {
                 .offset(x: offset)
         }
     }
-    
 }
-
 
 struct SpecialNavBar: ViewModifier {
     init() {

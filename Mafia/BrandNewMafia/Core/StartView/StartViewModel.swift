@@ -9,7 +9,16 @@ import Foundation
 
 extension StartView {
     @MainActor final class ViewModel: ObservableObject {
+        
+        //MARK: - Consents
+        
+        let characters = CharactersManager.shared.allCharacters.shuffled()
+        
+        //MARK: - Published
+        
         @Published var isShowCharactersView = false
+        
+        //MARK: - Public Methods
         
         func showCharacters() {
             isShowCharactersView = true
