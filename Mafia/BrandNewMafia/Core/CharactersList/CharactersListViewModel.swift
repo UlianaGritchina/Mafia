@@ -17,12 +17,24 @@ extension CharactersList {
     @MainActor final class ViewModel: ObservableObject {
         
         @Published var selectedCharactersType: CharactersType = .all
-        @Published var favouriteCharacters: [ChinchillaCharacter] = []
         @Published var isShowCharacterDetail = false
         @Published var selectedCharacter: ChinchillaCharacter?
+        @Published var favouriteCharacters: [ChinchillaCharacter] = []
         
-        let classicCharacters = CharactersManager.shared.classicCharacters
-        let moreCharacters = CharactersManager.shared.moreCharacters
+        private let allCharacters = CharactersManager.allCharacters
+        let classicCharacters = CharactersManager.classicCharacters
+        let moreCharacters = CharactersManager.moreCharacters
+        
+        init() {
+            updateFavoriteCharacters()
+        }
+        
+        func updateFavoriteCharacters() {
+            let characterNames = UserDefaultsManager.shared.getFavoriteCharacterNames()
+            favouriteCharacters = characterNames.compactMap({ name in
+                allCharacters.first(where: { $0.name == name })
+            })
+        }
         
         func showCharacterDetail(_ character: ChinchillaCharacter) {
             selectedCharacter = character
@@ -32,6 +44,7 @@ extension CharactersList {
         func closeCharacterDetail() {
             selectedCharacter = nil
             isShowCharacterDetail = false
+            updateFavoriteCharacters()
         }
     }
     

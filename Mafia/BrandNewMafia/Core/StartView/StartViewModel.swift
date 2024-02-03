@@ -12,7 +12,7 @@ extension StartView {
         
         //MARK: - Consents
         
-        let characters = CharactersManager.shared.allCharacters.shuffled()
+        let characters = CharactersManager.allCharacters.shuffled()
         
         //MARK: - Published
         

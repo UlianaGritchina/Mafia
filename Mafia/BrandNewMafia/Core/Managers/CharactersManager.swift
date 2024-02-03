@@ -1,5 +1,5 @@
 //
-//  CharactesManager.swift
+//  CharactersManager.swift
 //  Mafia
 //
 //  Created by Uliana Gritchina on 03.02.2024.
@@ -8,9 +8,7 @@
 import Foundation
 
 final class CharactersManager {
-    static let shared = CharactersManager()
-    
-    let classicCharacters: [ChinchillaCharacter] = [
+    static let classicCharacters: [ChinchillaCharacter] = [
         ChinchillaCharacter(name: "Mafia", imageName: "Mafia", isLock: false),
         ChinchillaCharacter(name: "Sheriff", imageName: "Sheriff", isLock: false),
         ChinchillaCharacter(name: "Doctor", imageName: "Doctor", isLock: false),
@@ -20,7 +18,7 @@ final class CharactersManager {
         ChinchillaCharacter(name: "Game Host", imageName: "GameHost", isLock: false)
     ]
     
-    let moreCharacters: [ChinchillaCharacter] = [
+    static let moreCharacters: [ChinchillaCharacter] = [
         ChinchillaCharacter(name: "Don", imageName: "Don", isLock: false),
         ChinchillaCharacter(name: "Detective", imageName: "Detective", isLock: false),
         ChinchillaCharacter(name: "Werewolf", imageName: "Werewolf", isLock: false),
@@ -34,7 +32,7 @@ final class CharactersManager {
         ChinchillaCharacter(name: "Yakuza", imageName: "Yakuza", isLock: false)
     ]
     
-    var allCharacters: [ChinchillaCharacter] {
+    static  var allCharacters: [ChinchillaCharacter] {
         classicCharacters + moreCharacters
     }
 }

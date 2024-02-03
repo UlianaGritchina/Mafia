@@ -29,62 +29,7 @@ struct CharactersList: View {
         .overlay {
             VStack {
                 if let character = viewModel.selectedCharacter {
-                    ZStack {
-                        Rectangle()
-                            .opacity(0)
-                            .background(.ultraThinMaterial)
-                            .ignoresSafeArea()
-                        VStack {
-                            Button(action: {
-                                viewModel.closeCharacterDetail()
-                            }) {
-                                Image(systemName: "xmark")
-                                    .padding(10)
-                                    .background(.ultraThinMaterial)
-                                    .clipShape(.circle)
-                                    .shadow(radius: 10)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                            CharacterCard(character: character, cardSize: .detail)
-                            Text("")
-                            Spacer()
-                            
-                            HStack() {
-                                Spacer()
-                                Button(action: {
-                                    
-                                }) {
-                                    Image(systemName: "star")
-                                        .font(.title3)
-                                        .frame(width: 25, height: 25)
-                                        .padding()
-                                        .background(.ultraThinMaterial)
-                                        .clipShape(.circle)
-                                        .shadow(radius: 10)
-                                }
-                                Spacer()
-                                
-                               
-                                if character.isLock {
-                                    Button(action: { viewModel.closeCharacterDetail() }) {
-                                        HStack {
-                                            Image(systemName: "lock.open")
-                                            Text("Watch Ad")
-                                        }
-                                        .padding(.vertical)
-                                        .padding(.horizontal)
-                                        .background(.ultraThinMaterial)
-                                        .cornerRadius(10)
-                                        .shadow(radius: 10)
-                                    }
-                                    Spacer()
-                                }
-                            }
-                            
-                        }
-                        .padding()
-                    }
-                    .onTapGesture {
+                    CharacterDetailView(character: character) { 
                         viewModel.closeCharacterDetail()
                     }
                 }
@@ -112,6 +57,7 @@ extension CharactersList {
                     Button(action: { viewModel.showCharacterDetail(character) }) {
                         CharacterCard(character: character)
                     }
+                    .buttonStyle(ScaleButtonStyle())
                 }
                 .padding()
             }
@@ -123,6 +69,7 @@ extension CharactersList {
                     Button(action: { viewModel.showCharacterDetail(character) }) {
                         CharacterCard(character: character)
                     }
+                    .buttonStyle(ScaleButtonStyle())
                 }
                 .padding()
             }

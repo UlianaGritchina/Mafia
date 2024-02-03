@@ -40,6 +40,9 @@
 		0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB3D8D288D303600057E5A /* RolesListView.swift */; };
 		CE29931D2B6E2B2F009A9D75 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */; };
 		CE2993202B6E2DDB009A9D75 /* CharactersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */; };
+		CE2993222B6E300E009A9D75 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2993212B6E300E009A9D75 /* UserDefaultsManager.swift */; };
+		CE2993242B6E3176009A9D75 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2993232B6E3176009A9D75 /* CharacterDetailView.swift */; };
+		CE2993262B6E3BEF009A9D75 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2993252B6E3BEF009A9D75 /* CharacterDetailViewModel.swift */; };
 		CE939AFC2B6CC9C9000BC42D /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939AFB2B6CC9C9000BC42D /* StartView.swift */; };
 		CE939AFF2B6CD34A000BC42D /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939AFE2B6CD34A000BC42D /* StartViewModel.swift */; };
 		CE939B032B6CD374000BC42D /* ChinchillaCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B022B6CD374000BC42D /* ChinchillaCharacter.swift */; };
@@ -86,6 +89,9 @@
 		0EBB3D8D288D303600057E5A /* RolesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesListView.swift; sourceTree = "<group>"; };
 		CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
 		CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersManager.swift; sourceTree = "<group>"; };
+		CE2993212B6E300E009A9D75 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		CE2993232B6E3176009A9D75 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
+		CE2993252B6E3BEF009A9D75 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		CE939AFB2B6CC9C9000BC42D /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		CE939AFE2B6CD34A000BC42D /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		CE939B022B6CD374000BC42D /* ChinchillaCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChinchillaCharacter.swift; sourceTree = "<group>"; };
@@ -312,8 +318,18 @@
 			isa = PBXGroup;
 			children = (
 				CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */,
+				CE2993212B6E300E009A9D75 /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		CE2993272B6E3C42009A9D75 /* CharacterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CE2993252B6E3BEF009A9D75 /* CharacterDetailViewModel.swift */,
+				CE2993232B6E3176009A9D75 /* CharacterDetailView.swift */,
+			);
+			path = CharacterDetail;
 			sourceTree = "<group>";
 		};
 		CE6B9A5B2B6BBC26000CAEFF /* BrandNewMafia */ = {
@@ -348,6 +364,7 @@
 			children = (
 				CE939B052B6CD6B9000BC42D /* CharactersListViewModel.swift */,
 				CEB308F42B6B9FB4002BF07A /* CharactersList.swift */,
+				CE2993272B6E3C42009A9D75 /* CharacterDetail */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -445,6 +462,7 @@
 				CE939B062B6CD6B9000BC42D /* CharactersListViewModel.swift in Sources */,
 				0E18FD4A289968D400397BF4 /* Character.swift in Sources */,
 				0E8DC525288C53A6007191A9 /* CharacterCountButtonView.swift in Sources */,
+				CE2993242B6E3176009A9D75 /* CharacterDetailView.swift in Sources */,
 				0E7DCAA728AAA68400398BAA /* TinkoffButton.swift in Sources */,
 				0E959EBF289A3C1E000AC209 /* HapticManager.swift in Sources */,
 				0E18FD422899637A00397BF4 /* SubTitleView.swift in Sources */,
@@ -465,6 +483,7 @@
 				0E7DCAA928AAA74400398BAA /* ReviewButton.swift in Sources */,
 				0EBB3D8E288D303600057E5A /* RolesListView.swift in Sources */,
 				CE939B092B6CD999000BC42D /* CharacterCard.swift in Sources */,
+				CE2993262B6E3BEF009A9D75 /* CharacterDetailViewModel.swift in Sources */,
 				CE939AFC2B6CC9C9000BC42D /* StartView.swift in Sources */,
 				0E1B9EDA288BEBBA002BF51E /* MainView.swift in Sources */,
 				0E1B9EE6288BF1E5002BF51E /* GameView.swift in Sources */,
@@ -473,6 +492,7 @@
 				0E8DC523288C2EE6007191A9 /* СharacterCardView.swift in Sources */,
 				0E1D933028C718F900F3EFB4 /* SwiftUIView.swift in Sources */,
 				0E71BC4828A8FD6C00A60AA5 /* RoleRow.swift in Sources */,
+				CE2993222B6E300E009A9D75 /* UserDefaultsManager.swift in Sources */,
 				0E18FD472899643100397BF4 /* Extension+UIApplication.swift in Sources */,
 				CE29931D2B6E2B2F009A9D75 /* ScaleButtonStyle.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
