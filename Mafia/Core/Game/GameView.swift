@@ -38,6 +38,9 @@ struct GameView: View {
             }
             .navigationTitle(viewModel.navigationTitle)
             .navigationBarItems(trailing: closeButton)
+            .sheet(isPresented: $viewModel.isShowRoles, content: {
+                PlayerRoleView()
+            })
         }
         .preferredColorScheme(.dark)
     }

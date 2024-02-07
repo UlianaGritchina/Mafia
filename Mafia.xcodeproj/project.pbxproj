@@ -200,9 +200,9 @@
 		CE939B0A2B6CDA04000BC42D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				CE939AFD2B6CD338000BC42D /* Start */,
 				CE46ADF32B6E813200830856 /* Game */,
 				CE29931E2B6E2DD1009A9D75 /* Managers */,
-				CE939AFD2B6CD338000BC42D /* Start */,
 				CE939B042B6CD6A3000BC42D /* CharactersList */,
 			);
 			path = Core;
