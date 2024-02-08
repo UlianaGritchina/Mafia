@@ -11,7 +11,7 @@
 		0E1B9EDC288BEBBC002BF51E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */; };
 		0E1B9EDF288BEBBC002BF51E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B9EDE288BEBBC002BF51E /* Preview Assets.xcassets */; };
 		0E29AA2628AE76A200DEB7FD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E29AA2528AE76A200DEB7FD /* Launch Screen.storyboard */; };
-		0E8380F12B7286720040944D /* PlayerRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8380F02B7286720040944D /* PlayerRoleView.swift */; };
+		0E8380F12B7286720040944D /* PlayerRoleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8380F02B7286720040944D /* PlayerRoleCard.swift */; };
 		0E959EBF289A3C1E000AC209 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E959EBE289A3C1E000AC209 /* HapticManager.swift */; };
 		0EA8BCEA28B4BDAE00689002 /* GameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA8BCE928B4BDAE00689002 /* GameDataManager.swift */; };
 		CE29931D2B6E2B2F009A9D75 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */; };
@@ -37,7 +37,7 @@
 		0E1B9EDE288BEBBC002BF51E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E29AA2528AE76A200DEB7FD /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0E4A9BD429680D9400E58F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E8380F02B7286720040944D /* PlayerRoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRoleView.swift; sourceTree = "<group>"; };
+		0E8380F02B7286720040944D /* PlayerRoleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRoleCard.swift; sourceTree = "<group>"; };
 		0E959EBE289A3C1E000AC209 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		0EA8BCE928B4BDAE00689002 /* GameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataManager.swift; sourceTree = "<group>"; };
 		CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 				CE46ADF42B6E813C00830856 /* GameView.swift */,
 				CEA02BB22B6EB1AE00819667 /* GameViewModel.swift */,
 				CEA02BB42B6EB1BD00819667 /* PlayersList */,
-				0E8380F02B7286720040944D /* PlayerRoleView.swift */,
+				0E8380F02B7286720040944D /* PlayerRoleCard.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 				CE939AFC2B6CC9C9000BC42D /* StartView.swift in Sources */,
 				CE2993222B6E300E009A9D75 /* UserDefaultsManager.swift in Sources */,
 				CE29931D2B6E2B2F009A9D75 /* ScaleButtonStyle.swift in Sources */,
-				0E8380F12B7286720040944D /* PlayerRoleView.swift in Sources */,
+				0E8380F12B7286720040944D /* PlayerRoleCard.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
 				0EA8BCEA28B4BDAE00689002 /* GameDataManager.swift in Sources */,
 			);

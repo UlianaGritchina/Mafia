@@ -12,6 +12,7 @@ extension GameView {
         
         @Published var players = Array(repeating: "", count: 30)
         @Published var isShowRoles = false
+        @Published var isStart = false
         @Published var selectedCharactersType: CharactersType = .all
         @Published var favouriteCharacters: [ChinchillaCharacter] = []
         
@@ -28,6 +29,10 @@ extension GameView {
         
         func nextButtonTapped() {
             isShowRoles = true
+        }
+        
+        func startButtonTapped() {
+            isStart = true
         }
         
         func backButtonTapped() {

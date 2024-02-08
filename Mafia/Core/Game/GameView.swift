@@ -38,8 +38,14 @@ struct GameView: View {
             }
             .navigationTitle(viewModel.navigationTitle)
             .navigationBarItems(trailing: closeButton)
-            .sheet(isPresented: $viewModel.isShowRoles, content: {
-                PlayerRoleView()
+            .sheet(isPresented: $viewModel.isStart, content: {
+                PlayerRoleCard(
+                    role: ChinchillaCharacter(
+                        name: "Mafia",
+                        imageName: "Mafia",
+                        isLock: false),
+                    playerName: "Uliana"
+                )
             })
         }
         .preferredColorScheme(.dark)
@@ -63,7 +69,7 @@ extension GameView {
                             .padding(.bottom, 8)
                     }
                     Spacer()
-                    Button(action: {  }) {
+                    Button(action: { viewModel.startButtonTapped() }) {
                         Text("Start")
                             .font(.system(size: 28, weight: .bold, design: .serif))
                             .padding(.bottom, 8)
