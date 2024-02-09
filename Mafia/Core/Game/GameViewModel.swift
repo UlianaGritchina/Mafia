@@ -11,7 +11,7 @@ extension GameView {
     @MainActor final class ViewModel: ObservableObject {
         
         @Published var players = Array(repeating: "", count: 30)
-        @Published var isShowRoles = false
+        @Published var isShowRoles = true
         @Published var isStart = false
         @Published var selectedCharactersType: CharactersType = .all
         @Published var favouriteCharacters: [ChinchillaCharacter] = []

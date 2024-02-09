@@ -23,7 +23,7 @@ struct CharactersList: View {
                     favouriteCharacters
                 }
             }
-            .background(Color("background"))
+            .background(BackgroundImage())
             .navigationTitle("Characters")
             .navigationBarItems(trailing: closeButton)
             .overlay(alignment: .bottom) {  picker }

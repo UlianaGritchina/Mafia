@@ -10,22 +10,26 @@ import SwiftUI
 struct PlayersList: View {
     @Binding var players: [String]
     var body: some View {
-            ScrollView {
-                LazyVStack(spacing: 20) {
-                    ForEach(0..<30) { index in
-                        TextField("Player \(index + 1)", text: $players[index])
-                            .font(.title2)
-                            .padding()
-                            .background(.ultraThinMaterial)
-                            .cornerRadius(15)
-                    }
-                    .padding(.horizontal)
+        ScrollView(showsIndicators: false) {
+            LazyVStack(spacing: 20) {
+                ForEach(0..<30) { index in
+                    TextField("Player \(index + 1)", text: $players[index])
+                        .font(.title3)
+                        .padding(10)
+                        .background(Color.black.opacity(0.2))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke()
+                                .opacity(0.3)
+                        }
+                        .cornerRadius(10)
                 }
-                .padding(.top)
-                .padding(.bottom, 70)
+                .padding(.horizontal)
             }
-            .navigationTitle("Players")
-        .background(Color("background"))
+            .padding(.top)
+            .padding(.bottom, 70)
+        }
+        .navigationTitle("Players")
     }
 }
 

@@ -14,6 +14,8 @@
 		0E8380F12B7286720040944D /* PlayerRoleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8380F02B7286720040944D /* PlayerRoleCard.swift */; };
 		0E959EBF289A3C1E000AC209 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E959EBE289A3C1E000AC209 /* HapticManager.swift */; };
 		0EA8BCEA28B4BDAE00689002 /* GameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA8BCE928B4BDAE00689002 /* GameDataManager.swift */; };
+		0EB6BFEB2B764B9A00CE1763 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6BFEA2B764B9A00CE1763 /* BackgroundImage.swift */; };
+		0EB6BFED2B76557D00CE1763 /* CountStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6BFEC2B76557D00CE1763 /* CountStepper.swift */; };
 		CE29931D2B6E2B2F009A9D75 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */; };
 		CE2993202B6E2DDB009A9D75 /* CharactersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */; };
 		CE2993222B6E300E009A9D75 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2993212B6E300E009A9D75 /* UserDefaultsManager.swift */; };
@@ -40,6 +42,8 @@
 		0E8380F02B7286720040944D /* PlayerRoleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRoleCard.swift; sourceTree = "<group>"; };
 		0E959EBE289A3C1E000AC209 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		0EA8BCE928B4BDAE00689002 /* GameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataManager.swift; sourceTree = "<group>"; };
+		0EB6BFEA2B764B9A00CE1763 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
+		0EB6BFEC2B76557D00CE1763 /* CountStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountStepper.swift; sourceTree = "<group>"; };
 		CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
 		CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersManager.swift; sourceTree = "<group>"; };
 		CE2993212B6E300E009A9D75 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -86,11 +90,11 @@
 		0E1B9ED6288BEBBA002BF51E /* Mafia */ = {
 			isa = PBXGroup;
 			children = (
+				0E1B9EED288BF402002BF51E /* SupportingFiles */,
 				CE939B002B6CD358000BC42D /* Models */,
+				0E959EBD289A3BE3000AC209 /* Managers */,
 				CE939B0A2B6CDA04000BC42D /* Core */,
 				CE939B072B6CD97F000BC42D /* UI */,
-				0E1B9EED288BF402002BF51E /* SupportingFiles */,
-				0E959EBD289A3BE3000AC209 /* Managers */,
 			);
 			path = Mafia;
 			sourceTree = "<group>";
@@ -193,6 +197,8 @@
 			children = (
 				CE29931B2B6E2B20009A9D75 /* ButtonStyles */,
 				CE939B082B6CD999000BC42D /* CharacterCard.swift */,
+				0EB6BFEA2B764B9A00CE1763 /* BackgroundImage.swift */,
+				0EB6BFEC2B76557D00CE1763 /* CountStepper.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -300,10 +306,12 @@
 				CE939B092B6CD999000BC42D /* CharacterCard.swift in Sources */,
 				CE2993262B6E3BEF009A9D75 /* CharacterDetailViewModel.swift in Sources */,
 				CE939AFC2B6CC9C9000BC42D /* StartView.swift in Sources */,
+				0EB6BFED2B76557D00CE1763 /* CountStepper.swift in Sources */,
 				CE2993222B6E300E009A9D75 /* UserDefaultsManager.swift in Sources */,
 				CE29931D2B6E2B2F009A9D75 /* ScaleButtonStyle.swift in Sources */,
 				0E8380F12B7286720040944D /* PlayerRoleCard.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
+				0EB6BFEB2B764B9A00CE1763 /* BackgroundImage.swift in Sources */,
 				0EA8BCEA28B4BDAE00689002 /* GameDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,12 +10,13 @@ import SwiftUI
 struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel = ViewModel()
+    @State private var age = 0
     private let columns: [GridItem] = [
         GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
     ]
     var body: some View {
         NavigationView {
-            ZStack {
+            ZStack(alignment: .bottom) {
                 if viewModel.isShowRoles {
                     VStack {
                         switch viewModel.selectedCharactersType {
@@ -28,16 +29,12 @@ struct GameView: View {
                 } else {
                     PlayersList(players: $viewModel.players)
                 }
-                VStack(spacing: 0) {
-                    Spacer()
-                    if viewModel.isShowRoles {
-                        picker
-                    }
-                    startButton
-                }
+                startButton
             }
+            .background(BackgroundImage())
             .navigationTitle(viewModel.navigationTitle)
             .navigationBarItems(trailing: closeButton)
+            .ignoresSafeArea(.keyboard)
             .sheet(isPresented: $viewModel.isStart, content: {
                 PlayerRoleCard(
                     role: ChinchillaCharacter(
@@ -61,32 +58,35 @@ extension GameView {
     private var startButton: some View {
         HStack {
             if viewModel.isShowRoles {
-                HStack {
-                    Spacer()
-                    Button(action: { viewModel.backButtonTapped() }) {
-                        Text("Back")
-                            .font(.system(size: 28, weight: .bold, design: .serif))
-                            .padding(.bottom, 8)
+                VStack {
+                    picker
+                    HStack {
+                        Spacer()
+                        Button(action: { viewModel.backButtonTapped() }) {
+                            Text("Back")
+                                .font(.system(size: 25, weight: .bold, design: .serif))
+                                .padding(.bottom, 8)
+                        }
+                        Spacer()
+                        Button(action: { viewModel.startButtonTapped() }) {
+                            Text("Start")
+                                .font(.system(size: 25, weight: .bold, design: .serif))
+                                .padding(.bottom, 8)
+                        }
+                        Spacer()
                     }
-                    Spacer()
-                    Button(action: { viewModel.startButtonTapped() }) {
-                        Text("Start")
-                            .font(.system(size: 28, weight: .bold, design: .serif))
-                            .padding(.bottom, 8)
-                    }
-                    Spacer()
                 }
             } else {
                 Button(action: { viewModel.nextButtonTapped() }) {
                     Text("Next")
-                        .font(.system(size: 28, weight: .bold, design: .serif))
+                        .font(.system(size: 25, weight: .bold, design: .serif))
                         .padding(.bottom, 8)
                 }
             }
         }
         .frame(maxWidth: .infinity)
         .padding(.top, 6)
-        .background(.thinMaterial)
+        .background(.ultraThinMaterial)
     }
     
     private var closeButton: some View {
@@ -103,25 +103,11 @@ extension GameView {
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.classicCharacters) { character in
                         VStack {
-                            Button(action: { }) {
-                                CharacterCard(character: character)
-                            }
-                            .buttonStyle(ScaleButtonStyle())
-                            HStack {
-                                Text("-")
-                                    .font(.title)
-                                Spacer()
-                                Text("0")
-                                Spacer()
-                                Text("+")
-                                    .font(.title)
-                            }
-                            .font(.headline)
-                            .padding(.horizontal)
-                            
+                            CharacterCard(character: character)
+                            CountStepper(count: $age, range: 0...5)
+                                .padding(.horizontal, 5)
+                                .padding(.top, 5)
                         }
-                        
-                        
                     }
                     .padding()
                 }
@@ -168,6 +154,5 @@ extension GameView {
         .pickerStyle(.segmented)
         .padding(.horizontal)
         .padding(.vertical, 5)
-        .background(.thinMaterial)
     }
 }

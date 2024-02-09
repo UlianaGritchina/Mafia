@@ -19,7 +19,7 @@ struct StartView: View {
             }
             .padding(.top, UIScreen.main.bounds.height / 20)
         }
-        .background(backgroundImage)
+        .background(BackgroundImage())
         .padding(.horizontal)
         .preferredColorScheme(.dark)
         .sheet(isPresented: $viewModel.isShowCharactersView) {
@@ -41,26 +41,6 @@ extension StartView {
         Text("MAFIA")
             .font(.system(size: 30, weight: .bold, design: .serif))
             .frame(maxWidth: .infinity, alignment: .leading)
-    }
-    
-    private var backgroundImage: some View {
-        Image("nightMoonCity")
-            .resizable()
-            .scaledToFill()
-            .clipShape(.rect)
-            .frame(
-                width: UIScreen.main.bounds.width,
-                height: UIScreen.main.bounds.height
-            )
-            .blur(radius: 2)
-            .overlay {
-                LinearGradient(
-                    colors: [.black.opacity(0.9), .black.opacity(0.7)],
-                    startPoint: .bottom,
-                    endPoint: .top
-                )
-            }
-            .ignoresSafeArea()
     }
     
     private var charactersSection: some View {
