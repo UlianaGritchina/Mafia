@@ -90,7 +90,7 @@ extension GameView {
     }
     
     private var closeButton: some View {
-        Button(action: {presentationMode.wrappedValue.dismiss()}) {
+        Button(action: { presentationMode.wrappedValue.dismiss() }) {
             Image(systemName: "xmark")
         }
     }

@@ -10,7 +10,7 @@ import SwiftUI
 struct CountStepper: View {
     
     @Binding var count: Int
- 
+    
     let range: ClosedRange<Int>?
     
     init(count: Binding<Int>, range: ClosedRange<Int>? = nil) {
@@ -30,10 +30,13 @@ struct CountStepper: View {
     
     var body: some View {
         HStack {
-            Button(action: { count -= 1 }, label: {
+            Button(action: {
+                count -= 1
+                HapticManager.instance.impact(style: .soft)
+            }) {
                 Image(systemName: "minus")
                     .frame(width: 30, height: 30)
-            })
+            }
             .disabled(minusButtunDisabled)
             
             Divider()
@@ -49,10 +52,13 @@ struct CountStepper: View {
             Divider()
                 .padding(.vertical, 3)
             
-            Button(action: { count += 1 }, label: {
+            Button(action: {
+                count += 1
+                HapticManager.instance.impact(style: .soft)
+            }) {
                 Image(systemName: "plus")
                     .frame(width: 30, height: 30)
-            })
+            }
             .disabled(plusButtunDisabled)
             
         }
