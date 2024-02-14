@@ -24,7 +24,7 @@ extension GameView {
         }
         
         var navigationTitle: String {
-            isShowRoles ? "Roles" : "Players"
+            isShowRoles ? "Roles 0 : \(players.count)" : "Players"
         }
         
         func nextButtonTapped() {
