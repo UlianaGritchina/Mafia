@@ -20,7 +20,7 @@ struct PlayersList: View {
                         .overlay {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke()
-                                .opacity(0.2)
+                                .opacity(0.15)
                         }
                         .cornerRadius(10)
                 }

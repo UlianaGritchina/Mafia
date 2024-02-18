@@ -26,8 +26,10 @@ struct GameView: View {
                             favouriteCharacters
                         }
                     }
+                    .transition(.move(edge: .trailing))
                 } else {
                     PlayersList(players: $viewModel.players)
+                        .transition(.move(edge: .leading))
                 }
                 bottomBar
             }
@@ -35,12 +37,14 @@ struct GameView: View {
             .navigationTitle(viewModel.navigationTitle)
             .navigationBarItems(trailing: closeButton)
             .ignoresSafeArea(.keyboard)
+            .animation(.smooth, value: viewModel.isShowRoles)
             .fullScreenCover(isPresented: $viewModel.isStart, content: {
                 GameResultView(
                     characters: viewModel.getCharactersForGame(),
                     players: viewModel.playersForGame
                 )
             })
+            .alert(isPresented: $viewModel.isShowErrorAlert, content: { getNoPlayersAlert() })
         }
         .preferredColorScheme(.dark)
     }
@@ -67,9 +71,13 @@ extension GameView {
                     ForEach(0..<viewModel.classicCharacters.count, id: \.self) { characterIndex in
                         VStack {
                             CharacterCard(character: viewModel.classicCharacters[characterIndex])
+                                .shadow(
+                                    color: .blue.opacity(viewModel.isSelectedCharacter(viewModel.classicCharacters[characterIndex]) ? 0.7 : 0),
+                                    radius: 5
+                                )
                             CountStepper(
                                 count: $viewModel.classicCharacters[characterIndex].selectedCount,
-                                range: 0...10
+                                range: 0...viewModel.freePlaces(for: viewModel.classicCharacters[characterIndex])
                             )
                             .padding(.horizontal, 5)
                             .padding(.top, 5)
@@ -123,6 +131,7 @@ extension GameView {
         .frame(maxWidth: .infinity)
         .padding(.top, 6)
         .background(.ultraThinMaterial)
+        .animation(.none, value: viewModel.isShowRoles)
     }
     
     private var playersBottomBar: some View {
@@ -177,5 +186,9 @@ extension GameView {
         Text("\(viewModel.selectedCharactersCount) : \(viewModel.playersForGame.count)")
             .font(.system(size: 20, weight: .bold, design: .serif))
             .foregroundStyle(viewModel.isStartButtonActive ? .green : .white)
+    }
+    
+    private func getNoPlayersAlert() -> Alert {
+        Alert(title: Text("No players"))
     }
 }

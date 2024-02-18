@@ -13,6 +13,7 @@ extension GameView {
         @Published var players = Array(repeating: "", count: 30)
         @Published var isShowRoles = false
         @Published var isStart = false
+        @Published var isShowErrorAlert = false
         @Published var selectedCharactersType: CharactersType = .all
         @Published var favouriteCharacters: [ChinchillaCharacter] = []
         @Published var classicCharacters = CharactersManager.classicCharacters
@@ -64,7 +65,12 @@ extension GameView {
         }
         
         func nextButtonTapped() {
-            isShowRoles = true
+            if playersForGame.isEmpty {
+                isShowErrorAlert = true
+                HapticManager.instance.notification(type: .error)
+            } else {
+                isShowRoles = true
+            }
         }
         
         func startButtonTapped() {
@@ -88,6 +94,15 @@ extension GameView {
                 charactersForGame += Array(repeating: character, count: character.selectedCount)
             }
             return charactersForGame.shuffled()
+        }
+        
+        func freePlaces(for character: ChinchillaCharacter) -> Int {
+            let character = selectedCharacters.first(where: { $0.name == character.name})
+            return playersForGame.count - selectedCharactersCount + (character?.selectedCount ?? 0)
+        }
+        
+        func isSelectedCharacter(_ character: ChinchillaCharacter) -> Bool {
+            selectedCharacters.contains(where: { $0.name == character.name })
         }
     }
 }
