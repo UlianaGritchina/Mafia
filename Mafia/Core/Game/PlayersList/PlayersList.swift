@@ -15,12 +15,12 @@ struct PlayersList: View {
                 ForEach(0..<30) { index in
                     TextField("Player \(index + 1)", text: $players[index])
                         .font(.title3)
-                        .padding(10)
+                        .padding(13)
                         .background(Color.black.opacity(0.2))
                         .overlay {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke()
-                                .opacity(0.3)
+                                .opacity(0.2)
                         }
                         .cornerRadius(10)
                 }

@@ -18,7 +18,7 @@ struct GameView: View {
         NavigationView {
             ZStack(alignment: .bottom) {
                 if viewModel.isShowRoles {
-                    VStack {
+                    ScrollView {
                         switch viewModel.selectedCharactersType {
                         case .all:
                             allCharacters
@@ -29,7 +29,7 @@ struct GameView: View {
                 } else {
                     PlayersList(players: $viewModel.players)
                 }
-                startButton
+                bottomBar
             }
             .background(BackgroundImage())
             .navigationTitle(viewModel.navigationTitle)
@@ -54,40 +54,6 @@ struct GameView: View {
 }
 
 extension GameView {
-    
-    private var startButton: some View {
-        HStack {
-            if viewModel.isShowRoles {
-                VStack {
-                    picker
-                    HStack {
-                        Spacer()
-                        Button(action: { viewModel.backButtonTapped() }) {
-                            Text("Back")
-                                .font(.system(size: 25, weight: .bold, design: .serif))
-                                .padding(.bottom, 8)
-                        }
-                        Spacer()
-                        Button(action: { viewModel.startButtonTapped() }) {
-                            Text("Start")
-                                .font(.system(size: 25, weight: .bold, design: .serif))
-                                .padding(.bottom, 8)
-                        }
-                        Spacer()
-                    }
-                }
-            } else {
-                Button(action: { viewModel.nextButtonTapped() }) {
-                    Text("Next")
-                        .font(.system(size: 25, weight: .bold, design: .serif))
-                        .padding(.bottom, 8)
-                }
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.top, 6)
-        .background(.ultraThinMaterial)
-    }
     
     private var closeButton: some View {
         Button(action: { presentationMode.wrappedValue.dismiss() }) {
@@ -146,6 +112,55 @@ extension GameView {
         }
     }
     
+    private var bottomBar: some View {
+        HStack {
+            if viewModel.isShowRoles {
+                rolesBottomBar
+            } else {
+                playersBottomBar
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.top, 6)
+        .background(.ultraThinMaterial)
+    }
+    
+    private var playersBottomBar: some View {
+        Button(action: { viewModel.nextButtonTapped() }) {
+            Text("Next")
+                .font(.system(size: 25, weight: .bold, design: .serif))
+        }
+    }
+    
+    private var rolesBottomBar: some View {
+        VStack {
+            picker
+            Divider()
+            if viewModel.isShowRoles {
+                HStack {
+                    Button(action: { viewModel.backButtonTapped() }) {
+                        Text("Back")
+                            .font(.system(size: 25, weight: .bold, design: .serif))
+                    }
+                    .buttonStyle(GrayButtonStyle())
+                    
+                    Spacer()
+                    
+                    playersCounter
+                    
+                    Spacer()
+                    
+                    Button(action: { viewModel.startButtonTapped() }) {
+                        Text("Start")
+                            .font(.system(size: 25, weight: .bold, design: .serif))
+                    }
+                    .buttonStyle(GrayButtonStyle())
+                }
+                .padding(.horizontal, 40)
+            }
+        }
+    }
+    
     private var picker: some View {
         Picker(selection: $viewModel.selectedCharactersType, label: Text("Picker")) {
             Text("All").tag(CharactersType.all)
@@ -154,5 +169,10 @@ extension GameView {
         .pickerStyle(.segmented)
         .padding(.horizontal)
         .padding(.vertical, 5)
+    }
+    
+    private var playersCounter: some View {
+        Text("0 : \(viewModel.players.count)")
+            .font(.system(size: 20, weight: .bold, design: .serif))
     }
 }
