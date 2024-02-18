@@ -17,6 +17,7 @@
 		0EB1E9482B81E81800ED3139 /* GameResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB1E9472B81E81800ED3139 /* GameResultView.swift */; };
 		0EB6BFEB2B764B9A00CE1763 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6BFEA2B764B9A00CE1763 /* BackgroundImage.swift */; };
 		0EB6BFED2B76557D00CE1763 /* CountStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6BFEC2B76557D00CE1763 /* CountStepper.swift */; };
+		0EEA40D12B823E2900CA4E5F /* GameRoleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEA40D02B823E2900CA4E5F /* GameRoleCard.swift */; };
 		CE29931D2B6E2B2F009A9D75 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */; };
 		CE2993202B6E2DDB009A9D75 /* CharactersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */; };
 		CE2993222B6E300E009A9D75 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2993212B6E300E009A9D75 /* UserDefaultsManager.swift */; };
@@ -46,6 +47,7 @@
 		0EB1E9472B81E81800ED3139 /* GameResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
 		0EB6BFEA2B764B9A00CE1763 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		0EB6BFEC2B76557D00CE1763 /* CountStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountStepper.swift; sourceTree = "<group>"; };
+		0EEA40D02B823E2900CA4E5F /* GameRoleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoleCard.swift; sourceTree = "<group>"; };
 		CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
 		CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersManager.swift; sourceTree = "<group>"; };
 		CE2993212B6E300E009A9D75 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -124,10 +126,22 @@
 		0E959EBD289A3BE3000AC209 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */,
 				0E959EBE289A3C1E000AC209 /* HapticManager.swift */,
+				CE2993212B6E300E009A9D75 /* UserDefaultsManager.swift */,
 				0EA8BCE928B4BDAE00689002 /* GameDataManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		0EEA40CF2B823E1500CA4E5F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CEA02BB42B6EB1BD00819667 /* PlayersList */,
+				0E8380F02B7286720040944D /* PlayerRoleCard.swift */,
+				0EEA40D02B823E2900CA4E5F /* GameRoleCard.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		CE29931B2B6E2B20009A9D75 /* ButtonStyles */ = {
@@ -136,15 +150,6 @@
 				CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */,
 			);
 			path = ButtonStyles;
-			sourceTree = "<group>";
-		};
-		CE29931E2B6E2DD1009A9D75 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */,
-				CE2993212B6E300E009A9D75 /* UserDefaultsManager.swift */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		CE2993272B6E3C42009A9D75 /* CharacterDetail */ = {
@@ -159,10 +164,9 @@
 		CE46ADF32B6E813200830856 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				0EEA40CF2B823E1500CA4E5F /* UI */,
 				CE46ADF42B6E813C00830856 /* GameView.swift */,
 				CEA02BB22B6EB1AE00819667 /* GameViewModel.swift */,
-				CEA02BB42B6EB1BD00819667 /* PlayersList */,
-				0E8380F02B7286720040944D /* PlayerRoleCard.swift */,
 				0EB1E9472B81E81800ED3139 /* GameResultView.swift */,
 			);
 			path = Game;
@@ -210,9 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				CE939AFD2B6CD338000BC42D /* Start */,
-				CE46ADF32B6E813200830856 /* Game */,
-				CE29931E2B6E2DD1009A9D75 /* Managers */,
 				CE939B042B6CD6A3000BC42D /* CharactersList */,
+				CE46ADF32B6E813200830856 /* Game */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				CE29931D2B6E2B2F009A9D75 /* ScaleButtonStyle.swift in Sources */,
 				0E8380F12B7286720040944D /* PlayerRoleCard.swift in Sources */,
 				0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */,
+				0EEA40D12B823E2900CA4E5F /* GameRoleCard.swift in Sources */,
 				0EB6BFEB2B764B9A00CE1763 /* BackgroundImage.swift in Sources */,
 				0EA8BCEA28B4BDAE00689002 /* GameDataManager.swift in Sources */,
 			);

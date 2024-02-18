@@ -17,8 +17,7 @@ extension GameView {
         @Published var selectedCharactersType: CharactersType = .all
         @Published var favouriteCharacters: [ChinchillaCharacter] = []
         @Published var classicCharacters = CharactersManager.classicCharacters
-        
-        let moreCharacters = CharactersManager.moreCharacters
+        @Published var moreCharacters = CharactersManager.moreCharacters
         
         init() {
             updateFavoriteCharacters()
@@ -31,6 +30,11 @@ extension GameView {
         var selectedCharacters: [ChinchillaCharacter] {
             var selected: [ChinchillaCharacter] = []
             let _ = classicCharacters.map { character in
+                if character.selectedCount > 0 {
+                    selected.append(character)
+                }
+            }
+            let _ = moreCharacters.map { character in
                 if character.selectedCount > 0 {
                     selected.append(character)
                 }
@@ -103,6 +107,11 @@ extension GameView {
         
         func isSelectedCharacter(_ character: ChinchillaCharacter) -> Bool {
             selectedCharacters.contains(where: { $0.name == character.name })
+        }
+        
+        func resetCharacters() {
+            classicCharacters = CharactersManager.classicCharacters
+            moreCharacters = CharactersManager.moreCharacters
         }
     }
 }

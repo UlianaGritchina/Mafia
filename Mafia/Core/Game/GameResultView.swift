@@ -35,19 +35,19 @@ struct GameResultView: View {
                 .preferredColorScheme(.dark)
             }
             HStack(spacing: 15) {
-                Button(action: {
-                    characters = characters.shuffled()
-                    HapticManager.instance.notification(type: .success)
-                }) {
-                    Text("Shuffle")
+                Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                    Text("Complite")
                         .font(.system(size: 20, weight: .bold, design: .serif))
                         .frame(maxWidth: .infinity)
                         .frame(height: 45)
                 }
                 .buttonStyle(GrayButtonStyle())
                 
-                Button(action: { presentationMode.wrappedValue.dismiss() }) {
-                    Text("Complite")
+                Button(action: {
+                    characters = characters.shuffled()
+                    HapticManager.instance.notification(type: .success)
+                }) {
+                    Text("Shuffle")
                         .font(.system(size: 20, weight: .bold, design: .serif))
                         .frame(maxWidth: .infinity)
                         .frame(height: 45)

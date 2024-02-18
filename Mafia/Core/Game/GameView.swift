@@ -56,9 +56,15 @@ struct GameView: View {
 
 extension GameView {
     
-    private var closeButton: some View {
-        Button(action: { presentationMode.wrappedValue.dismiss() }) {
-            Image(systemName: "xmark")
+    @ViewBuilder  private var closeButton: some View {
+        if viewModel.isShowRoles {
+            Button("Reset") {
+                viewModel.resetCharacters()
+            }
+        } else {
+            Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                Image(systemName: "xmark")
+            }
         }
     }
     
@@ -70,14 +76,10 @@ extension GameView {
                 LazyVGrid(columns: columns) {
                     ForEach(0..<viewModel.classicCharacters.count, id: \.self) { characterIndex in
                         VStack {
-                            CharacterCard(character: viewModel.classicCharacters[characterIndex])
-                                .shadow(
-                                    color: .blue.opacity(viewModel.isSelectedCharacter(viewModel.classicCharacters[characterIndex]) ? 0.7 : 0),
-                                    radius: 5
-                                )
-                            CountStepper(
-                                count: $viewModel.classicCharacters[characterIndex].selectedCount,
-                                range: 0...viewModel.freePlaces(for: viewModel.classicCharacters[characterIndex])
+                            GameRoleCard(
+                                character: $viewModel.classicCharacters[characterIndex],
+                                isSelected: viewModel.isSelectedCharacter(viewModel.classicCharacters[characterIndex]),
+                                rangeLimit: viewModel.freePlaces(for: viewModel.classicCharacters[characterIndex])
                             )
                             .padding(.horizontal, 5)
                             .padding(.top, 5)
@@ -89,13 +91,20 @@ extension GameView {
                 DividerHeader(title: "More")
                 
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.moreCharacters) { character in
+                    ForEach(0..<viewModel.moreCharacters.count, id: \.self) { characterIndex in
                         Button(action: {  }) {
-                            CharacterCard(character: character)
+                            VStack {
+                                GameRoleCard(
+                                    character: $viewModel.moreCharacters[characterIndex],
+                                    isSelected: viewModel.isSelectedCharacter(viewModel.moreCharacters[characterIndex]),
+                                    rangeLimit: viewModel.freePlaces(for: viewModel.moreCharacters[characterIndex])
+                                )
+                                .padding(.horizontal, 5)
+                                .padding(.top, 5)
+                            }
                         }
                         .buttonStyle(ScaleButtonStyle())
                     }
-                    .padding()
                 }
             }
             .padding(.bottom, 50)
