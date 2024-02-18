@@ -16,7 +16,7 @@ struct PlayerRoleCard: View {
     @State private var frontDegree = -90.0
     
     var body: some View {
-        Button(action: {flipCard()}) {
+        Button(action: { flipCard()} ) {
             ZStack {
                 roleView
                 playerView
@@ -72,7 +72,7 @@ extension PlayerRoleCard {
         )
         .cornerRadius(20)
         .overlay { gradientStroke }
-        .background(Color("background"))
+        .background(.thinMaterial)
         .cornerRadius(20)
         .rotation3DEffect(
             Angle(degrees: frontDegree),

@@ -35,13 +35,10 @@ struct GameView: View {
             .navigationTitle(viewModel.navigationTitle)
             .navigationBarItems(trailing: closeButton)
             .ignoresSafeArea(.keyboard)
-            .sheet(isPresented: $viewModel.isStart, content: {
-                PlayerRoleCard(
-                    role: ChinchillaCharacter(
-                        name: "Mafia",
-                        imageName: "Mafia",
-                        isLock: false),
-                    playerName: "Uliana"
+            .fullScreenCover(isPresented: $viewModel.isStart, content: {
+                GameResultView(
+                    characters: viewModel.getCharactersForGame(),
+                    players: viewModel.playersForGame
                 )
             })
         }
@@ -67,12 +64,15 @@ extension GameView {
                 DividerHeader(title: "Base")
                 
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.classicCharacters) { character in
+                    ForEach(0..<viewModel.classicCharacters.count, id: \.self) { characterIndex in
                         VStack {
-                            CharacterCard(character: character)
-                            CountStepper(count: $age, range: 0...5)
-                                .padding(.horizontal, 5)
-                                .padding(.top, 5)
+                            CharacterCard(character: viewModel.classicCharacters[characterIndex])
+                            CountStepper(
+                                count: $viewModel.classicCharacters[characterIndex].selectedCount,
+                                range: 0...10
+                            )
+                            .padding(.horizontal, 5)
+                            .padding(.top, 5)
                         }
                     }
                     .padding()
@@ -155,6 +155,8 @@ extension GameView {
                             .font(.system(size: 25, weight: .bold, design: .serif))
                     }
                     .buttonStyle(GrayButtonStyle())
+                    .disabled(!viewModel.isStartButtonActive)
+                    .opacity(viewModel.isStartButtonActive ? 1 : 0.5)
                 }
                 .padding(.horizontal, 40)
             }
@@ -172,7 +174,8 @@ extension GameView {
     }
     
     private var playersCounter: some View {
-        Text("0 : \(viewModel.players.count)")
+        Text("\(viewModel.selectedCharactersCount) : \(viewModel.playersForGame.count)")
             .font(.system(size: 20, weight: .bold, design: .serif))
+            .foregroundStyle(viewModel.isStartButtonActive ? .green : .white)
     }
 }
