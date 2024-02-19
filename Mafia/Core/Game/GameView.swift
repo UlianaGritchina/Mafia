@@ -35,7 +35,7 @@ struct GameView: View {
             }
             .background(BackgroundImage())
             .navigationTitle(viewModel.navigationTitle)
-            .navigationBarItems(trailing: closeButton)
+            .navigationBarItems(trailing: resetRolesButton)
             .ignoresSafeArea(.keyboard)
             .animation(.smooth, value: viewModel.isShowRoles)
             .fullScreenCover(isPresented: $viewModel.isStart, content: {
@@ -56,14 +56,10 @@ struct GameView: View {
 
 extension GameView {
     
-    @ViewBuilder  private var closeButton: some View {
+    @ViewBuilder  private var resetRolesButton: some View {
         if viewModel.isShowRoles {
             Button("Reset") {
                 viewModel.resetCharacters()
-            }
-        } else {
-            Button(action: { presentationMode.wrappedValue.dismiss() }) {
-                Image(systemName: "xmark")
             }
         }
     }
@@ -144,10 +140,27 @@ extension GameView {
     }
     
     private var playersBottomBar: some View {
-        Button(action: { viewModel.nextButtonTapped() }) {
-            Text("Next")
-                .font(.system(size: 25, weight: .bold, design: .serif))
+        HStack(spacing: 15) {
+            Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                Text("Exit")
+                    .font(.system(size: 25, weight: .bold, design: .serif))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 35)
+            }
+            .buttonStyle(GrayButtonStyle())
+            
+            Spacer()
+            
+            Button(action: { viewModel.nextButtonTapped() }) {
+                Text("Next")
+                    .font(.system(size: 25, weight: .bold, design: .serif))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 35)
+            }
+            .buttonStyle(GrayButtonStyle())
         }
+        .padding()
+        .padding(.bottom)
     }
     
     private var rolesBottomBar: some View {
