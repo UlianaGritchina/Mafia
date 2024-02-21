@@ -39,6 +39,11 @@ extension GameView {
                     selected.append(character)
                 }
             }
+            let _ = favouriteCharacters.map { character in
+                if character.selectedCount > 0 {
+                    selected.append(character)
+                }
+            }
             return selected
         }
         
@@ -112,6 +117,7 @@ extension GameView {
         func resetCharacters() {
             classicCharacters = CharactersManager.classicCharacters
             moreCharacters = CharactersManager.moreCharacters
+            updateFavoriteCharacters()
         }
     }
 }

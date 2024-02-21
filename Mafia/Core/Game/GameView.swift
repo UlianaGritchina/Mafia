@@ -113,9 +113,15 @@ extension GameView {
                 DividerHeader(title: "Favourite")
                 
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.favouriteCharacters) { character in
+                    ForEach(0..<viewModel.favouriteCharacters.count, id: \.self) { characterIndex in
                         Button(action: { }) {
-                            CharacterCard(character: character)
+                            GameRoleCard(
+                                character: $viewModel.favouriteCharacters[characterIndex],
+                                isSelected: viewModel.isSelectedCharacter(viewModel.favouriteCharacters[characterIndex]),
+                                rangeLimit: viewModel.freePlaces(for: viewModel.favouriteCharacters[characterIndex])
+                            )
+                            .padding(.horizontal, 5)
+                            .padding(.top, 5)
                         }
                     }
                     .padding()
@@ -126,17 +132,22 @@ extension GameView {
     }
     
     private var bottomBar: some View {
-        HStack {
-            if viewModel.isShowRoles {
-                rolesBottomBar
-            } else {
-                playersBottomBar
+        Rectangle()
+            .opacity(0)
+            .frame(maxWidth: .infinity)
+            .frame(height: UIScreen.main.bounds.height / 10)
+            .background(.ultraThinMaterial)
+            .overlay {
+                HStack {
+                    if viewModel.isShowRoles {
+                        rolesBottomBar
+                            .transition(.move(edge: .trailing))
+                    } else {
+                        playersBottomBar
+                            .transition(.move(edge: .leading))
+                    }
+                }
             }
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.top, 6)
-        .background(.ultraThinMaterial)
-        .animation(.none, value: viewModel.isShowRoles)
     }
     
     private var playersBottomBar: some View {
