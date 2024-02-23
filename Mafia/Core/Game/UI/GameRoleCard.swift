@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GameRoleCard: View {
-    @Binding var character: ChinchillaCharacter
+    @Binding var character: Role
     let isSelected: Bool
     let rangeLimit: Int
     var body: some View {
@@ -28,10 +28,9 @@ struct GameRoleCard: View {
 
 #Preview {
     GameRoleCard(
-        character: .constant(ChinchillaCharacter(
+        character: .constant(Role(
             name: "Mafia",
-            imageName: "Mafia",
-            isLock: false)
+            imageName: "Mafia")
         ),
         isSelected: false, rangeLimit: 5
     )

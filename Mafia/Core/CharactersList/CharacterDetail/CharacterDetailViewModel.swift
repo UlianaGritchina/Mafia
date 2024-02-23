@@ -10,12 +10,12 @@ import Foundation
 extension CharacterDetailView {
     @MainActor final class ViewModel: ObservableObject {
         
-        let character: ChinchillaCharacter
+        let character: Role
         
         private let userDefaultManager = UserDefaultsManager.shared
         @Published var favoritesCharacters = UserDefaultsManager.shared.getFavoriteCharacterNames()
         
-        init(character: ChinchillaCharacter) {
+        init(character: Role) {
             self.character = character
         }
         

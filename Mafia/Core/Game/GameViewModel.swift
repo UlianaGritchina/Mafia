@@ -15,7 +15,7 @@ extension GameView {
         @Published var isStart = false
         @Published var isShowErrorAlert = false
         @Published var selectedCharactersType: CharactersType = .all
-        @Published var favouriteCharacters: [ChinchillaCharacter] = []
+        @Published var favouriteCharacters: [Role] = []
         @Published var classicCharacters = CharactersManager.classicCharacters
         @Published var moreCharacters = CharactersManager.moreCharacters
         
@@ -27,8 +27,8 @@ extension GameView {
             playersForGame.count == selectedCharactersCount
         }
         
-        var selectedCharacters: [ChinchillaCharacter] {
-            var selected: [ChinchillaCharacter] = []
+        var selectedCharacters: [Role] {
+            var selected: [Role] = []
             let _ = classicCharacters.map { character in
                 if character.selectedCount > 0 {
                     selected.append(character)
@@ -44,7 +44,7 @@ extension GameView {
                     selected.append(character)
                 }
             }
-            return selected
+            return selected.shuffled()
         }
         
         var selectedCharactersCount: Int {
@@ -97,20 +97,20 @@ extension GameView {
             })
         }
         
-        func getCharactersForGame() -> [ChinchillaCharacter] {
-            var charactersForGame: [ChinchillaCharacter] = []
+        func getCharactersForGame() -> [Role] {
+            var charactersForGame: [Role] = []
             let _ = selectedCharacters.compactMap { character in
                 charactersForGame += Array(repeating: character, count: character.selectedCount)
             }
             return charactersForGame.shuffled()
         }
         
-        func freePlaces(for character: ChinchillaCharacter) -> Int {
+        func freePlaces(for character: Role) -> Int {
             let character = selectedCharacters.first(where: { $0.name == character.name})
             return playersForGame.count - selectedCharactersCount + (character?.selectedCount ?? 0)
         }
         
-        func isSelectedCharacter(_ character: ChinchillaCharacter) -> Bool {
+        func isSelectedCharacter(_ character: Role) -> Bool {
             selectedCharacters.contains(where: { $0.name == character.name })
         }
         

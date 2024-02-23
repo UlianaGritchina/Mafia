@@ -13,10 +13,10 @@ enum CharacterCardSize {
 }
 
 struct CharacterCard: View {
-    let character: ChinchillaCharacter
+    let character: Role
     var cardSize: CharacterCardSize = .regular
     
-    init(character: ChinchillaCharacter, cardSize: CharacterCardSize = .regular) {
+    init(character: Role, cardSize: CharacterCardSize = .regular) {
         self.character = character
         self.cardSize = cardSize
     }
@@ -26,18 +26,16 @@ struct CharacterCard: View {
             Image(character.imageName)
                 .resizable()
                 .frame(width: getCardSize(), height: getCardSize() )
-                .overlay {
-                    if character.isLock {
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(.black)
-                                .opacity(0.8)
-                            Image(systemName: "lock")
-                                .font(.system(size: 30))
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                }
+//                .overlay {
+//                    ZStack {
+//                        Rectangle()
+//                            .foregroundColor(.black)
+//                            .opacity(0.8)
+//                        Image(systemName: "lock")
+//                            .font(.system(size: 30))
+//                            .foregroundStyle(.secondary)
+//                    }
+//                }
             Text(character.name)
                 .font(.system(size: 18, weight: .bold, design: .serif))
         }
@@ -60,10 +58,9 @@ struct CharacterCard: View {
 
 #Preview {
     CharacterCard(
-        character: ChinchillaCharacter(
+        character: Role(
             name: "Mafia",
-            imageName: "Mafia",
-            isLock: false
+            imageName: "Mafia"
         )
     )
 }

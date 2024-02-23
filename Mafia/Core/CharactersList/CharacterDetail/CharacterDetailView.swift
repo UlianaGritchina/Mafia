@@ -11,7 +11,7 @@ struct CharacterDetailView: View {
     @StateObject private var viewModel: ViewModel
     let closeAction: () -> ()
     
-    init(character: ChinchillaCharacter, closeAction: @escaping () -> Void) {
+    init(character: Role, closeAction: @escaping () -> Void) {
         self.closeAction = closeAction
         let vm = ViewModel(character: character)
         _viewModel = StateObject(wrappedValue: vm)
@@ -36,10 +36,9 @@ struct CharacterDetailView: View {
 
 #Preview {
     CharacterDetailView(
-        character: ChinchillaCharacter(
+        character: Role(
             name: "Mafia",
-            imageName: "Mafia",
-            isLock: false
+            imageName: "Mafia"
         ),
         closeAction: { }
     )
@@ -70,10 +69,10 @@ extension CharacterDetailView {
             Spacer()
             addToFavoriteButton
             Spacer()
-            if viewModel.character.isLock {
-                unlockButton
-                Spacer()
-            }
+//            if viewModel.character.isLock {
+//                unlockButton
+//                Spacer()
+//            }
         }
     }
     

@@ -25,6 +25,7 @@ struct GameView: View {
                         case .favourite:
                             favouriteCharacters
                         }
+                        bottomBar.opacity(0)
                     }
                     .transition(.move(edge: .trailing))
                 } else {
@@ -103,7 +104,7 @@ extension GameView {
                     }
                 }
             }
-            .padding(.bottom, 50)
+            .padding(.bottom, 10)
         }
     }
     
@@ -127,7 +128,7 @@ extension GameView {
                     .padding()
                 }
             }
-            .padding(.bottom, 50)
+            .padding(.bottom, 10)
         }
     }
     

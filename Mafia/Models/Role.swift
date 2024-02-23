@@ -7,17 +7,15 @@
 
 import Foundation
 
-struct ChinchillaCharacter: Identifiable {
+struct Role: Identifiable {
     let id = UUID().uuidString
     let name: String
     let imageName: String
-    let isLock: Bool
     var selectedCount: Int
     
-    init(name: String, imageName: String, isLock: Bool, selectedCount: Int = 0) {
+    init(name: String, imageName: String, selectedCount: Int = 0) {
         self.name = name
         self.imageName = imageName
-        self.isLock = isLock
         self.selectedCount = selectedCount
     }
 }

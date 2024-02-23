@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameResultView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State var characters: [ChinchillaCharacter]
+    @State var characters: [Role]
     let players: [String]
     var body: some View {
         VStack {
@@ -65,8 +65,8 @@ struct GameResultView: View {
 #Preview {
     GameResultView(
         characters: [
-            ChinchillaCharacter(name: "Mafia", imageName: "Mafia", isLock: false),
-            ChinchillaCharacter(name: "Mafia", imageName: "Mafia", isLock: false)],
+            Role(name: "Mafia", imageName: "Mafia"),
+            Role(name: "Mafia", imageName: "Mafia")],
         players: ["Uliana", "Max", "Kirill"]
     )
 }

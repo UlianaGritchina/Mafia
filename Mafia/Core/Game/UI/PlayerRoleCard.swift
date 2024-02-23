@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlayerRoleCard: View {
-    let role: ChinchillaCharacter
+    let role: Role
     let playerName: String
     
     @State private var isFlipped = false
@@ -47,10 +47,10 @@ struct PlayerRoleCard: View {
 
 #Preview {
     PlayerRoleCard(
-        role: ChinchillaCharacter(
+        role: Role(
             name: "Mafia",
-            imageName: "Mafia",
-            isLock: false),
+            imageName: "Mafia"
+        ),
         playerName: "Uliana"
     )
 }

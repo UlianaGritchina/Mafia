@@ -18,8 +18,8 @@ extension CharactersList {
         
         @Published var selectedCharactersType: CharactersType = .all
         @Published var isShowCharacterDetail = false
-        @Published var selectedCharacter: ChinchillaCharacter?
-        @Published var favouriteCharacters: [ChinchillaCharacter] = []
+        @Published var selectedCharacter: Role?
+        @Published var favouriteCharacters: [Role] = []
         
         private let allCharacters = CharactersManager.allCharacters
         let classicCharacters = CharactersManager.classicCharacters
@@ -36,7 +36,7 @@ extension CharactersList {
             })
         }
         
-        func showCharacterDetail(_ character: ChinchillaCharacter) {
+        func showCharacterDetail(_ character: Role) {
             selectedCharacter = character
             isShowCharacterDetail = true
         }

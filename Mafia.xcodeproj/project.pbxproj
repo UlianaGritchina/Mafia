@@ -26,7 +26,7 @@
 		CE46ADF52B6E813C00830856 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE46ADF42B6E813C00830856 /* GameView.swift */; };
 		CE939AFC2B6CC9C9000BC42D /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939AFB2B6CC9C9000BC42D /* StartView.swift */; };
 		CE939AFF2B6CD34A000BC42D /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939AFE2B6CD34A000BC42D /* StartViewModel.swift */; };
-		CE939B032B6CD374000BC42D /* ChinchillaCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B022B6CD374000BC42D /* ChinchillaCharacter.swift */; };
+		CE939B032B6CD374000BC42D /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B022B6CD374000BC42D /* Role.swift */; };
 		CE939B062B6CD6B9000BC42D /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B052B6CD6B9000BC42D /* CharactersListViewModel.swift */; };
 		CE939B092B6CD999000BC42D /* CharacterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE939B082B6CD999000BC42D /* CharacterCard.swift */; };
 		CEA02BB12B6EAEC500819667 /* PlayersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA02BB02B6EAEC500819667 /* PlayersList.swift */; };
@@ -56,7 +56,7 @@
 		CE46ADF42B6E813C00830856 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		CE939AFB2B6CC9C9000BC42D /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		CE939AFE2B6CD34A000BC42D /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
-		CE939B022B6CD374000BC42D /* ChinchillaCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChinchillaCharacter.swift; sourceTree = "<group>"; };
+		CE939B022B6CD374000BC42D /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		CE939B052B6CD6B9000BC42D /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
 		CE939B082B6CD999000BC42D /* CharacterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCard.swift; sourceTree = "<group>"; };
 		CEA02BB02B6EAEC500819667 /* PlayersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersList.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 		CE939B002B6CD358000BC42D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CE939B022B6CD374000BC42D /* ChinchillaCharacter.swift */,
+				CE939B022B6CD374000BC42D /* Role.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,7 +308,7 @@
 				CE939AFF2B6CD34A000BC42D /* StartViewModel.swift in Sources */,
 				CEA02BB32B6EB1AE00819667 /* GameViewModel.swift in Sources */,
 				CE46ADF52B6E813C00830856 /* GameView.swift in Sources */,
-				CE939B032B6CD374000BC42D /* ChinchillaCharacter.swift in Sources */,
+				CE939B032B6CD374000BC42D /* Role.swift in Sources */,
 				CE939B092B6CD999000BC42D /* CharacterCard.swift in Sources */,
 				CE2993262B6E3BEF009A9D75 /* CharacterDetailViewModel.swift in Sources */,
 				CE939AFC2B6CC9C9000BC42D /* StartView.swift in Sources */,
