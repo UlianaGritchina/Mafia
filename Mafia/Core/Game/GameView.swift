@@ -10,7 +10,6 @@ import SwiftUI
 struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel = ViewModel()
-    @State private var age = 0
     private let columns: [GridItem] = [
         GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
     ]
@@ -18,16 +17,7 @@ struct GameView: View {
         NavigationView {
             ZStack(alignment: .bottom) {
                 if viewModel.isShowRoles {
-                    ScrollView {
-                        switch viewModel.selectedCharactersType {
-                        case .all:
-                            allCharacters
-                        case .favourite:
-                            favouriteCharacters
-                        }
-                        bottomBar.opacity(0)
-                    }
-                    .transition(.move(edge: .trailing))
+                    rolesView
                 } else {
                     PlayersList(players: $viewModel.players)
                         .transition(.move(edge: .leading))
@@ -65,44 +55,37 @@ extension GameView {
         }
     }
     
+    private var rolesView: some View {
+        ScrollView {
+            switch viewModel.selectedCharactersType {
+            case .all:
+                allCharacters
+            case .favourite:
+                favouriteCharacters
+            }
+            bottomBar.opacity(0)
+        }
+        .transition(.move(edge: .trailing))
+    }
+    
     private var allCharacters: some View {
         ScrollView {
             VStack {
                 DividerHeader(title: "Base")
                 
-                LazyVGrid(columns: columns) {
-                    ForEach(0..<viewModel.classicCharacters.count, id: \.self) { characterIndex in
-                        VStack {
-                            GameRoleCard(
-                                character: $viewModel.classicCharacters[characterIndex],
-                                isSelected: viewModel.isSelectedCharacter(viewModel.classicCharacters[characterIndex]),
-                                rangeLimit: viewModel.freePlaces(for: viewModel.classicCharacters[characterIndex])
-                            )
-                            .padding(.horizontal, 5)
-                            .padding(.top, 5)
-                        }
-                    }
-                    .padding()
-                }
+                RolesGrid(
+                    roles: $viewModel.classicCharacters,
+                    selectedRoles: viewModel.selectedCharacters,
+                    playersCount: viewModel.playersForGame.count
+                )
                 
                 DividerHeader(title: "More")
                 
-                LazyVGrid(columns: columns) {
-                    ForEach(0..<viewModel.moreCharacters.count, id: \.self) { characterIndex in
-                        Button(action: {  }) {
-                            VStack {
-                                GameRoleCard(
-                                    character: $viewModel.moreCharacters[characterIndex],
-                                    isSelected: viewModel.isSelectedCharacter(viewModel.moreCharacters[characterIndex]),
-                                    rangeLimit: viewModel.freePlaces(for: viewModel.moreCharacters[characterIndex])
-                                )
-                                .padding(.horizontal, 5)
-                                .padding(.top, 5)
-                            }
-                        }
-                        .buttonStyle(ScaleButtonStyle())
-                    }
-                }
+                RolesGrid(
+                    roles: $viewModel.moreCharacters,
+                    selectedRoles: viewModel.selectedCharacters,
+                    playersCount: viewModel.playersForGame.count
+                )
             }
             .padding(.bottom, 10)
         }
@@ -113,20 +96,11 @@ extension GameView {
             VStack {
                 DividerHeader(title: "Favourite")
                 
-                LazyVGrid(columns: columns) {
-                    ForEach(0..<viewModel.favouriteCharacters.count, id: \.self) { characterIndex in
-                        Button(action: { }) {
-                            GameRoleCard(
-                                character: $viewModel.favouriteCharacters[characterIndex],
-                                isSelected: viewModel.isSelectedCharacter(viewModel.favouriteCharacters[characterIndex]),
-                                rangeLimit: viewModel.freePlaces(for: viewModel.favouriteCharacters[characterIndex])
-                            )
-                            .padding(.horizontal, 5)
-                            .padding(.top, 5)
-                        }
-                    }
-                    .padding()
-                }
+                RolesGrid(
+                    roles: $viewModel.favouriteCharacters,
+                    selectedRoles: viewModel.selectedCharacters,
+                    playersCount: viewModel.playersForGame.count
+                )
             }
             .padding(.bottom, 10)
         }
@@ -224,5 +198,37 @@ extension GameView {
     
     private func getNoPlayersAlert() -> Alert {
         Alert(title: Text("No players"))
+    }
+}
+
+struct RolesGrid: View {
+    @Binding var roles: [Role]
+    let selectedRoles: [Role]
+    let playersCount: Int
+    private let columns: [GridItem] = [
+        GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
+    ]
+    var body: some View {
+        LazyVGrid(columns: columns) {
+            ForEach(0..<roles.count, id: \.self) { characterIndex in
+                VStack {
+                    GameRoleCard(
+                        character: $roles[characterIndex],
+                        isSelected: isSelectedCharacter(roles[characterIndex]),
+                        rangeLimit: freePlaces(for: roles[characterIndex])
+                    )
+                    .padding(.horizontal, 5)
+                    .padding(.top, 5)
+                }
+            }
+            .padding()
+        }
+    }
+    func isSelectedCharacter(_ character: Role) -> Bool {
+        selectedRoles.contains(where: { $0.name == character.name })
+    }
+    func freePlaces(for character: Role) -> Int {
+        let character = selectedRoles.first(where: { $0.name == character.name})
+        return playersCount - selectedRoles.count + (character?.selectedCount ?? 0)
     }
 }
