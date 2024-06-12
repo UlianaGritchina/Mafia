@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Role: Identifiable {
+struct Role: Identifiable, Equatable {
     let id = UUID().uuidString
     let name: String
     let imageName: String

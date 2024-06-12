@@ -26,7 +26,6 @@ struct CharactersList: View {
             .background(BackgroundImage())
             .navigationTitle("Characters")
             .navigationBarItems(trailing: closeButton)
-            .overlay(alignment: .bottom) { picker }
         }
         .overlay {
             VStack {

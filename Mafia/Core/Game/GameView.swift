@@ -57,12 +57,7 @@ extension GameView {
     
     private var rolesView: some View {
         ScrollView {
-            switch viewModel.selectedCharactersType {
-            case .all:
-                allCharacters
-            case .favourite:
-                favouriteCharacters
-            }
+            allCharacters
             bottomBar.opacity(0)
         }
         .transition(.move(edge: .trailing))
@@ -73,56 +68,52 @@ extension GameView {
             VStack {
                 DividerHeader(title: "Base")
                 
-                RolesGrid(
-                    roles: $viewModel.classicCharacters,
-                    selectedRoles: viewModel.selectedCharacters,
-                    playersCount: viewModel.playersForGame.count
-                )
+                LazyVGrid(columns: columns) {
+                    ForEach(0..<viewModel.classicCharacters.count, id: \.self) { characterIndex in
+                        VStack {
+                            GameRoleCard(
+                                character: $viewModel.classicCharacters[characterIndex],
+                                isSelected: viewModel.isSelectedCharacter(viewModel.classicCharacters[characterIndex]),
+                                rangeLimit: viewModel.freePlaces(for: viewModel.classicCharacters[characterIndex])
+                            )
+                            .padding(.horizontal)
+                            .padding(.top, 10)
+                        }
+                    }
+                }
                 
                 DividerHeader(title: "More")
                 
-                RolesGrid(
-                    roles: $viewModel.moreCharacters,
-                    selectedRoles: viewModel.selectedCharacters,
-                    playersCount: viewModel.playersForGame.count
-                )
-            }
-            .padding(.bottom, 10)
-        }
-    }
-    
-    private var favouriteCharacters: some View {
-        ScrollView {
-            VStack {
-                DividerHeader(title: "Favourite")
-                
-                RolesGrid(
-                    roles: $viewModel.favouriteCharacters,
-                    selectedRoles: viewModel.selectedCharacters,
-                    playersCount: viewModel.playersForGame.count
-                )
-            }
-            .padding(.bottom, 10)
-        }
-    }
-    
-    private var bottomBar: some View {
-        Rectangle()
-            .opacity(0)
-            .frame(maxWidth: .infinity)
-            .frame(height: UIScreen.main.bounds.height / 10)
-            .background(.ultraThinMaterial)
-            .overlay {
-                HStack {
-                    if viewModel.isShowRoles {
-                        rolesBottomBar
-                            .transition(.move(edge: .trailing))
-                    } else {
-                        playersBottomBar
-                            .transition(.move(edge: .leading))
+                LazyVGrid(columns: columns) {
+                    ForEach(0..<viewModel.moreCharacters.count, id: \.self) { characterIndex in
+                        GameRoleCard(
+                            character: $viewModel.moreCharacters[characterIndex],
+                            isSelected: viewModel.isSelectedCharacter(viewModel.moreCharacters[characterIndex]),
+                            rangeLimit: viewModel.freePlaces(for: viewModel.moreCharacters[characterIndex])
+                        )
+                        .padding(.horizontal)
+                        .padding(.top, 10)
                     }
                 }
             }
+            .padding(.bottom, 10)
+        }
+    }
+    
+    
+    private var bottomBar: some View {
+        HStack {
+            if viewModel.isShowRoles {
+                rolesBottomBar
+                    .transition(.move(edge: .trailing))
+            } else {
+                playersBottomBar
+                    .transition(.move(edge: .leading))
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: UIScreen.main.bounds.height / 15)
+        .background(.ultraThinMaterial)
     }
     
     private var playersBottomBar: some View {
@@ -145,37 +136,39 @@ extension GameView {
             }
             .buttonStyle(GrayButtonStyle())
         }
-        .padding()
-        .padding(.bottom)
+        .padding(.horizontal)
     }
     
     private var rolesBottomBar: some View {
         VStack {
-            picker
-            Divider()
             if viewModel.isShowRoles {
                 HStack {
                     Button(action: { viewModel.backButtonTapped() }) {
                         Text("Back")
                             .font(.system(size: 25, weight: .bold, design: .serif))
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 35)
                     }
                     .buttonStyle(GrayButtonStyle())
                     
                     Spacer()
                     
                     playersCounter
+                        .padding(.horizontal)
                     
                     Spacer()
                     
                     Button(action: { viewModel.startButtonTapped() }) {
                         Text("Start")
                             .font(.system(size: 25, weight: .bold, design: .serif))
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 35)
                     }
                     .buttonStyle(GrayButtonStyle())
                     .disabled(!viewModel.isStartButtonActive)
                     .opacity(viewModel.isStartButtonActive ? 1 : 0.5)
                 }
-                .padding(.horizontal, 40)
+                .padding(.horizontal)
             }
         }
     }
@@ -198,37 +191,5 @@ extension GameView {
     
     private func getNoPlayersAlert() -> Alert {
         Alert(title: Text("No players"))
-    }
-}
-
-struct RolesGrid: View {
-    @Binding var roles: [Role]
-    let selectedRoles: [Role]
-    let playersCount: Int
-    private let columns: [GridItem] = [
-        GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
-    ]
-    var body: some View {
-        LazyVGrid(columns: columns) {
-            ForEach(0..<roles.count, id: \.self) { characterIndex in
-                VStack {
-                    GameRoleCard(
-                        character: $roles[characterIndex],
-                        isSelected: isSelectedCharacter(roles[characterIndex]),
-                        rangeLimit: freePlaces(for: roles[characterIndex])
-                    )
-                    .padding(.horizontal, 5)
-                    .padding(.top, 5)
-                }
-            }
-            .padding()
-        }
-    }
-    func isSelectedCharacter(_ character: Role) -> Bool {
-        selectedRoles.contains(where: { $0.name == character.name })
-    }
-    func freePlaces(for character: Role) -> Int {
-        let character = selectedRoles.first(where: { $0.name == character.name})
-        return playersCount - selectedRoles.count + (character?.selectedCount ?? 0)
     }
 }

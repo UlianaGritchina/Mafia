@@ -110,5 +110,14 @@ extension GameView {
             moreCharacters = CharactersManager.moreCharacters
             updateFavoriteCharacters()
         }
+        
+        func freePlaces(for character: Role) -> Int {
+            let character = selectedCharacters.first(where: { $0.name == character.name})
+            return playersForGame.count - selectedCharactersCount + (character?.selectedCount ?? 0)
+        }
+        
+        func isSelectedCharacter(_ character: Role) -> Bool {
+            selectedCharacters.contains(where: { $0.name == character.name })
+        }
     }
 }

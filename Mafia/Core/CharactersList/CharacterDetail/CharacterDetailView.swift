@@ -24,7 +24,6 @@ struct CharacterDetailView: View {
                 CharacterCard(character: viewModel.character, cardSize: .detail)
                 Text("description")
                 Spacer()
-                actionButtons
             }
             .padding()
         }
