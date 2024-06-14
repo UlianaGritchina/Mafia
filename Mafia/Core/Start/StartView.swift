@@ -22,7 +22,14 @@ struct StartView: View {
         .background(BackgroundImage())
         .padding(.horizontal)
         .preferredColorScheme(.dark)
-        .sheet(isPresented: $viewModel.isShowCharactersView) {
+        .sheet(
+            isPresented: $viewModel.isShowCharactersView,
+            onDismiss: {
+                withAnimation {
+                    viewModel.updateCharactersSet()
+                }
+            }
+        ) {
             CharactersList()
         }
         .fullScreenCover(isPresented: $viewModel.isPlay) {
@@ -67,19 +74,19 @@ extension StartView {
     private var charactersPreview: some View {
         ZStack {
             CharacterCard(
-                imageName: "Doctor",
+                imageName: "doctor" + viewModel.charactersSet.rawValue,
                 size: UIScreen.main.bounds.width / 2.8,
                 offset: -100,
                 isShowGradient: true
             )
             CharacterCard(
-                imageName: "Sheriff",
+                imageName: "sheriff" + viewModel.charactersSet.rawValue,
                 size: UIScreen.main.bounds.width / 2.8,
                 offset: 100,
                 isShowGradient: true
             )
             CharacterCard(
-                imageName: "Mafia",
+                imageName: "mafia" + viewModel.charactersSet.rawValue,
                 size: UIScreen.main.bounds.width / 2.5
             )
         }

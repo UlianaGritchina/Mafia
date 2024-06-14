@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "doctor_chin.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

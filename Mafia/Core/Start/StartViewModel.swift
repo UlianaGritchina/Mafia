@@ -13,6 +13,7 @@ extension StartView {
         //MARK: - Consents
         
         let characters = CharactersManager.allCharacters.shuffled()
+        @Published var charactersSet = UserDefaultsManager.shared.getCharactersSet()
         
         //MARK: - Published
         
@@ -27,6 +28,10 @@ extension StartView {
         
         func playButtonTapped() {
             isPlay = true
+        }
+        
+        func updateCharactersSet() {
+            charactersSet = UserDefaultsManager.shared.getCharactersSet()
         }
     }
 }

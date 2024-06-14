@@ -28,6 +28,13 @@ struct PlayersList: View {
             }
             .padding(.top)
             .padding(.bottom, 70)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Button("done") {
+                        print("Clicked")
+                    }
+                }
+            }
         }
         .navigationTitle("Players")
     }

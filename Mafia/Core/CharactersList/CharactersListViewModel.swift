@@ -20,13 +20,14 @@ extension CharactersList {
         @Published var isShowCharacterDetail = false
         @Published var selectedCharacter: Role?
         @Published var favouriteCharacters: [Role] = []
+        @Published var selectedSet: CharacterSet
         
-        private let allCharacters = CharactersManager.allCharacters
-        let classicCharacters = CharactersManager.classicCharacters
-        let moreCharacters = CharactersManager.moreCharacters
+        private var allCharacters = CharactersManager.allCharacters
+        @Published var classicCharacters = CharactersManager.classicCharacters
+        @Published var moreCharacters = CharactersManager.moreCharacters
         
         init() {
-            updateFavoriteCharacters()
+            selectedSet = UserDefaultsManager.shared.getCharactersSet()
         }
         
         func updateFavoriteCharacters() {
@@ -45,6 +46,14 @@ extension CharactersList {
             selectedCharacter = nil
             isShowCharacterDetail = false
             updateFavoriteCharacters()
+        }
+        
+        func updateCharacters() {
+            UserDefaultsManager.shared.saveData(selectedSet, for: .charactersSet)
+            CharactersManager.update()
+            classicCharacters = CharactersManager.classicCharacters
+            moreCharacters = CharactersManager.moreCharacters
+            allCharacters = CharactersManager.allCharacters
         }
     }
 }

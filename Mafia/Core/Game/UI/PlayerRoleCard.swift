@@ -72,7 +72,14 @@ extension PlayerRoleCard {
         )
         .cornerRadius(20)
         .overlay { gradientStroke }
-        .background(.thinMaterial)
+        
+        .background(
+            Image(role.imageName)
+                .resizable()
+                .scaledToFill()
+                .opacity(0.6)
+                .overlay { Rectangle().opacity(0).background(.ultraThinMaterial)}
+        )
         .cornerRadius(20)
         .rotation3DEffect(
             Angle(degrees: frontDegree),

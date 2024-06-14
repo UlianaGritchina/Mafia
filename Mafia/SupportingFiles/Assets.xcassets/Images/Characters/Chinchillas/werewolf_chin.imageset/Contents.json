@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "werewolf_chin.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

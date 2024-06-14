@@ -16,16 +16,15 @@ struct CharactersList: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                switch viewModel.selectedCharactersType {
-                case .all:
-                    allCharacters
-                case .favourite:
-                    favouriteCharacters
-                }
+                charactersSetPicker
+                allCharacters
             }
             .background(BackgroundImage())
             .navigationTitle("Characters")
             .navigationBarItems(trailing: closeButton)
+            .onChange(of: viewModel.selectedSet) { _ in
+                viewModel.updateCharacters()
+            }
         }
         .overlay {
             VStack {
@@ -48,6 +47,15 @@ struct CharactersList: View {
 // MARK: - UI Elements
 
 extension CharactersList {
+    
+    private var charactersSetPicker: some View {
+        Picker("Characters set", selection: $viewModel.selectedSet) {
+            Text("Cartoon").tag(CharacterSet.cartoon)
+            Text("Chinchillas").tag(CharacterSet.chinchillas)
+        }
+        .pickerStyle(.segmented)
+        .padding(.horizontal, 16)
+    }
     
     private var allCharacters: some View {
         VStack {

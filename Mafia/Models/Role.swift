@@ -15,7 +15,8 @@ struct Role: Identifiable, Equatable {
     
     init(name: String, imageName: String, selectedCount: Int = 0) {
         self.name = name
-        self.imageName = imageName
         self.selectedCount = selectedCount
+        let type = UserDefaultsManager.shared.getCharactersSet()
+        self.imageName = imageName + type.rawValue
     }
 }

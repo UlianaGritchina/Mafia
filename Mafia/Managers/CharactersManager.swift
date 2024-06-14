@@ -7,32 +7,63 @@
 
 import Foundation
 
+enum CharacterSet: String, Codable {
+    case cartoon = "_mult"
+    case chinchillas = "_chin"
+}
+
 final class CharactersManager {
-    static let classicCharacters: [Role] = [
-        Role(name: "Mafia", imageName: "Mafia"),
-        Role(name: "Sheriff", imageName: "Sheriff"),
-        Role(name: "Doctor", imageName: "Doctor"),
-        Role(name: "Civilian", imageName: "Civilian"),
-        Role(name: "Maniac", imageName: "Maniac"),
-        Role(name: "Mistress", imageName: "Mistress"),
-        Role(name: "Game Host", imageName: "GameHost")
+    static var classicCharacters: [Role] = [
+        Role(name: "Mafia", imageName: "mafia"),
+        Role(name: "Sheriff", imageName: "sheriff"),
+        Role(name: "Doctor", imageName: "doctor"),
+        Role(name: "Civilian", imageName: "civilian"),
+        Role(name: "Maniac", imageName: "maniac"),
+        Role(name: "Mistress", imageName: "mistress"),
+        Role(name: "Game Host", imageName: "gameHost")
     ]
     
-    static let moreCharacters: [Role] = [
-        Role(name: "Don", imageName: "Don"),
-        Role(name: "Detective", imageName: "Detective"),
-        Role(name: "Werewolf", imageName: "Werewolf"),
-        Role(name: "Agent", imageName: "Agent"),
-        Role(name: "God Father", imageName: "GodFather"),
-        Role(name: "Judge", imageName: "Judge"),
-        Role(name: "Ninja", imageName: "Ninja"),
-        Role(name: "Advocate", imageName: "Advocate"),
-        Role(name: "Patrol", imageName: "Patrol"),
-        Role(name: "Thief", imageName: "Thief"),
-        Role(name: "Yakuza", imageName: "Yakuza")
+    static var moreCharacters: [Role] = [
+        Role(name: "Don", imageName: "don"),
+        Role(name: "Detective", imageName: "detective"),
+        Role(name: "Werewolf", imageName: "werewolf"),
+        Role(name: "Agent", imageName: "agent"),
+        Role(name: "God Father", imageName: "godFather"),
+        Role(name: "Judge", imageName: "judge"),
+        Role(name: "Ninja", imageName: "ninja"),
+        Role(name: "Advocate", imageName: "advocate"),
+        Role(name: "Patrol", imageName: "patrol"),
+        Role(name: "Thief", imageName: "thief"),
+        Role(name: "Yakuza", imageName: "yakuza")
     ]
     
+    static func update() {
+        moreCharacters = [
+            Role(name: "Don", imageName: "don"),
+            Role(name: "Detective", imageName: "detective"),
+            Role(name: "Werewolf", imageName: "werewolf"),
+            Role(name: "Agent", imageName: "agent"),
+            Role(name: "God Father", imageName: "godFather"),
+            Role(name: "Judge", imageName: "judge"),
+            Role(name: "Ninja", imageName: "ninja"),
+            Role(name: "Advocate", imageName: "advocate"),
+            Role(name: "Patrol", imageName: "patrol"),
+            Role(name: "Thief", imageName: "thief"),
+            Role(name: "Yakuza", imageName: "yakuza")
+        ]
+        
+        classicCharacters = [
+            Role(name: "Mafia", imageName: "mafia"),
+            Role(name: "Sheriff", imageName: "sheriff"),
+            Role(name: "Doctor", imageName: "doctor"),
+            Role(name: "Civilian", imageName: "civilian"),
+            Role(name: "Maniac", imageName: "maniac"),
+            Role(name: "Mistress", imageName: "mistress"),
+            Role(name: "Game Host", imageName: "gameHost")
+        ]
+    }
     static  var allCharacters: [Role] {
         classicCharacters + moreCharacters
     }
+    
 }

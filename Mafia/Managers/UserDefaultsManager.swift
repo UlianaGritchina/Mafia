@@ -6,6 +6,11 @@
 //
 
 import Foundation
+
+enum UserDefaultsManagerKey: String {
+    case charactersSet = "characters_set"
+}
+
 final class UserDefaultsManager {
     
     static let shared = UserDefaultsManager()
@@ -17,5 +22,19 @@ final class UserDefaultsManager {
     
     func getFavoriteCharacterNames() -> [String] {
         UserDefaults.standard.stringArray(forKey: "favorite_characters") ?? []
+    }
+    
+    func saveData(_ data: Codable, for key: UserDefaultsManagerKey) {
+        if let encodedData = try? JSONEncoder().encode(data) {
+            UserDefaults.standard.set(encodedData, forKey: key.rawValue)
+        }
+    }
+    
+    func getCharactersSet() -> CharacterSet {
+        guard
+            let data = UserDefaults.standard.data(forKey: UserDefaultsManagerKey.charactersSet.rawValue),
+            let set = try? JSONDecoder().decode(CharacterSet.self, from: data)
+        else { return .cartoon }
+        return set
     }
 }

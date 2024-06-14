@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "maniac_chin.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "gameHost_mult.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
