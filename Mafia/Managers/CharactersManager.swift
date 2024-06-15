@@ -10,6 +10,7 @@ import Foundation
 enum CharacterSet: String, Codable {
     case cartoon = "_mult"
     case chinchillas = "_chin"
+    case real = "_real"
 }
 
 final class CharactersManager {

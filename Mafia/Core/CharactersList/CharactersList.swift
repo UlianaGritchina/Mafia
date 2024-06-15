@@ -14,17 +14,15 @@ struct CharactersList: View {
         GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
     ]
     var body: some View {
-        NavigationView {
-            ScrollView(showsIndicators: false) {
-                charactersSetPicker
-                allCharacters
-            }
-            .background(BackgroundImage())
-            .navigationTitle("Characters")
-            .navigationBarItems(trailing: closeButton)
-            .onChange(of: viewModel.selectedSet) { _ in
-                viewModel.updateCharacters()
-            }
+        ScrollView(showsIndicators: false) {
+            header
+            charactersSetPicker
+            allCharacters
+        }
+        .background(BackgroundImage())
+        .navigationTitle("Characters")
+        .onChange(of: viewModel.selectedSet) { _ in
+            viewModel.updateCharacters()
         }
         .overlay {
             VStack {
@@ -48,12 +46,31 @@ struct CharactersList: View {
 
 extension CharactersList {
     
-    private var charactersSetPicker: some View {
-        Picker("Characters set", selection: $viewModel.selectedSet) {
-            Text("Cartoon").tag(CharacterSet.cartoon)
-            Text("Chinchillas").tag(CharacterSet.chinchillas)
+    private var header: some View {
+        HStack {
+            Text("Characters")
+                .font(.system(size: 30, weight: .bold, design: .serif))
+            Spacer()
+            closeButton
         }
-        .pickerStyle(.segmented)
+        .padding()
+        .padding(.top)
+    }
+    
+    private var charactersSetPicker: some View {
+        VStack {
+            HStack {
+                Text("Style")
+                    .font(.system(size: 18, weight: .bold, design: .serif))
+                Spacer()
+                Picker("Characters set", selection: $viewModel.selectedSet) {
+                    Text("Cartoon").tag(CharacterSet.cartoon)
+                    Text("Chinchillas").tag(CharacterSet.chinchillas)
+                    Text("Real").tag(CharacterSet.real)
+                }
+            }
+            Divider()
+        }
         .padding(.horizontal, 16)
     }
     
@@ -102,24 +119,12 @@ extension CharactersList {
         .padding(.bottom, 50)
     }
     
-    private var picker: some View {
-        Picker(selection: $viewModel.selectedCharactersType, label: Text("Picker")) {
-            Text("All").tag(CharactersType.all)
-            Text("Favourite").tag(CharactersType.favourite)
-        }
-        .pickerStyle(.segmented)
-        .padding(.horizontal)
-        .padding(.top, 5)
-        .padding(.bottom)
-        .background(.thinMaterial)
-    }
-    
     private var closeButton: some View {
         Button(action: {presentationMode.wrappedValue.dismiss()}) {
             Image(systemName: "xmark")
+                .font(.title2)
         }
     }
-    
 }
 
 struct DividerHeader: View {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension StartView {
+extension MainView {
     @MainActor final class ViewModel: ObservableObject {
         
         //MARK: - Consents

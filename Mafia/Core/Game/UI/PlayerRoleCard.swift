@@ -49,7 +49,7 @@ struct PlayerRoleCard: View {
     PlayerRoleCard(
         role: Role(
             name: "Mafia",
-            imageName: "Mafia"
+            imageName: "mafia"
         ),
         playerName: "Uliana"
     )

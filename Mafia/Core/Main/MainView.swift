@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StartView: View {
+struct MainView: View {
     @StateObject private var viewModel = ViewModel()
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -39,10 +39,10 @@ struct StartView: View {
 }
 
 #Preview {
-    StartView()
+    MainView()
 }
 
-extension StartView {
+extension MainView {
     
     private var title: some View {
         Text("MAFIA")
