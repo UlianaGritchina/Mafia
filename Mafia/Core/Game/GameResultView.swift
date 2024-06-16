@@ -9,9 +9,13 @@ import SwiftUI
 
 struct GameResultView: View {
     @Environment(\.presentationMode) var presentationMode
+    
     @State var characters: [Role]
     @State private var currentContentIndex = 0
+    @State private var isShowAllPlayers = false
+    
     let players: [String]
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -37,11 +41,10 @@ struct GameResultView: View {
                 .padding(.bottom)
             }
             .background(BackgroundImage())
+            .sheet(isPresented: $isShowAllPlayers) { AllPlayersView(players: players, roles: characters) }
             .toolbar(content: {
                 ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink("See all") {
-                        AllPlayersView(players: players, roles: characters)
-                    }
+                    Button("See all") { isShowAllPlayers.toggle()  }
                 }
             })
         }
