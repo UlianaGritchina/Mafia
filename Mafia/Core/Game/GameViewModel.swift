@@ -70,7 +70,7 @@ extension GameView {
         }
         
         var navigationTitle: String {
-            isShowRoles ? "Roles" : "Players"
+            isShowRoles ? "Roles".localised : "Players".localised
         }
         
         func nextButtonTapped() {

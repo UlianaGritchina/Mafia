@@ -18,6 +18,7 @@
 		0EB1E9482B81E81800ED3139 /* GameResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB1E9472B81E81800ED3139 /* GameResultView.swift */; };
 		0EB6BFEB2B764B9A00CE1763 /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6BFEA2B764B9A00CE1763 /* BackgroundImage.swift */; };
 		0EB6BFED2B76557D00CE1763 /* CountStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6BFEC2B76557D00CE1763 /* CountStepper.swift */; };
+		0EE9E0A72C1EE499005BE1D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EE9E0A92C1EE499005BE1D3 /* Localizable.strings */; };
 		0EEA40D12B823E2900CA4E5F /* GameRoleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEA40D02B823E2900CA4E5F /* GameRoleCard.swift */; };
 		CE29931D2B6E2B2F009A9D75 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */; };
 		CE2993202B6E2DDB009A9D75 /* CharactersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */; };
@@ -49,6 +50,8 @@
 		0EB1E9472B81E81800ED3139 /* GameResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultView.swift; sourceTree = "<group>"; };
 		0EB6BFEA2B764B9A00CE1763 /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		0EB6BFEC2B76557D00CE1763 /* CountStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountStepper.swift; sourceTree = "<group>"; };
+		0EE9E0A82C1EE499005BE1D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0EE9E0AA2C1EE49D005BE1D3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0EEA40D02B823E2900CA4E5F /* GameRoleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoleCard.swift; sourceTree = "<group>"; };
 		CE29931C2B6E2B2F009A9D75 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
 		CE29931F2B6E2DDB009A9D75 /* CharactersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersManager.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 				0E1B9EDD288BEBBC002BF51E /* Preview Content */,
 				0E1B9ED7288BEBBA002BF51E /* MafiaApp.swift */,
 				0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */,
+				0EE9E0A92C1EE499005BE1D3 /* Localizable.strings */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -272,6 +276,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 				Base,
 			);
 			mainGroup = 0E1B9ECB288BEBBA002BF51E;
@@ -290,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E29AA2628AE76A200DEB7FD /* Launch Screen.storyboard in Resources */,
+				0EE9E0A72C1EE499005BE1D3 /* Localizable.strings in Resources */,
 				0E1B9EDF288BEBBC002BF51E /* Preview Assets.xcassets in Resources */,
 				0E1B9EDC288BEBBC002BF51E /* Assets.xcassets in Resources */,
 			);
@@ -329,6 +335,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0EE9E0A92C1EE499005BE1D3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EE9E0A82C1EE499005BE1D3 /* en */,
+				0EE9E0AA2C1EE49D005BE1D3 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0E1B9EE0288BEBBC002BF51E /* Debug */ = {
@@ -470,12 +488,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ugritchina-icloud.com.Mafia";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -505,12 +524,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ugritchina-icloud.com.Mafia";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

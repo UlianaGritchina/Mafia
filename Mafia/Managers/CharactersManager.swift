@@ -20,7 +20,7 @@ final class CharactersManager {
         Role(name: "Doctor", imageName: "doctor"),
         Role(name: "Civilian", imageName: "civilian"),
         Role(name: "Maniac", imageName: "maniac"),
-        Role(name: "Mistress", imageName: "mistress"),
+        Role(name: "Lover", imageName: "mistress"),
         Role(name: "Game Host", imageName: "gameHost")
     ]
     
@@ -59,7 +59,7 @@ final class CharactersManager {
             Role(name: "Doctor", imageName: "doctor"),
             Role(name: "Civilian", imageName: "civilian"),
             Role(name: "Maniac", imageName: "maniac"),
-            Role(name: "Mistress", imageName: "mistress"),
+            Role(name: "Lover", imageName: "mistress"),
             Role(name: "Game Host", imageName: "gameHost")
         ]
     }

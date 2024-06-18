@@ -54,9 +54,9 @@ extension MainView {
         Button(action: { viewModel.showCharacters() }) {
             VStack(spacing: 15) {
                 charactersPreview
-                Text("See characters")
+                Text("See roles")
                     .foregroundStyle(.white)
-                    .font(.system(size: 20, weight: .bold, design: .serif))
+                    .font(.system(size: 18, weight: .bold, design: .serif))
             }
             .frame(maxWidth: .infinity)
         }

@@ -22,7 +22,9 @@ struct CharacterDetailView: View {
             VStack {
                 closeButton
                 CharacterCard(character: viewModel.character, cardSize: .detail)
-                Text("description")
+                Text(viewModel.character.description)
+                    .multilineTextAlignment(.center)
+                    .padding()
                 Spacer()
             }
             .padding()
@@ -47,7 +49,8 @@ extension CharacterDetailView {
     
     private var background: some View {
         Rectangle()
-            .opacity(0)
+            .foregroundColor(.black)
+            .opacity(0.2)
             .background(.ultraThinMaterial)
             .ignoresSafeArea()
     }

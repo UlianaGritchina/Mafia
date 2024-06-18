@@ -16,13 +16,15 @@ struct GameResultView: View {
     
     let players: [String]
     
+    
+    
     var body: some View {
         NavigationView {
             VStack {
                 cardsTabView
                 HStack(spacing: 15) {
                     Button(action: { presentationMode.wrappedValue.dismiss() }) {
-                        Text("Complite")
+                        Text("Complete")
                             .font(.system(size: 20, weight: .bold, design: .serif))
                             .frame(maxWidth: .infinity)
                             .frame(height: 45)
@@ -44,7 +46,7 @@ struct GameResultView: View {
             .sheet(isPresented: $isShowAllPlayers) { AllPlayersView(players: players, roles: characters) }
             .toolbar(content: {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("See all") { isShowAllPlayers.toggle()  }
+                    Button("All") { isShowAllPlayers.toggle()  }
                 }
             })
         }

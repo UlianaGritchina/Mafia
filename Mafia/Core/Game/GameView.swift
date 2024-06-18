@@ -120,7 +120,7 @@ extension GameView {
         HStack(spacing: 15) {
             Button(action: { presentationMode.wrappedValue.dismiss() }) {
                 Text("Exit")
-                    .font(.system(size: 25, weight: .bold, design: .serif))
+                    .font(.system(size: 23, weight: .bold, design: .serif))
                     .frame(maxWidth: .infinity)
                     .frame(height: 35)
             }
@@ -130,7 +130,7 @@ extension GameView {
             
             Button(action: { viewModel.nextButtonTapped() }) {
                 Text("Next")
-                    .font(.system(size: 25, weight: .bold, design: .serif))
+                    .font(.system(size: 23, weight: .bold, design: .serif))
                     .frame(maxWidth: .infinity)
                     .frame(height: 35)
             }

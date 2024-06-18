@@ -38,6 +38,7 @@ struct CharacterCard: View {
 //                }
             Text(character.name)
                 .font(.system(size: 18, weight: .bold, design: .serif))
+                .lineLimit(1)
         }
         .padding(.horizontal)
         .padding(.bottom, 5)

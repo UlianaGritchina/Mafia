@@ -10,10 +10,11 @@ import SwiftUI
 struct PlayersList: View {
     @Binding var players: [String]
     var body: some View {
+        
         ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 20) {
                 ForEach(0..<30) { index in
-                    TextField("Player \(index + 1)", text: $players[index])
+                    TextField("\("Player".localised) \(index + 1)" , text: $players[index])
                         .font(.title3)
                         .padding(13)
                         .background(Color.black.opacity(0.2))
@@ -28,13 +29,6 @@ struct PlayersList: View {
             }
             .padding(.top)
             .padding(.bottom, 70)
-            .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    Button("done") {
-                        print("Clicked")
-                    }
-                }
-            }
         }
         .navigationTitle("Players")
     }

@@ -131,7 +131,7 @@ struct DividerHeader: View {
     let title: String
     var body: some View {
         VStack {
-            Text(title)
+            Text(title.localised)
                 .font(.system(size: 18, weight: .bold, design: .serif))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
@@ -139,5 +139,11 @@ struct DividerHeader: View {
             Divider()
                 .padding(.horizontal)
         }
+    }
+}
+
+extension String {
+    var localised: String {
+        NSLocalizedString(self, comment: "")
     }
 }

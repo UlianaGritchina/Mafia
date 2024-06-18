@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  Mafia
+
+  Created by Ульяна Гритчина on 16.06.2024.
+  
+*/
+
+"mafia_des" = "They wake up every night and collectively choose the player they want to «kill».";
+
+"sheriff_des" = "At night, the participant can check for mafia membership.";
+
+"doctor_des" = "Wakes up at night. Heals one player. You can't treat the same target two nights in a row. If the doctor's target is poisoned or shot, then she will not die. Valid all night.";
+
+"civilian_des" = "The main player in the peaceful team. They don't wake up at night.";
+
+"maniac_des" = "Every night can «kill» one player. He plays for himself: he wins if he is alone in the city.";
+"mistress_des" = "The mistress wakes up two times at night: the first is as part of the mafia to choose a victim; the second is separately to 'block' someone. The mistress randomly points at one of the players, and if he has an active role (for example, a doctor, a maniac, a journalist), he will not be able to perform it that night.";
+
+"gameHost_des" = "Conducts the Mafia game, monitors compliance with the rules.";
+
+"don_des" = "Every night can check whether the chosen resident is the Sheriff.";
+
+"detective_des" = "Wakes up at night. Checks one player. The presenter shows whether he is a citizen (thumbs up), a criminal (thumbs down) or a renegade (thumbs horizontally).";
+
+"werewolf_des" = "The werewolf First acts on the side of the peaceful camp: calculates the mafia and is active only during the day. But as soon as the entire mafia leaves the city, the werewolf takes its place and begins to wake up at night to exterminate civilians. A werewolf wins if he stays one-on-one with a peaceful one.";
+
+"agent_des" = "Wakes up in the Mafia's wake and pretends to be one of them. Has no right to disclose the list of Mafia players during the day. If the Mafia decides to kill one of their own at night and this choice falls on the Agent, he must show them his role and they can choose another victim. At the beginning of the coming day, the Agent is considered dead (it does not matter whether he was treated or not).";
+
+"godFather_des" = "The official head of the mafia. He has the final say in choosing the mafia's target. The player he chooses cannot vote during the day.";
+
+"judge_des" = "Wakes up at night. Can choose one player. His target goes to jail — this player cannot use his abilities at night and vote during the day, but can participate in discussions. After the death of the Judge, all prisoners are released, that is, they can again use their abilities at night and vote during the day. If the Referee wants, he can
+target an already imprisoned player with his ability to free him.";
+
+"ninja_des" = "Ninja — the secret weapon of the Yakuza clan — can do a check at night — find out if the player chosen by him is a commissioner or mafia.";
+"advocate_des" = "Wakes up at night. Selects one player. You can't choose the same goal two nights in a row. When the player who became the target of the Lawyer wakes up, the Presenter shows him crossed arms — this means that the player must fall asleep without performing his actions.";
+
+"patrol_des" = "Does not wake up at night while the Detective is alive. After his death, he takes over the service. Completely copies the Detective's abilities";
+
+"thief_des" = "Plays for civilians. He wakes up first and deprives one of the players of special action, so the victim cannot perform the action at night, and cannot speak during the day. If a Thief robbed one player from the Mafia team, then the Mafia will not be able to kill anyone that night.";
+
+"yakuza_des" = "The task of the Yakuza is to exterminate honest residents and the mafia. The Yakuza wakes up at the command of the host, arranges for the murders on the first night, and starts shooting on the second.";
