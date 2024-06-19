@@ -9,12 +9,15 @@ import SwiftUI
 
 struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
+    
     @StateObject private var viewModel = ViewModel()
+    
     @EnvironmentObject private var appearanceManager: AppearanceManager
     
     private let columns: [GridItem] = [
         GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
     ]
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
@@ -176,16 +179,6 @@ extension GameView {
                 .padding(.horizontal)
             }
         }
-    }
-    
-    private var picker: some View {
-        Picker(selection: $viewModel.selectedCharactersType, label: Text("Picker")) {
-            Text("All").tag(CharactersType.all)
-            Text("Favourite").tag(CharactersType.favourite)
-        }
-        .pickerStyle(.segmented)
-        .padding(.horizontal)
-        .padding(.vertical, 5)
     }
     
     private var playersCounter: some View {

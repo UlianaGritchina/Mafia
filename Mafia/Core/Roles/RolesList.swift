@@ -9,11 +9,15 @@ import SwiftUI
 
 struct CharactersList: View {
     @StateObject private var viewModel = ViewModel()
+    
     @Environment(\.presentationMode) var presentationMode
+    
     @EnvironmentObject private var appearanceManager: AppearanceManager
+    
     private let columns: [GridItem] = [
         GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
     ]
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             header
@@ -31,7 +35,7 @@ struct CharactersList: View {
         .overlay {
             VStack {
                 if let character = viewModel.selectedCharacter {
-                    CharacterDetailView(character: character) {
+                    RoleDetailView(role: character) {
                         viewModel.closeCharacterDetail()
                     }
                 }
@@ -68,9 +72,9 @@ extension CharactersList {
                     .font(.system(size: 18, weight: .bold, design: .serif))
                 Spacer()
                 Picker("Characters set", selection: $viewModel.selectedSet) {
-                    Text("Cartoon").tag(CharacterSet.cartoon)
-                    Text("Chinchillas").tag(CharacterSet.chinchillas)
-                    Text("Real").tag(CharacterSet.real)
+                    ForEach(RolesSet.allCases, id: \.self) { set in
+                        Text(set.title.localised).tag(set)
+                    }
                 }
             }
             Divider()
@@ -107,47 +111,10 @@ extension CharactersList {
         .padding(.bottom, 50)
     }
     
-    private var favouriteCharacters: some View {
-        VStack {
-            DividerHeader(title: "Favourite")
-            
-            LazyVGrid(columns: columns) {
-                ForEach(viewModel.favouriteCharacters) { character in
-                    Button(action: { viewModel.showCharacterDetail(character) }) {
-                        CharacterCard(character: character)
-                    }
-                }
-                .padding()
-            }
-        }
-        .padding(.bottom, 50)
-    }
-    
     private var closeButton: some View {
-        Button(action: {presentationMode.wrappedValue.dismiss()}) {
+        Button(action: { presentationMode.wrappedValue.dismiss() }) {
             Image(systemName: "xmark")
                 .font(.title2)
         }
-    }
-}
-
-struct DividerHeader: View {
-    let title: String
-    var body: some View {
-        VStack {
-            Text(title.localised)
-                .font(.system(size: 18, weight: .bold, design: .serif))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal)
-                .padding(.top)
-            Divider()
-                .padding(.horizontal)
-        }
-    }
-}
-
-extension String {
-    var localised: String {
-        NSLocalizedString(self, comment: "")
     }
 }

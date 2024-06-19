@@ -9,8 +9,8 @@ import SwiftUI
 
 struct PlayersList: View {
     @Binding var players: [String]
+    
     var body: some View {
-        
         ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 20) {
                 ForEach(0..<30) { index in

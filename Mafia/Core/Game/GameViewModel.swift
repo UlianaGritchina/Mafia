@@ -10,18 +10,23 @@ import Foundation
 extension GameView {
     @MainActor final class ViewModel: ObservableObject {
         
+        // MARK: Published
+        
         @Published var players = Array(repeating: "", count: 30)
         @Published var isShowRoles = false
         @Published var isStart = false
         @Published var isShowErrorAlert = false
-        @Published var selectedCharactersType: CharactersType = .all
         @Published var favouriteCharacters: [Role] = []
         @Published var classicCharacters = CharactersManager.classicCharacters
         @Published var moreCharacters = CharactersManager.moreCharacters
         
+        // MARK: Init
+        
         init() {
             updateFavoriteCharacters()
         }
+        
+        // MARK: Commuted properties
         
         var isStartButtonActive: Bool {
             playersForGame.count == selectedCharactersCount
@@ -72,6 +77,8 @@ extension GameView {
         var navigationTitle: String {
             isShowRoles ? "Roles".localised : "Players".localised
         }
+        
+        // MARK: Public methods
         
         func nextButtonTapped() {
             if playersForGame.isEmpty {

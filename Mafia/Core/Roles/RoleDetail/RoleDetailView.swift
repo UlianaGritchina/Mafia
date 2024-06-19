@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-struct CharacterDetailView: View {
+struct RoleDetailView: View {
     @StateObject private var viewModel: ViewModel
+    
     let closeAction: () -> ()
     
-    init(character: Role, closeAction: @escaping () -> Void) {
+    init(role: Role, closeAction: @escaping () -> Void) {
         self.closeAction = closeAction
-        let vm = ViewModel(character: character)
+        let vm = ViewModel(character: role)
         _viewModel = StateObject(wrappedValue: vm)
     }
     
@@ -36,16 +37,17 @@ struct CharacterDetailView: View {
 }
 
 #Preview {
-    CharacterDetailView(
-        character: Role(
-            name: "Mafia",
-            imageName: "Mafia"
-        ),
+    RoleDetailView(
+        role:
+            Role(
+                name: "Mafia",
+                imageName: "Mafia"
+            ),
         closeAction: { }
     )
 }
 
-extension CharacterDetailView {
+extension RoleDetailView {
     
     private var background: some View {
         Rectangle()
@@ -65,43 +67,4 @@ extension CharacterDetailView {
         }
         .frame(maxWidth: .infinity, alignment: .trailing)
     }
-    
-    private var actionButtons: some View {
-        HStack() {
-            Spacer()
-            addToFavoriteButton
-            Spacer()
-//            if viewModel.character.isLock {
-//                unlockButton
-//                Spacer()
-//            }
-        }
-    }
-    
-    private var addToFavoriteButton: some View {
-        Button(action: {  viewModel.addToFavorite() }) {
-            Image(systemName: viewModel.favoriteButtonImageName)
-                .font(.title3)
-                .frame(width: 25, height: 25)
-                .padding()
-                .background(.ultraThinMaterial)
-                .clipShape(.circle)
-                .shadow(radius: 10)
-        }
-    }
-    
-    private var unlockButton: some View {
-        Button(action: closeAction) {
-            HStack {
-                Image(systemName: "lock.open")
-                Text("Watch Ad")
-            }
-            .padding(.vertical)
-            .padding(.horizontal)
-            .background(.ultraThinMaterial)
-            .cornerRadius(10)
-            .shadow(radius: 10)
-        }
-    }
-    
 }

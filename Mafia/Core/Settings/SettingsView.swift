@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
+    
     @StateObject private var viewModel = ViewModel()
+    
     @EnvironmentObject private var appearanceManager: AppearanceManager
     
     var body: some View {
@@ -17,15 +19,12 @@ struct SettingsView: View {
             VStack {
                 header
                 VStack(spacing: 45) {
-                    backgroundImage
+                    backgroundImageSection
                     feedback
                 }
             }
         }
-        .background(
-            BackgroundImage()
-                .environmentObject(appearanceManager)
-        )
+        .background(BackgroundImage().environmentObject(appearanceManager))
         .preferredColorScheme(.dark)
     }
 }
@@ -51,38 +50,14 @@ extension SettingsView {
         .padding(.top)
     }
     
-    private var backgroundImage: some View {
+    private var backgroundImageSection: some View {
         VStack(alignment: .leading) {
             Text("Background")
                 .font(.system(size: 18, weight: .bold, design: .serif))
                 .padding(.horizontal)
             Divider()
                 .padding(.horizontal)
-            ScrollView(.horizontal) {
-                HStack(spacing: 15) {
-                    ForEach(viewModel.images, id: \.self) { image in
-                        VStack {
-                            Button(action: {
-                                withAnimation {
-                                    appearanceManager.updateBackgroundImage(with: image)
-                                    viewModel.selectImage(image)
-                                }
-                            }) {
-                                Image(image)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 100, height: 150)
-                                    .cornerRadius(10)
-                            }
-                            if image == viewModel.selectedImage {
-                                Circle()
-                                    .frame(width: 10)
-                            }
-                        }
-                    }
-                }
-                .padding(.horizontal)
-            }
+            imagesList
         }
     }
     
@@ -92,10 +67,40 @@ extension SettingsView {
                 .font(.system(size: 18, weight: .bold, design: .serif))
                 .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
-            writeReviewLink
-            telegramButton
+            VStack(spacing: 18) {
+                writeReviewLink
+                telegramButton
+            }
         }
         .padding(.horizontal)
+    }
+    
+    private var imagesList: some View {
+        ScrollView(.horizontal) {
+            HStack(spacing: 15) {
+                ForEach(viewModel.images, id: \.self) { image in
+                    VStack {
+                        Button(action: {
+                            withAnimation {
+                                appearanceManager.updateBackgroundImage(with: image)
+                                viewModel.selectImage(image)
+                            }
+                        }) {
+                            Image(image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 100, height: 150)
+                                .cornerRadius(10)
+                        }
+                        if image == viewModel.selectedImage {
+                            Circle()
+                                .frame(width: 10)
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal)
+        }
     }
     
     private var telegramButton: some View  {

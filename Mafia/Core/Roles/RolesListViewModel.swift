@@ -6,36 +6,30 @@
 //
 
 import Foundation
-enum CharactersType {
-    case all
-    case favourite
-}
 
 extension CharactersList {
     
-    
     @MainActor final class ViewModel: ObservableObject {
         
-        @Published var selectedCharactersType: CharactersType = .all
-        @Published var isShowCharacterDetail = false
-        @Published var selectedCharacter: Role?
-        @Published var favouriteCharacters: [Role] = []
-        @Published var selectedSet: CharacterSet
+        // MARK: Variables
         
         private var allCharacters = CharactersManager.allCharacters
+        
+        // MARK: Published
+        
+        @Published var isShowCharacterDetail = false
+        @Published var selectedCharacter: Role?
+        @Published var selectedSet: RolesSet
         @Published var classicCharacters = CharactersManager.classicCharacters
         @Published var moreCharacters = CharactersManager.moreCharacters
+        
+        // MARK: Init
         
         init() {
             selectedSet = UserDefaultsManager.shared.getCharactersSet()
         }
         
-        func updateFavoriteCharacters() {
-            let characterNames = UserDefaultsManager.shared.getFavoriteCharacterNames()
-            favouriteCharacters = characterNames.compactMap({ name in
-                allCharacters.first(where: { $0.name == name })
-            })
-        }
+        // MARK: Public methods
         
         func showCharacterDetail(_ character: Role) {
             selectedCharacter = character
@@ -45,7 +39,6 @@ extension CharactersList {
         func closeCharacterDetail() {
             selectedCharacter = nil
             isShowCharacterDetail = false
-            updateFavoriteCharacters()
         }
         
         func updateCharacters() {

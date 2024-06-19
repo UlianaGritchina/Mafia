@@ -9,8 +9,10 @@ import SwiftUI
 
 struct GameRoleCard: View {
     @Binding var character: Role
+    
     let isSelected: Bool
     let rangeLimit: Int
+    
     var body: some View {
         VStack(spacing: 10) {
             CharacterCard(character: character)

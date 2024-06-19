@@ -25,17 +25,8 @@ struct CharacterCard: View {
         VStack {
             Image(character.imageName)
                 .resizable()
-                .frame(width: getCardSize(), height: getCardSize() )
-//                .overlay {
-//                    ZStack {
-//                        Rectangle()
-//                            .foregroundColor(.black)
-//                            .opacity(0.8)
-//                        Image(systemName: "lock")
-//                            .font(.system(size: 30))
-//                            .foregroundStyle(.secondary)
-//                    }
-//                }
+                .frame(width: getCardSize(), height: getCardSize())
+            
             Text(character.name)
                 .font(.system(size: 18, weight: .bold, design: .serif))
                 .lineLimit(1)

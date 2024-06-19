@@ -15,9 +15,11 @@ struct MainView: View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 20) {
                 title
-                charactersSection
-                playButton
-                    .padding(.top, UIScreen.main.bounds.height / 20)
+                VStack(spacing: UIScreen.main.bounds.height / 10) {
+                    charactersSection
+                    playButton
+                    settingsButton
+                }
             }
             .padding(.top, UIScreen.main.bounds.height / 20)
         }
@@ -27,9 +29,6 @@ struct MainView: View {
         )
         .padding(.horizontal)
         .preferredColorScheme(.dark)
-        .overlay(alignment: .bottom, content: {
-            settingsButton
-        })
         .sheet(
             isPresented: $viewModel.isShowCharactersView,
             onDismiss: {
@@ -81,7 +80,7 @@ extension MainView {
         Button(action: { viewModel.playButtonTapped() }) {
             Text("Play")
                 .foregroundStyle(.white)
-                .font(.system(size: 30, weight: .bold, design: .serif))
+                .font(.system(size: 31, weight: .bold, design: .serif))
         }
     }
     
@@ -90,15 +89,17 @@ extension MainView {
             CharacterCard(
                 imageName: "doctor" + viewModel.charactersSet.rawValue,
                 size: UIScreen.main.bounds.width / 2.8,
-                offset: -100,
                 isShowGradient: true
             )
+            .offset(x: -100)
+            
             CharacterCard(
                 imageName: "sheriff" + viewModel.charactersSet.rawValue,
                 size: UIScreen.main.bounds.width / 2.8,
-                offset: 100,
                 isShowGradient: true
             )
+            .offset(x: 100)
+            
             CharacterCard(
                 imageName: "mafia" + viewModel.charactersSet.rawValue,
                 size: UIScreen.main.bounds.width / 2.5
@@ -117,13 +118,11 @@ extension MainView {
     struct CharacterCard: View {
         let imageName: String
         let size: CGFloat
-        let offset: CGFloat
         let isShowGradient: Bool
         
-        init(imageName: String, size: CGFloat, offset: CGFloat = 0, isShowGradient: Bool = false) {
+        init(imageName: String, size: CGFloat, isShowGradient: Bool = false) {
             self.imageName = imageName
             self.size = size
-            self.offset = offset
             self.isShowGradient = isShowGradient
         }
         
@@ -141,23 +140,6 @@ extension MainView {
                     }
                 }
                 .cornerRadius(10)
-                .offset(x: offset)
         }
-    }
-}
-
-struct SpecialNavBar: ViewModifier {
-    init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont(name: "HelveticaNeue-Bold", size: 30)!]
-    }
-    
-    func body(content: Content) -> some View {
-        content
-    }
-}
-
-extension View {
-    func specialNavBar() -> some View {
-        self.modifier(SpecialNavBar())
     }
 }

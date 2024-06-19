@@ -31,10 +31,10 @@ final class UserDefaultsManager {
         }
     }
     
-    func getCharactersSet() -> CharacterSet {
+    func getCharactersSet() -> RolesSet {
         guard
             let data = UserDefaults.standard.data(forKey: UserDefaultsManagerKey.charactersSet.rawValue),
-            let set = try? JSONDecoder().decode(CharacterSet.self, from: data)
+            let set = try? JSONDecoder().decode(RolesSet.self, from: data)
         else { return .cartoon }
         return set
     }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameResultView: View {
     @Environment(\.presentationMode) var presentationMode
+    
     @EnvironmentObject private var appearanceManager: AppearanceManager
     
     @State var characters: [Role]
@@ -21,36 +22,17 @@ struct GameResultView: View {
         NavigationView {
             VStack {
                 cardsTabView
-                HStack(spacing: 15) {
-                    Button(action: { presentationMode.wrappedValue.dismiss() }) {
-                        Text("Complete")
-                            .font(.system(size: 20, weight: .bold, design: .serif))
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 45)
-                    }
-                    .buttonStyle(GrayButtonStyle())
-                    
-                    Button(action: { shuffle()  }) {
-                        Text("Shuffle")
-                            .font(.system(size: 20, weight: .bold, design: .serif))
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 45)
-                    }
-                    .buttonStyle(GrayButtonStyle())
-                }
-                .padding()
-                .padding(.bottom)
+                actions
             }
-            .background(
-                BackgroundImage()
-                    .environmentObject(appearanceManager)
-            )
-            .sheet(isPresented: $isShowAllPlayers) { AllPlayersView(players: players, roles: characters) }
-            .toolbar(content: {
+            .background(BackgroundImage().environmentObject(appearanceManager))
+            .sheet(isPresented: $isShowAllPlayers) {
+                AllPlayersView(players: players, roles: characters)
+            }
+            .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("All") { isShowAllPlayers.toggle()  }
                 }
-            })
+            }
         }
     }
     
@@ -114,11 +96,25 @@ extension GameResultView {
         .tabViewStyle(.page(indexDisplayMode: .automatic))
     }
     
-    private var replayButton: some View {
-        Button(action: {
-            characters = characters.shuffled()
-        }) {
-            Image(systemName: "arrow.circlepath")
+    private var actions: some View {
+        HStack(spacing: 15) {
+            Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                Text("Complete")
+                    .font(.system(size: 20, weight: .bold, design: .serif))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 45)
+            }
+            .buttonStyle(GrayButtonStyle())
+            
+            Button(action: { shuffle() }) {
+                Text("Shuffle")
+                    .font(.system(size: 20, weight: .bold, design: .serif))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 45)
+            }
+            .buttonStyle(GrayButtonStyle())
         }
+        .padding()
+        .padding(.bottom)
     }
 }
