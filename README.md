@@ -1,3 +1,4 @@
 # Mafia
 
-<img width="901" alt="1" src="https://user-images.githubusercontent.com/95241900/193750137-9faeb465-6465-4566-9519-c7222fae017a.png">
+![Group 103](https://github.com/UlianaGritchina/Mafia/assets/95241900/c2e13291-ab32-4038-b70b-67321514a15d)
+
