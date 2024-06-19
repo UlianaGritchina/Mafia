@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0E081F1D2C1D9AE1002113EA /* AllPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E081F1C2C1D9AE1002113EA /* AllPlayersView.swift */; };
+		0E159A0C2C21FCFE0017A96A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E159A0B2C21FCFE0017A96A /* SettingsView.swift */; };
+		0E159A0E2C22027C0017A96A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E159A0D2C22027C0017A96A /* SettingsViewModel.swift */; };
+		0E159A102C220D530017A96A /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E159A0F2C220D530017A96A /* AppearanceManager.swift */; };
 		0E1B9ED8288BEBBA002BF51E /* MafiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1B9ED7288BEBBA002BF51E /* MafiaApp.swift */; };
 		0E1B9EDC288BEBBC002BF51E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */; };
 		0E1B9EDF288BEBBC002BF51E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E1B9EDE288BEBBC002BF51E /* Preview Assets.xcassets */; };
@@ -38,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		0E081F1C2C1D9AE1002113EA /* AllPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPlayersView.swift; sourceTree = "<group>"; };
+		0E159A0B2C21FCFE0017A96A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0E159A0D2C22027C0017A96A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		0E159A0F2C220D530017A96A /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		0E1B9ED4288BEBBA002BF51E /* Mafia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mafia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E1B9ED7288BEBBA002BF51E /* MafiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaApp.swift; sourceTree = "<group>"; };
 		0E1B9EDB288BEBBC002BF51E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E159A0A2C21FCEB0017A96A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0E159A0B2C21FCFE0017A96A /* SettingsView.swift */,
+				0E159A0D2C22027C0017A96A /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		0E1B9ECB288BEBBA002BF51E = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +151,7 @@
 				0E959EBE289A3C1E000AC209 /* HapticManager.swift */,
 				CE2993212B6E300E009A9D75 /* UserDefaultsManager.swift */,
 				0EA8BCE928B4BDAE00689002 /* GameDataManager.swift */,
+				0E159A0F2C220D530017A96A /* AppearanceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -220,6 +236,7 @@
 		CE939B0A2B6CDA04000BC42D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0E159A0A2C21FCEB0017A96A /* Settings */,
 				CE939AFD2B6CD338000BC42D /* Main */,
 				CE939B042B6CD6A3000BC42D /* CharactersList */,
 				CE46ADF32B6E813200830856 /* Game */,
@@ -317,6 +334,9 @@
 				CEA02BB12B6EAEC500819667 /* PlayersList.swift in Sources */,
 				CE939AFF2B6CD34A000BC42D /* StartViewModel.swift in Sources */,
 				CEA02BB32B6EB1AE00819667 /* GameViewModel.swift in Sources */,
+				0E159A0C2C21FCFE0017A96A /* SettingsView.swift in Sources */,
+				0E159A0E2C22027C0017A96A /* SettingsViewModel.swift in Sources */,
+				0E159A102C220D530017A96A /* AppearanceManager.swift in Sources */,
 				CE46ADF52B6E813C00830856 /* GameView.swift in Sources */,
 				CE939B032B6CD374000BC42D /* Role.swift in Sources */,
 				CE939B092B6CD999000BC42D /* CharacterCard.swift in Sources */,
@@ -488,7 +508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "ugritchina-icloud.com.Mafia";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -524,7 +544,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "ugritchina-icloud.com.Mafia";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

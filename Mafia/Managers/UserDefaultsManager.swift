@@ -9,6 +9,7 @@ import Foundation
 
 enum UserDefaultsManagerKey: String {
     case charactersSet = "characters_set"
+    case backgroundImageName = "background_image_name"
 }
 
 final class UserDefaultsManager {
@@ -36,5 +37,13 @@ final class UserDefaultsManager {
             let set = try? JSONDecoder().decode(CharacterSet.self, from: data)
         else { return .cartoon }
         return set
+    }
+    
+    func getBackgroundImageName() -> String {
+        guard
+            let data = UserDefaults.standard.data(forKey: UserDefaultsManagerKey.backgroundImageName.rawValue),
+            let imageName = try? JSONDecoder().decode(String.self, from: data)
+        else { return "night" }
+        return imageName
     }
 }

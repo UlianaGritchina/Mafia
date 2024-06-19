@@ -10,6 +10,8 @@ import SwiftUI
 struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel = ViewModel()
+    @EnvironmentObject private var appearanceManager: AppearanceManager
+    
     private let columns: [GridItem] = [
         GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
     ]
@@ -24,7 +26,10 @@ struct GameView: View {
                 }
                 bottomBar
             }
-            .background(BackgroundImage())
+            .background(
+                BackgroundImage()
+                    .environmentObject(appearanceManager)
+            )
             .navigationTitle(viewModel.navigationTitle)
             .navigationBarItems(trailing: resetRolesButton)
             .ignoresSafeArea(.keyboard)

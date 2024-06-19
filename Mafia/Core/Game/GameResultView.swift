@@ -9,14 +9,13 @@ import SwiftUI
 
 struct GameResultView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject private var appearanceManager: AppearanceManager
     
     @State var characters: [Role]
     @State private var currentContentIndex = 0
     @State private var isShowAllPlayers = false
     
     let players: [String]
-    
-    
     
     var body: some View {
         NavigationView {
@@ -42,7 +41,10 @@ struct GameResultView: View {
                 .padding()
                 .padding(.bottom)
             }
-            .background(BackgroundImage())
+            .background(
+                BackgroundImage()
+                    .environmentObject(appearanceManager)
+            )
             .sheet(isPresented: $isShowAllPlayers) { AllPlayersView(players: players, roles: characters) }
             .toolbar(content: {
                 ToolbarItem(placement: .topBarTrailing) {

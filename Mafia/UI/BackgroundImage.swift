@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct BackgroundImage: View {
+    @EnvironmentObject private var appearanceManager: AppearanceManager
     var body: some View {
-        Image("nightMoonCity")
+        Image(appearanceManager.backgroundImageName)
             .resizable()
             .scaledToFill()
             .clipShape(.rect)

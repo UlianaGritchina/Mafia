@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AllPlayersView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject private var appearanceManager: AppearanceManager
     let players: [String]
     let roles: [Role]
     var body: some View {
@@ -27,7 +28,10 @@ struct AllPlayersView: View {
             }
             .padding()
         }
-        .background(BackgroundImage())
+        .background(
+            BackgroundImage()
+                .environmentObject(appearanceManager)
+        )
     }
 }
 

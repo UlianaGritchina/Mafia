@@ -30,7 +30,10 @@
 "Shuffle" = "Перемешать";
 "Start" = "Начать";
 "Style" = "Стиль";
-
+"Settings" = "Настройки";
+"Background" = "Фон";
+"Rate the app" = "Оценить приложение";
+"Feedback" = "Обратная связь";
 "Mafia" = "Мафия";
 "Sheriff" = "Шериф";
 "Doctor" = "Доктор";

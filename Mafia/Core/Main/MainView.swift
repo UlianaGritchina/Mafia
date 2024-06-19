@@ -9,19 +9,27 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var viewModel = ViewModel()
+    @StateObject private var appearanceManager = AppearanceManager()
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 20) {
                 title
                 charactersSection
                 playButton
-                    .padding(.top, 30)
+                    .padding(.top, UIScreen.main.bounds.height / 20)
             }
             .padding(.top, UIScreen.main.bounds.height / 20)
         }
-        .background(BackgroundImage())
+        .background(
+            BackgroundImage()
+                .environmentObject(appearanceManager)
+        )
         .padding(.horizontal)
         .preferredColorScheme(.dark)
+        .overlay(alignment: .bottom, content: {
+            settingsButton
+        })
         .sheet(
             isPresented: $viewModel.isShowCharactersView,
             onDismiss: {
@@ -31,9 +39,15 @@ struct MainView: View {
             }
         ) {
             CharactersList()
+                .environmentObject(appearanceManager)
+        }
+        .sheet(isPresented: $viewModel.isShowSettings) {
+            SettingsView()
+                .environmentObject(appearanceManager)
         }
         .fullScreenCover(isPresented: $viewModel.isPlay) {
             GameView()
+                .environmentObject(appearanceManager)
         }
     }
 }
@@ -90,6 +104,14 @@ extension MainView {
                 size: UIScreen.main.bounds.width / 2.5
             )
         }
+    }
+    
+    private var settingsButton: some View {
+        Button(action: { viewModel.openSettings() }) {
+            Text("Settings")
+                .font(.system(size: 20, weight: .bold, design: .serif))
+        }
+        .padding(.bottom)
     }
     
     struct CharacterCard: View {

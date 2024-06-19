@@ -10,17 +10,18 @@ import Foundation
 extension MainView {
     @MainActor final class ViewModel: ObservableObject {
         
-        //MARK: - Consents
+        // MARK: Constants
         
         let characters = CharactersManager.allCharacters.shuffled()
+        
+        // MARK: Published
+        
         @Published var charactersSet = UserDefaultsManager.shared.getCharactersSet()
-        
-        //MARK: - Published
-        
         @Published var isShowCharactersView = false
         @Published var isPlay = false
+        @Published var isShowSettings = false
         
-        //MARK: - Public Methods
+        // MARK: Public Methods
         
         func showCharacters() {
             isShowCharactersView = true
@@ -32,6 +33,10 @@ extension MainView {
         
         func updateCharactersSet() {
             charactersSet = UserDefaultsManager.shared.getCharactersSet()
+        }
+        
+        func openSettings() {
+            isShowSettings = true
         }
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct CharactersList: View {
     @StateObject private var viewModel = ViewModel()
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject private var appearanceManager: AppearanceManager
     private let columns: [GridItem] = [
         GridItem(.adaptive(minimum: UIScreen.main.bounds.width / 3, maximum: 700))
     ]
@@ -19,7 +20,10 @@ struct CharactersList: View {
             charactersSetPicker
             allCharacters
         }
-        .background(BackgroundImage())
+        .background(
+            BackgroundImage()
+                .environmentObject(appearanceManager)
+        )
         .navigationTitle("Characters")
         .onChange(of: viewModel.selectedSet) { _ in
             viewModel.updateCharacters()
